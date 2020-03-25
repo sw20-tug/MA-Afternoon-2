@@ -41,16 +41,21 @@ public class Hangman
         {
             return true;
         }
+        increaseNumberOfWrongGuesses();
         return false;
     }
 
     public boolean guessLetter(char letter)
     {
-        return word_.indexOf(Character.toLowerCase(letter)) != -1;
+        if(word_.indexOf(Character.toLowerCase(letter)) != -1)
+            return true;
+        increaseNumberOfWrongGuesses();
+        return false;
     }
 
     private void increaseNumberOfWrongGuesses()
     {
+        nr_wrong_guesses_++;
         return;
     }
 }
