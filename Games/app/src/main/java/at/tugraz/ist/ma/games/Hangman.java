@@ -1,8 +1,6 @@
 package at.tugraz.ist.ma.games;
 
 
-import android.content.res.Resources;
-
 public class Hangman
 {
     private String word_;
