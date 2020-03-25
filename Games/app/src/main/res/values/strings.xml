@@ -15,5 +15,12 @@
     <string name="TTT_O">O</string>
     <string name="play">Play</string>
 
-
+    <!-- Welcome Screen Strings -->
+    <string name="grid_layout">GRID LAYOUT</string>
+    <string name="tictactoe">Tic Tac Toe</string>
+    <string name="hangman">Hangman</string>
+    <string name="donttouch">Don\'t Touch</string>
+    <string name="changelanguage">Language</string>
+    <string name="title">Corona Games</string>
+    <string name="yourpoints">Your Points: 0</string>
 </resources>
