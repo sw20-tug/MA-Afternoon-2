@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Games</string>
+
+    <string name="TTT_placeholder_mode">PvP</string>
+    <string name="TTT_placeholder_status">Player 1 Turn</string>
+    <string name="TTT_play_again">Play Again</string>
+
+
 </resources>

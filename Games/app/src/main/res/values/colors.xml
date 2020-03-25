@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorPrimary">#455a64</color>
+    <color name="colorPrimaryDark">#1c313a</color>
+    <color name="colorPrimaryLight">#718792</color>
+
     <color name="colorAccent">#03DAC5</color>
+
+    <color name="colorSecondary">#00bbd3</color>
+    <color name="colorSecondaryDark">#008ba2</color>
+    <color name="colorSecondaryLight">#62eeff</color>
+
+    <color name="colorTTTNoughts">#F44336</color>
+    <color name="colorTTTCrosses">#F44336</color>
+
+    <color name="colorTTTGridBG">@color/colorPrimaryDark</color>
+    <color name="colorTTTGridFieldBG">@color/colorPrimaryLight</color>
+
 </resources>
