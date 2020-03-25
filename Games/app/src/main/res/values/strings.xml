@@ -5,5 +5,15 @@
     <string name="TTT_placeholder_status">Player 1 Turn</string>
     <string name="TTT_play_again">Play Again</string>
 
+    <string name="GameMode_TicTacToe">Tic Tac Toe</string>
+    <string name="GameMode">Game Mode</string>
+    <string name="GameModePvP">PvP</string>
+    <string name="GameModePvAI">PvAI</string>
+    <string name="AIDifficulty">AI Difficulty</string>
+    <string name="TTTStartingSymbol">Starting Symbol</string>
+    <string name="TTT_X">X</string>
+    <string name="TTT_O">O</string>
+    <string name="play">Play</string>
+
 
 </resources>
