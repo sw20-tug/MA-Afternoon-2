@@ -14,11 +14,13 @@ import static org.junit.Assert.*;
 public class HangmanUnitTest {
 
     private Hangman hangman;
+
     @Before
     public void initTest()
     {
         hangman = new Hangman("");
     }
+
     @Test
     public void setNewRandomWordTest()
     {
@@ -30,6 +32,8 @@ public class HangmanUnitTest {
     {
         hangman.setWord("word");
         assertTrue(hangman.guessWord(hangman.getWord()));
+        hangman.setWord("HIGH");
+        assertTrue(hangman.guessWord("high"));
     }
 
     @Test
@@ -44,9 +48,21 @@ public class HangmanUnitTest {
     {
         hangman.setWord("test");
         assertTrue(hangman.guessLetter('t'));
+        assertTrue(hangman.guessLetter('T'));
         assertFalse(hangman.guessLetter('z'));
     }
 
-
+    @Test
+    public void wrongGuessNumberTest()
+    {
+        hangman.setWord("Number");
+        assertEquals(0, hangman.getNumberOfWrongGuesses());
+        hangman.guessLetter('N');
+        hangman.guessLetter('x');
+        assertEquals(1, hangman.getNumberOfWrongGuesses());
+        hangman.guessLetter('z');
+        hangman.guessLetter('y');
+        assertEquals(3, hangman.getNumberOfWrongGuesses());
+    }
 }
 
