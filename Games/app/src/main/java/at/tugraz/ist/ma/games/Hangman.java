@@ -1,38 +1,45 @@
 package at.tugraz.ist.ma.games;
 
+
+import android.content.res.Resources;
+
 public class Hangman
 {
     private String word_;
 
-    public Hangman()
+
+    public Hangman(String word)
     {
-        word_ = "";
+        if(word != null)
+        {
+            word_ = word.toLowerCase();
+        }
     }
 
-    String getWord()
+    public String getWord()
     {
         return word_;
     }
 
-    void setWord(String word)
+    public void setWord(String word)
     {
-        word_ = word;
+        if(word != null)
+        {
+            word_ = word.toLowerCase();
+        }
     }
 
-
-    void setNewRandomWord()
+    public boolean guessWord(String word)
     {
-        word_ = "";
+        if(word != null && word_.equals(word.toLowerCase()))
+        {
+            return true;
+        }
+        return false;
     }
 
-
-    boolean guessWord(String word)
+    public boolean guessLetter(char letter)
     {
-        return true;
-    }
-
-    boolean guessLetter(char letter)
-    {
-        return true;
+        return word_.indexOf(Character.toLowerCase(letter)) != -1;
     }
 }

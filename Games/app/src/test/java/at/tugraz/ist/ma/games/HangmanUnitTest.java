@@ -17,18 +17,18 @@ public class HangmanUnitTest {
     @Before
     public void initTest()
     {
-        hangman = new Hangman();
+        hangman = new Hangman("");
     }
     @Test
     public void setNewRandomWordTest()
     {
-        hangman.setNewRandomWord();
-        assertNull(hangman.getWord());
+        hangman.setWord("word");
+        assertNotNull(hangman.getWord());
     }
     @Test
     public void checkWordTrueTest()
     {
-        hangman.setNewRandomWord();
+        hangman.setWord("word");
         assertTrue(hangman.guessWord(hangman.getWord()));
     }
 
@@ -48,8 +48,5 @@ public class HangmanUnitTest {
     }
 
 
-    public void addition_isCorrect() {
-        assertEquals(4, 2 + 2);
-    }
 }
 
