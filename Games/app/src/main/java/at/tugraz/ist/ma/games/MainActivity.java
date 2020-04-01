@@ -32,7 +32,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void btnHangman_Click() {
-
+        //Intent intentHM = new Intent(getApplicationContext(), Hangman.class);
+        //startActivity(intentHM);
     }
 
     private void btnSettings_Click() {

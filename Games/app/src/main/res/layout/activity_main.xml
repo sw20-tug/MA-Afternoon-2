@@ -25,91 +25,76 @@
     <TableLayout
         android:id="@+id/welcomeScreenGamesTable"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="50dp"
+        android:layout_marginEnd="15dp"
         android:stretchColumns="*"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvGameTitle">
 
-        <TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <ImageButton
                 android:id="@+id/btnTicTacToe"
                 style="@style/styleWelcomeScreenButtons"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:contentDescription="@string/tictactoe"
                 android:src="@drawable/icon_tictactoe" />
 
             <ImageButton
                 android:id="@+id/btnHangman"
                 style="@style/styleWelcomeScreenButtons"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:contentDescription="@string/hangman"
                 android:src="@drawable/icon_hangman" />
+
         </TableRow>
 
         <TableRow>
 
             <TextView
                 android:id="@+id/welcomeScreenTicTacToeTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/tictactoe"
-                android:textAlignment="center"
-                android:textColor="@android:color/black"
-                android:textSize="20sp" />
+                style="@style/styleWelcomeScreenText"
+                android:text="@string/tictactoe" />
 
             <TextView
                 android:id="@+id/welcomeScreenHangManTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/hangman"
-                android:textAlignment="center"
-                android:textColor="@android:color/black"
-                android:textSize="20sp" />
+                style="@style/styleWelcomeScreenText"
+                android:text="@string/hangman" />
         </TableRow>
 
-        <TableRow android:layout_marginTop="20dp">
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp">
 
             <ImageButton
                 android:id="@+id/btnDontTouch"
-                style="@style/styleWelcomeScreenButtons"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/styleWelcomeScreenButtonsComingSoon"
                 android:contentDescription="@string/donttouch"
-                android:src="@drawable/icon_dont_touch" />
+                android:src="@drawable/icon_dont_touch_comingsoon" />
 
             <ImageButton
                 android:id="@+id/btnSettings"
-                style="@style/styleWelcomeScreenButtons"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/styleWelcomeScreenButtonsComingSoon"
                 android:contentDescription="@string/WS_settings"
-                android:src="@drawable/icon_settings" />
+                android:src="@drawable/icon_settings_comingsoon" />
+
         </TableRow>
 
         <TableRow>
 
             <TextView
                 android:id="@+id/welcomeScreenWhiteTilesTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/donttouch"
-                android:textAlignment="center"
-                android:textColor="@android:color/black"
-                android:textSize="20sp" />
+                style="@style/styleWelcomeScreenText"
+                android:text="@string/donttouch" />
 
             <TextView
                 android:id="@+id/welcomeScreenHangLanguageTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/WS_settings"
-                android:textAlignment="center"
-                android:textColor="@android:color/black"
-                android:textSize="20sp" />
+                style="@style/styleWelcomeScreenText"
+                android:text="@string/WS_settings" />
         </TableRow>
 
     </TableLayout>
