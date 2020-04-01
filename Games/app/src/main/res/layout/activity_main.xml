@@ -4,15 +4,130 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/darker_gray"
+    android:textColor="@android:color/black"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ActivityTicTacToe">
+
+        <!-- Title Field -->
+        <TextView
+            android:id="@+id/welcomeScreenWelcomeText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/title"
+            android:textAlignment="center"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            app:layout_constraintTop_toTopOf="parent">
+        </TextView>
+
+
+        <!-- The 2x2 Grid -->
+        <!-- TODO change icon to real icon -->
+        <TableLayout
+            android:id="@+id/welcomeScreenGamesTable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="*"
+            android:layout_marginTop="32dp"
+            app:layout_constraintTop_toBottomOf="@+id/welcomeScreenWelcomeText">
+
+            <TableRow>
+                <ImageButton
+                    android:id="@+id/welcomeScreenTicTacToeButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/darker_gray"
+                    android:contentDescription="@string/tictactoe"
+                    android:src="@drawable/tictactoe_icon" />
+
+                <ImageButton
+                    android:id="@+id/welcomeScreenHangManButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/darker_gray"
+                    android:contentDescription="@string/hangman"
+                    android:src="@drawable/hangman_icon" />
+            </TableRow>
+
+            <TableRow>
+                <TextView android:id="@+id/welcomeScreenTicTacToeTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tictactoe"
+                    android:textSize="20sp"
+                    android:textColor="@android:color/black"
+                    android:textAlignment="center"/>
+
+                <TextView android:id="@+id/welcomeScreenHangManTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hangman"
+                    android:textSize="20sp"
+                    android:textColor="@android:color/black"
+                    android:textAlignment="center"/>
+            </TableRow>
+
+            <TableRow
+                android:layout_marginTop="20dp">
+
+                <ImageButton
+                    android:id="@+id/welcomeScreenWhiteTilesButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/darker_gray"
+                    android:contentDescription="@string/donttouch"
+                    android:src="@drawable/donttouch_icon" />
+
+                <ImageButton
+                    android:id="@+id/welcomeScreenLanguagesButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/darker_gray"
+                    android:contentDescription="@string/changelanguage"
+                    android:src="@drawable/language_icon" />
+            </TableRow>
+
+            <TableRow>
+                <TextView android:id="@+id/welcomeScreenWhiteTilesTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/donttouch"
+                    android:textSize="20sp"
+                    android:textColor="@android:color/black"
+                    android:textAlignment="center"/>
+
+                <TextView android:id="@+id/welcomeScreenHangLanguageTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/changelanguage"
+                    android:textSize="20sp"
+                    android:textColor="@android:color/black"
+                    android:textAlignment="center"/>
+            </TableRow>
+
+        </TableLayout>
+
+
+        <TextView
+            android:id="@+id/welcomeScreenPointsTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/yourpoints"
+            android:textAlignment="center"
+            android:textSize="30sp"
+            android:textColor="@android:color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/welcomeScreenGamesTable" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
