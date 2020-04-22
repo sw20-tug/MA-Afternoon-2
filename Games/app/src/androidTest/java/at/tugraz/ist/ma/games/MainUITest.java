@@ -1,7 +1,7 @@
 package at.tugraz.ist.ma.games;
 
 import androidx.test.ext.junit.runners.AndroidJUnit4;
-import androidx.test.rule.ActivityTestRule;
+import androidx.test.espresso.intent.rule.IntentsTestRule;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -10,25 +10,85 @@ import org.junit.runner.RunWith;
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
+import static androidx.test.espresso.intent.Intents.intended;
+import static androidx.test.espresso.intent.matcher.IntentMatchers.hasComponent;
+import static androidx.test.espresso.matcher.ViewMatchers.isClickable;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
-import static androidx.test.espresso.assertion.ViewAssertions.doesNotExist;
+import static androidx.test.espresso.matcher.ViewMatchers.withText;
 
 @RunWith(AndroidJUnit4.class)
 public class MainUITest {
-    @Rule
-    public ActivityTestRule<MainActivity> mActivityRule =
-            new ActivityTestRule<>(MainActivity.class);
 
-    // Test if you can access the Tic Tac Toe Setting screen from the home screen
+    @Rule
+    public IntentsTestRule<MainActivity> hangmanActivityIntentsTestRule = new IntentsTestRule<>(MainActivity.class);
+
+
+    //Test if the UI from Main Screen shows the correct text contents
     @Test
-    public void openTTTView() {
-        onView(withId(R.id.btnTicTacToe)).perform(click());
-        onView(withId(R.id.tvTicTacToe)).check(matches(isDisplayed()));
-        onView(withId(R.id.tvMode)).check(doesNotExist());
+    public void checkTextSources() {
+        onView(withId(R.id.tvGameTitle)).check(matches(withText(R.string.app_name)));
+        onView(withId(R.id.tvMainTicTacToe)).check(matches(withText(R.string.main_tictactoe)));
+        onView(withId(R.id.tvMainHangman)).check(matches(withText(R.string.main_hangman)));
+        onView(withId(R.id.tvMainWhiteTiles)).check(matches(withText(R.string.main_donttouch)));
+        onView(withId(R.id.tvMainSettings)).check(matches(withText(R.string.main_settings)));
+    }
+
+    //Test if the Buttons and Text fields are visible
+    @Test
+    public void checkButtonsAndTextViewsVisible() {
+        onView(withId(R.id.btnMainTicTacToe)).check(matches(isDisplayed()));
+        onView(withId(R.id.btnMainHangman)).check(matches(isDisplayed()));
+        onView(withId(R.id.btnMainWhiteTiles)).check(matches(isDisplayed()));
+        onView(withId(R.id.btnMainSettings)).check(matches(isDisplayed()));
+
+        onView(withId(R.id.tvGameTitle)).check(matches(isDisplayed()));
+        onView(withId(R.id.tvMainTicTacToe)).check(matches(isDisplayed()));
+        onView(withId(R.id.tvMainHangman)).check(matches(isDisplayed()));
+        onView(withId(R.id.tvMainWhiteTiles)).check(matches(isDisplayed()));
+        onView(withId(R.id.tvMainSettings)).check(matches(isDisplayed()));
+        onView(withId(R.id.tvMainPoints)).check(matches(isDisplayed()));
+    }
+
+    //Test if the Buttons are clickable
+    @Test
+    public void checkButtonsClickable() {
+        onView(withId(R.id.btnMainTicTacToe)).check(matches(isClickable()));
+        onView(withId(R.id.btnMainHangman)).check(matches(isClickable()));
+        onView(withId(R.id.btnMainWhiteTiles)).check(matches(isClickable()));
+        onView(withId(R.id.btnMainSettings)).check(matches(isClickable()));
     }
 
 
+    // Test, if the correct activities are opened when pressing buttons
+    @Test
+    public void checkMainToTicTacToeActivitySwitch() {
+        onView(withId(R.id.btnMainTicTacToe)).perform(click());
+        intended(hasComponent(TicTacToeSettingsActivity.class.getName()));
+    }
 
+    // Test, if the correct activities are opened when pressing buttons
+    @Test
+    public void checkMainToHangmanActivitySwitch() {
+        onView(withId(R.id.btnMainHangman)).perform(click());
+        // TODO un-comment next line when Hangman activity is available
+        //intended(hasComponent(HangmanActivity.class.getName()));
+    }
+
+    // Test, if the correct activities are opened when pressing buttons
+    @Test
+    public void checkMainToWhiteTilesActivitySwitch() {
+        onView(withId(R.id.btnMainHangman)).perform(click());
+        // TODO un-comment next line when White Tiles activity is available
+        //intended(hasComponent(WhiteTilesSettingsActivity.class.getName()));
+    }
+
+    // Test, if the correct activities are opened when pressing buttons
+    @Test
+    public void checkMainToSettingsActivitySwitch() {
+        onView(withId(R.id.btnMainHangman)).perform(click());
+        // TODO un-comment next line when Settings activity is available
+        // intended(hasComponent(SettingsActivity.class.getName()));
+    }
 
 }

@@ -20,7 +20,7 @@
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="0dp"></TextView>
+        tools:layout_editor_absoluteX="0dp"/>
 
     <TableLayout
         android:id="@+id/welcomeScreenGamesTable"
@@ -39,15 +39,15 @@
             android:layout_height="match_parent">
 
             <ImageButton
-                android:id="@+id/btnTicTacToe"
+                android:id="@+id/btnMainTicTacToe"
                 style="@style/styleWelcomeScreenButtons"
-                android:contentDescription="@string/tictactoe"
+                android:contentDescription="@string/main_tictactoe"
                 android:src="@drawable/icon_tictactoe" />
 
             <ImageButton
-                android:id="@+id/btnHangman"
+                android:id="@+id/btnMainHangman"
                 style="@style/styleWelcomeScreenButtons"
-                android:contentDescription="@string/hangman"
+                android:contentDescription="@string/main_hangman"
                 android:src="@drawable/icon_hangman" />
 
         </TableRow>
@@ -55,14 +55,14 @@
         <TableRow>
 
             <TextView
-                android:id="@+id/welcomeScreenTicTacToeTextView"
+                android:id="@+id/tvMainTicTacToe"
                 style="@style/styleWelcomeScreenText"
-                android:text="@string/tictactoe" />
+                android:text="@string/main_tictactoe" />
 
             <TextView
-                android:id="@+id/welcomeScreenHangManTextView"
+                android:id="@+id/tvMainHangman"
                 style="@style/styleWelcomeScreenText"
-                android:text="@string/hangman" />
+                android:text="@string/main_hangman" />
         </TableRow>
 
         <TableRow
@@ -71,15 +71,15 @@
             android:layout_marginTop="20dp">
 
             <ImageButton
-                android:id="@+id/btnDontTouch"
+                android:id="@+id/btnMainWhiteTiles"
                 style="@style/styleWelcomeScreenButtonsComingSoon"
-                android:contentDescription="@string/donttouch"
+                android:contentDescription="@string/main_donttouch"
                 android:src="@drawable/icon_dont_touch_comingsoon" />
 
             <ImageButton
-                android:id="@+id/btnSettings"
+                android:id="@+id/btnMainSettings"
                 style="@style/styleWelcomeScreenButtonsComingSoon"
-                android:contentDescription="@string/WS_settings"
+                android:contentDescription="@string/main_settings"
                 android:src="@drawable/icon_settings_comingsoon" />
 
         </TableRow>
@@ -87,23 +87,23 @@
         <TableRow>
 
             <TextView
-                android:id="@+id/welcomeScreenWhiteTilesTextView"
+                android:id="@+id/tvMainWhiteTiles"
                 style="@style/styleWelcomeScreenText"
-                android:text="@string/donttouch" />
+                android:text="@string/main_donttouch" />
 
             <TextView
-                android:id="@+id/welcomeScreenHangLanguageTextView"
+                android:id="@+id/tvMainSettings"
                 style="@style/styleWelcomeScreenText"
-                android:text="@string/WS_settings" />
+                android:text="@string/main_settings" />
         </TableRow>
 
     </TableLayout>
 
     <TextView
-        android:id="@+id/welcomeScreenPointsTextView"
+        android:id="@+id/tvMainPoints"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/yourpoints"
+        android:text="@string/main_yourpoints"
         android:textAlignment="center"
         android:textColor="@android:color/black"
         android:textSize="30sp"
