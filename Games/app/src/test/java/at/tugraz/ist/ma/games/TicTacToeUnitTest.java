@@ -3,7 +3,9 @@ package at.tugraz.ist.ma.games;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -11,58 +13,73 @@ import static org.junit.Assert.*;
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
 
-public class HangmanUnitTest {
+public class TicTacToeUnitTest {
 
-    private Hangman hangman;
+    private TicTacToe ticTacToe;
 
     @Before
     public void initTest()
     {
-        hangman = new Hangman("");
+        ticTacToe = new TicTacToe();
     }
 
     @Test
-    public void setNewRandomWordTest()
+    public void setTileTest()
     {
-        hangman.setWord("word");
-        assertNotNull(hangman.getWord());
-    }
-    @Test
-    public void checkWordTrueTest()
-    {
-        hangman.setWord("word");
-        assertTrue(hangman.guessWord(hangman.getWord()));
-        hangman.setWord("HIGH");
-        assertTrue(hangman.guessWord("high"));
+        assertTrue(ticTacToe.setTile(1,1, TicTacToe.Tile.CROSS));
+        assertEquals(TicTacToe.Tile.CROSS, ticTacToe.getBoard()[1][1]);
     }
 
     @Test
-    public void checkWordFalseTest()
+    public void setTileActivePlayerTest()
     {
-        hangman.setWord("trueWord");
-        assertFalse(hangman.guessWord("wrongWord"));
+        assertTrue(ticTacToe.setTileActivePlayer(1,1));
+        assertEquals(TicTacToe.Tile.CROSS, ticTacToe.getBoard()[1][1]);
     }
 
     @Test
-    public void guessLetterTest()
+    public void checkWinRowTest()
     {
-        hangman.setWord("test");
-        assertTrue(hangman.guessLetter('t'));
-        assertTrue(hangman.guessLetter('T'));
-        assertFalse(hangman.guessLetter('z'));
+        ticTacToe.setTile(1,1, TicTacToe.Tile.CROSS);
+        assertFalse(ticTacToe.checkWin(TicTacToe.Tile.CROSS));
+        ticTacToe.setTile(0, 1, TicTacToe.Tile.CROSS);
+        assertFalse(ticTacToe.checkWin(TicTacToe.Tile.CROSS));
+        ticTacToe.setTile(2, 1, TicTacToe.Tile.CROSS);
+        assertTrue(ticTacToe.checkWin(TicTacToe.Tile.CROSS));
+    }
+    @Test
+    public void checkWinColTest()
+    {
+        ticTacToe.setTile(0,0, TicTacToe.Tile.CROSS);
+        assertFalse(ticTacToe.checkWin(TicTacToe.Tile.CROSS));
+        ticTacToe.setTile(0, 1, TicTacToe.Tile.CROSS);
+        assertFalse(ticTacToe.checkWin(TicTacToe.Tile.CROSS));
+        ticTacToe.setTile(0, 2, TicTacToe.Tile.CROSS);
+        assertTrue(ticTacToe.checkWin(TicTacToe.Tile.CROSS));
     }
 
     @Test
-    public void wrongGuessNumberTest()
+    public void checkWinDiagonalTest()
     {
-        hangman.setWord("Number");
-        assertEquals(0, hangman.getNumberOfWrongGuesses());
-        hangman.guessLetter('N');
-        hangman.guessLetter('x');
-        assertEquals(1, hangman.getNumberOfWrongGuesses());
-        hangman.guessLetter('z');
-        hangman.guessLetter('y');
-        assertEquals(3, hangman.getNumberOfWrongGuesses());
+        ticTacToe.setTile(0,2, TicTacToe.Tile.CROSS);
+        assertFalse(ticTacToe.checkWin(TicTacToe.Tile.CROSS));
+        ticTacToe.setTile(1,2, TicTacToe.Tile.CIRCLE);
+        assertFalse(ticTacToe.checkWin(TicTacToe.Tile.CIRCLE));
+        ticTacToe.setTile(1, 1, TicTacToe.Tile.CROSS);
+        assertFalse(ticTacToe.checkWin(TicTacToe.Tile.CROSS));
+        ticTacToe.setTile(2, 0, TicTacToe.Tile.CROSS);
+        assertTrue(ticTacToe.checkWin(TicTacToe.Tile.CROSS));
+    }
+
+    @Test
+    public void checkWinActivePlayerTest()
+    {
+        ticTacToe.setTileActivePlayer(1,1);
+        assertFalse(ticTacToe.checkWinActivePlayer());
+        ticTacToe.setTileActivePlayer(0, 1);
+        assertFalse(ticTacToe.checkWinActivePlayer());
+        ticTacToe.setTileActivePlayer(2, 1);
+        assertTrue(ticTacToe.checkWinActivePlayer());
     }
 }
 
