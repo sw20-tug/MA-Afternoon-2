@@ -18,13 +18,9 @@ import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static org.junit.Assert.*;
 
-/**
- * Instrumented test, which will execute on an Android device.
- *
- * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
- */
+
 @RunWith(AndroidJUnit4.class)
-public class ExampleInstrumentedTest {
+public class TicTacToeUITest {
 
     @Rule
     public IntentsTestRule<TicTacToeActivity> activityRule = new IntentsTestRule<>(TicTacToeActivity.class);
@@ -61,6 +57,10 @@ public class ExampleInstrumentedTest {
 
         onView(withId(R.id.btn_play_again)).check(matches(isDisplayed()));
         onView(withId(R.id.btn_play_again)).check(matches(isClickable()));
-        onView(withId(R.id.btn_play_again)).check(matches(withText(activityRule.getActivity().getString(R.string.TTT_play_again))));
+        onView(withId(R.id.btn_play_again)).check(matches(withText(activityRule.getActivity().getString(R.string.play_again))));
+
+        onView(withId(R.id.tvStatus)).check(matches(isDisplayed()));
+        onView(withId(R.id.tvStatus)).check(matches(withText(R.string.player_cross)));
+
     }
 }
