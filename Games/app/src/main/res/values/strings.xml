@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Games</string>
+    <string name="app_name">Corona Games</string>
 
     <string name="TTT_placeholder_mode">PvP</string>
     <string name="TTT_placeholder_status">Player 1 Turn</string>
@@ -16,11 +16,9 @@
     <string name="play">Play</string>
 
     <!-- Welcome Screen Strings -->
-    <string name="grid_layout">GRID LAYOUT</string>
-    <string name="tictactoe">Tic Tac Toe</string>
-    <string name="hangman">Hangman</string>
-    <string name="donttouch">Don\'t Touch</string>
-    <string name="changelanguage">Language</string>
-    <string name="title">Corona Games</string>
-    <string name="yourpoints">Your Points: 0</string>
+    <string name="main_tictactoe">Tic Tac Toe</string>
+    <string name="main_hangman">Hangman</string>
+    <string name="main_donttouch">Don\'t Touch</string>
+    <string name="main_settings">Settings</string>
+    <string name="main_yourpoints">Your Points: 0</string>
 </resources>
