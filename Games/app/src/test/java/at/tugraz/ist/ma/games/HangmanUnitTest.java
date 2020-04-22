@@ -22,6 +22,33 @@ public class HangmanUnitTest {
     }
 
     @Test
+    public void guessTest1_aba()
+    {
+        hangman.setWord("aba");
+        hangman.guessLetter('a');
+        assertEquals("a-a", hangman.getCurrentGuessedString());
+        hangman.guessLetter('b');
+        assertEquals("aba", hangman.getCurrentGuessedString());
+    }
+
+    @Test
+    public void guessTest2_abcde()
+    {
+        hangman.setWord("abcde");
+        hangman.guessLetter('z');
+        assertEquals("-----", hangman.getCurrentGuessedString());
+        hangman.guessLetter('y');
+        assertEquals("-----", hangman.getCurrentGuessedString());
+        hangman.guessLetter('x');
+        assertEquals("-----", hangman.getCurrentGuessedString());
+        hangman.guessLetter('w');
+        assertEquals("-----", hangman.getCurrentGuessedString());
+        hangman.guessLetter('v');
+        assertEquals("-----", hangman.getCurrentGuessedString());
+    }
+
+
+    @Test
     public void setNewRandomWordTest()
     {
         hangman.setWord("word");

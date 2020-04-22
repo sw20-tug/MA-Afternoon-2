@@ -14,6 +14,10 @@ public class Hangman
             nr_wrong_guesses_ = 0;
         }
     }
+    public String getCurrentGuessedString ()
+    {
+        return "";
+    }
 
     public String getWord()
     {
