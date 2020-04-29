@@ -25,7 +25,7 @@ public class HangmanUnitTest {
     @Test
     public void guessTest1_aba()
     {
-        Hangman hangman = new Hangman("aba");
+        Hangman hangman = new Hangman("aba",null);
 
         //hangman.setWord("aba");
         hangman.guessCharacter('a');
@@ -37,7 +37,7 @@ public class HangmanUnitTest {
     @Test
     public void guessTest2_abcde()
     {
-        Hangman hangman = new Hangman("abcde");
+        Hangman hangman = new Hangman("abcde",null);
 
         //hangman.setWord("abcde");
         hangman.guessCharacter('z');
@@ -56,7 +56,7 @@ public class HangmanUnitTest {
     @Test
     public void setNewRandomWordTest()
     {
-        Hangman hangman = new Hangman("word");
+        Hangman hangman = new Hangman("word",null);
 
        // hangman.setWord("word");
         assertNotNull(hangman.getWord());
@@ -64,7 +64,7 @@ public class HangmanUnitTest {
     @Test
     public void checkWordTrueTest()
     {
-        Hangman hangman = new Hangman("HIGH");
+        Hangman hangman = new Hangman("HIGH",null);
 
        // hangman.setWord("word");
         assertTrue(hangman.guessWord(hangman.getWord()));
@@ -75,7 +75,7 @@ public class HangmanUnitTest {
     @Test
     public void checkWordFalseTest()
     {
-        Hangman hangman = new Hangman("Number");
+        Hangman hangman = new Hangman("Number",null);
 
         hangman.setWord("trueWord");
         assertFalse(hangman.guessWord("wrongWord"));
@@ -84,7 +84,7 @@ public class HangmanUnitTest {
     @Test
     public void guessCharacterTest()
     {
-        Hangman hangman = new Hangman("test");
+        Hangman hangman = new Hangman("test",null);
 
         //hangman.setWord("test");
 
@@ -97,7 +97,7 @@ public class HangmanUnitTest {
     @Test
     public void wrongGuessNumberTest()
     {
-        Hangman hangman = new Hangman("number");
+        Hangman hangman = new Hangman("number",null);
 
         //hangman.setWord("Number");
         assertEquals(0, hangman.getNumberOfWrongGuesses());

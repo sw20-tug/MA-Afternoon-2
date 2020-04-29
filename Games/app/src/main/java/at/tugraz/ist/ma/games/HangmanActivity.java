@@ -2,6 +2,7 @@ package at.tugraz.ist.ma.games;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,11 +13,13 @@ import android.widget.TextView;
 
 public class HangmanActivity extends AppCompatActivity {
 
-    final Hangman hangman = new Hangman("hangmantest");
+    final Hangman hangman = new Hangman(null, this);
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+        //Context ctx = getApplication().getBaseContext();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hangman);
         final TextView text = (TextView) findViewById(R.id.guessableWord);
