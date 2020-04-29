@@ -99,7 +99,6 @@
 
     </TableLayout>
 
-    <!-- TODO: remove "Invisible" attribute when Main Menu "Your Points" become available -->
     <TextView
         android:visibility="invisible"
 

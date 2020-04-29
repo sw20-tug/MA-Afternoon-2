@@ -25,24 +25,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void btnMainTicTacToe_Click() {
-        Intent intentTTTSettings = new Intent(getApplicationContext(), TicTacToeSettingsActivity.class);
-        startActivity(intentTTTSettings);
+        Intent intentTTT = new Intent(getApplicationContext(), TicTacToeActivity.class);
+        startActivity(intentTTT);
     }
 
     private void btnMainHangman_Click() {
-        //TODO un-comment next lines when Hangman Activity becomes available
-        //Intent intentHM = new Intent(getApplicationContext(), HangmanActivity.class);
-        //startActivity(intentHM);
+        Intent intentHM = new Intent(getApplicationContext(), HangmanActivity.class);
+        startActivity(intentHM);
     }
 
     private void btnMainSettings_Click() {
-        //TODO un-comment next lines when White Tiles Activity becomes available
         //Intent intentWT = new Intent(getApplicationContext(), WhiteTilesSettingsActivity.class);
         //startActivity(intentWT);
     }
 
     private void btnMainDontTouch_Click() {
-        //TODO un-comment next lines when Settings Activity becomes available
         //Intent intentSET = new Intent(getApplicationContext(), SettingsActivity.class);
         //startActivity(intentSET);
     }
