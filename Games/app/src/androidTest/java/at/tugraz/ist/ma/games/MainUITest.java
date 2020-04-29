@@ -51,9 +51,7 @@ public class MainUITest {
         onView(withId(R.id.tvMainWhiteTiles)).check(matches(isDisplayed()));
         onView(withId(R.id.tvMainSettings)).check(matches(isDisplayed()));
 
-        //TODO remove the next line with the "not(isDisplayed())"-Check when Points display is available
         onView(withId(R.id.tvMainPoints)).check(matches(not(isDisplayed())));
-        //TODO un-comment the next line when Points display is available
         //onView(withId(R.id.tvMainPoints)).check(matches(isDisplayed()));
     }
 
@@ -70,7 +68,6 @@ public class MainUITest {
     // Test, if the correct activities are opened when pressing buttons
     @Test
     public void checkMainToTicTacToeActivitySwitch() {
-        // TODO: Change destination when Tic Tac Toe Settings page is implemented
         onView(withId(R.id.btnMainTicTacToe)).perform(click());
         intended(hasComponent(TicTacToeActivity.class.getName()));
     }
@@ -86,7 +83,6 @@ public class MainUITest {
     @Test
     public void checkMainToWhiteTilesActivitySwitch() {
         onView(withId(R.id.btnMainWhiteTiles)).perform(click());
-        // TODO un-comment next line when White Tiles activity is available
         //intended(hasComponent(WhiteTilesSettingsActivity.class.getName()));
     }
 
@@ -94,7 +90,6 @@ public class MainUITest {
     @Test
     public void checkMainToSettingsActivitySwitch() {
         onView(withId(R.id.btnMainSettings)).perform(click());
-        // TODO un-comment next line when Settings activity is available
         // intended(hasComponent(SettingsActivity.class.getName()));
     }
 
