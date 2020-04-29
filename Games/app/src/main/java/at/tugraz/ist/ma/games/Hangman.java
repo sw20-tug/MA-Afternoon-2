@@ -19,7 +19,7 @@ public class Hangman
     private Character unknown_character  = '_';
     private Context context_;
     private int number_of_wrong_guesses_ = 0;
-    String[] word_list = new String[]{ "Hangmantest", "applejuice", "kitchen","viewer", "kidney" };
+    String[] word_list = new String[]{ "hangmantest", "applejuice", "kitchen","viewer", "kidney" };
 
 
     //----------------------------------------------------------------------------------------------
@@ -35,7 +35,7 @@ public class Hangman
         {
             Random random = new Random();
             int rnd = random.nextInt(word_list.length);
-            word_ = word_list[rnd];
+            word_ = word_list[rnd].toLowerCase();
         }
         number_of_wrong_guesses_ = 0;
         initiliazeGuessedWord();
