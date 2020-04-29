@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWelcomeScreenBackground"
+    android:textColor="@android:color/black"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/tvGameTitle"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/colorWelcomeScreenPrimaryColor"
+        android:gravity="center"
+        android:text="@string/app_name"
+        android:textAlignment="center"
+        android:textColor="@color/colorWelcomeScreenPrimaryTextColor"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp"/>
+
+    <TableLayout
+        android:id="@+id/welcomeScreenGamesTable"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="15dp"
+        android:stretchColumns="*"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvGameTitle">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/btnMainTicTacToe"
+                style="@style/styleWelcomeScreenButtons"
+                android:contentDescription="@string/main_tictactoe"
+                android:src="@drawable/icon_tictactoe" />
+
+            <ImageButton
+                android:id="@+id/btnMainHangman"
+                style="@style/styleWelcomeScreenButtons"
+                android:contentDescription="@string/main_hangman"
+                android:src="@drawable/icon_hangman" />
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/tvMainTicTacToe"
+                style="@style/styleWelcomeScreenText"
+                android:text="@string/main_tictactoe" />
+
+            <TextView
+                android:id="@+id/tvMainHangman"
+                style="@style/styleWelcomeScreenText"
+                android:text="@string/main_hangman" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp">
+
+            <ImageButton
+                android:id="@+id/btnMainWhiteTiles"
+                style="@style/styleWelcomeScreenButtonsComingSoon"
+                android:contentDescription="@string/main_donttouch"
+                android:src="@drawable/icon_dont_touch_comingsoon" />
+
+            <ImageButton
+                android:id="@+id/btnMainSettings"
+                style="@style/styleWelcomeScreenButtonsComingSoon"
+                android:contentDescription="@string/main_settings"
+                android:src="@drawable/icon_settings_comingsoon" />
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/tvMainWhiteTiles"
+                style="@style/styleWelcomeScreenText"
+                android:text="@string/main_donttouch" />
+
+            <TextView
+                android:id="@+id/tvMainSettings"
+                style="@style/styleWelcomeScreenText"
+                android:text="@string/main_settings" />
+        </TableRow>
+
+    </TableLayout>
+
+    <TextView
+        android:visibility="invisible"
+
+        android:id="@+id/tvMainPoints"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/main_yourpoints"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/welcomeScreenGamesTable" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
