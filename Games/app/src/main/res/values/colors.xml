@@ -16,4 +16,10 @@
     <color name="colorTTTGridBG">@color/colorPrimaryDark</color>
     <color name="colorTTTGridFieldBG">@color/colorPrimaryLight</color>
 
+    <!--Welcome Screen -->
+    <color name="colorWelcomeScreenBackground">#708690</color>
+    <color name="colorWelcomeScreenPrimaryColor">#445963</color>
+    <color name="colorWelcomeScreenPrimaryTextColor">#FFFFFF</color>
+
+
 </resources>
