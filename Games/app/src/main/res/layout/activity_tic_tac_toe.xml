@@ -22,22 +22,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="@string/TTT_placeholder_status"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvMode" />
-
-    <ImageButton
-        android:id="@+id/btnReplay"
-        style="@style/Widget.AppCompat.ImageButton"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/baseline_keyboard_backspace_black_48"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TableLayout
         android:layout_width="0dp"
@@ -60,6 +49,7 @@
 
             <Button
                 android:id="@+id/btn_field_0_0"
+                android:tag="@string/player_none"
                 style="@style/Widget.AppCompat.Button"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -67,6 +57,7 @@
 
             <Button
                 android:id="@+id/btn_field_0_1"
+                android:tag="@string/player_none"
                 style="@style/Widget.AppCompat.Button"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -74,6 +65,7 @@
 
             <Button
                 android:id="@+id/btn_field_0_2"
+                android:tag="@string/player_none"
                 style="@style/Widget.AppCompat.Button"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -88,6 +80,7 @@
 
             <Button
                 android:id="@+id/btn_field_1_0"
+                android:tag="@string/player_none"
                 style="@style/Widget.AppCompat.Button"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -95,6 +88,7 @@
 
             <Button
                 android:id="@+id/btn_field_1_1"
+                android:tag="@string/player_none"
                 style="@style/Widget.AppCompat.Button"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -102,6 +96,7 @@
 
             <Button
                 android:id="@+id/btn_field_1_2"
+                android:tag="@string/player_none"
                 style="@style/Widget.AppCompat.Button"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -115,6 +110,7 @@
 
             <Button
                 android:id="@+id/btn_field_2_0"
+                android:tag="@string/player_none"
                 style="@style/Widget.AppCompat.Button"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -122,6 +118,7 @@
 
             <Button
                 android:id="@+id/btn_field_2_1"
+                android:tag="@string/player_none"
                 style="@style/Widget.AppCompat.Button"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -129,6 +126,7 @@
 
             <Button
                 android:id="@+id/btn_field_2_2"
+                android:tag="@string/player_none"
                 style="@style/Widget.AppCompat.Button"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -143,7 +141,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
-        android:text="@string/TTT_play_again"
+        android:text="@string/play_again"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
