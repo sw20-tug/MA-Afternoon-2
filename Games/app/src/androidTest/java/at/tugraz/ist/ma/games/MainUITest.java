@@ -70,16 +70,16 @@ public class MainUITest {
     // Test, if the correct activities are opened when pressing buttons
     @Test
     public void checkMainToTicTacToeActivitySwitch() {
+        // TODO: Change destination when Tic Tac Toe Settings page is implemented
         onView(withId(R.id.btnMainTicTacToe)).perform(click());
-        intended(hasComponent(TicTacToeSettingsActivity.class.getName()));
+        intended(hasComponent(TicTacToeActivity.class.getName()));
     }
 
     // Test, if the correct activities are opened when pressing buttons
     @Test
     public void checkMainToHangmanActivitySwitch() {
         onView(withId(R.id.btnMainHangman)).perform(click());
-        // TODO un-comment next line when Hangman activity is available
-        //intended(hasComponent(HangmanActivity.class.getName()));
+        intended(hasComponent(HangmanActivity.class.getName()));
     }
 
     // Test, if the correct activities are opened when pressing buttons
