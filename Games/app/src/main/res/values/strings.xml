@@ -4,8 +4,9 @@
     <string name="play_again">Play Again</string>
 
     <string name="TTT_placeholder_mode">PvP</string>
-    <string name="player_cross">Player Cross </string>
-    <string name="player_circle">Player Circle </string>
+    <string name="player_cross">Player Cross</string>
+    <string name="player_circle">Player Circle</string>
+    <string name="player_none">Player None</string>
 
     <string name="GameMode_TicTacToe">Tic Tac Toe</string>
     <string name="GameMode">Game Mode</string>

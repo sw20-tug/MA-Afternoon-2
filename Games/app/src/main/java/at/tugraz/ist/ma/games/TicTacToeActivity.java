@@ -147,13 +147,16 @@ public class TicTacToeActivity extends AppCompatActivity implements View.OnClick
         {
             case CROSS:
                 button.setBackgroundResource(R.drawable.ic_ttt_cross);
+                button.setTag(getString(R.string.player_cross));
                 break;
             case CIRCLE:
                 button.setBackgroundResource(R.drawable.ic_ttt_circle);
+                button.setTag(getString(R.string.player_circle));
                 break;
             case NONE:
             default:
                 button.setBackgroundResource(0);
+                button.setTag(getString(R.string.player_none));
                 break;
         }
     }
