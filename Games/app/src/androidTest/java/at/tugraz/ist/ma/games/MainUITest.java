@@ -83,7 +83,7 @@ public class MainUITest {
     @Test
     public void checkMainToWhiteTilesActivitySwitch() {
         onView(withId(R.id.btnMainWhiteTiles)).perform(click());
-        //intended(hasComponent(WhiteTilesSettingsActivity.class.getName()));
+        intended(hasComponent(WhiteTilesActivity.class.getName()));
     }
 
     // Test, if the correct activities are opened when pressing buttons
