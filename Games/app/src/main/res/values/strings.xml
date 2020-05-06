@@ -4,6 +4,11 @@
     <string name="play_again">Play Again</string>
 
     <string name="TTT_placeholder_mode">PvP</string>
+
+    <string name="TTT_Transfer_Settings">ttt_settings_transfer</string>
+
+    <string name="player_one">Player 1</string>
+    <string name="player_two">Player 2</string>
     <string name="player_cross">Player Cross</string>
     <string name="player_circle">Player Circle</string>
     <string name="player_none">Player None</string>
