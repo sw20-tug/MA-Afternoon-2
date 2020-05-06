@@ -16,7 +16,8 @@
         android:adjustViewBounds="true"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/hangman_00" />
+        app:srcCompat="@drawable/hangman_00"
+        android:contentDescription="@string/imageFailure" />
 
     <LinearLayout
         android:id="@+id/row1"
@@ -34,7 +35,8 @@
             android:layout_height="wrap_content"
             android:minWidth="50dp"
             android:minHeight="28dp"
-            android:text="A"
+            android:text="@string/A"
+            style="@style/AppTheme"
            />
 
         <Button
@@ -43,8 +45,9 @@
             android:layout_height="wrap_content"
             android:minWidth="50dp"
             android:minHeight="28dp"
-            android:text="B"
+            android:text="@string/B"
             app:layout_constraintStart_toEndOf="@+id/buttonA"
+            style="@style/AppTheme"
              />
 
         <Button
@@ -53,8 +56,9 @@
             android:layout_height="wrap_content"
             android:minWidth="50dp"
             android:minHeight="28dp"
-            android:text="C"
+            android:text="@string/C"
             app:layout_constraintStart_toEndOf="@+id/buttonB"
+            style="@style/AppTheme"
              />
 
         <Button
@@ -63,9 +67,11 @@
             android:layout_height="wrap_content"
             android:minWidth="50dp"
             android:minHeight="28dp"
-            android:text="D"
+            android:text="@string/D"
             app:layout_constraintStart_toEndOf="@+id/buttonC"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            style="@style/AppTheme"
+            />
 
         <Button
             android:id="@+id/buttonE"
@@ -73,8 +79,9 @@
             android:layout_height="wrap_content"
             android:minWidth="50dp"
             android:minHeight="28dp"
-            android:text="E"
+            android:text="@string/E"
             app:layout_constraintStart_toEndOf="@+id/buttonD"
+            style="@style/AppTheme"
              />
 
         <Button
@@ -83,8 +90,9 @@
             android:layout_height="wrap_content"
             android:minWidth="50dp"
             android:minHeight="28dp"
-            android:text="F"
+            android:text="@string/F"
             app:layout_constraintStart_toEndOf="@+id/buttonE"
+            style="@style/AppTheme"
              />
 
         <Button
@@ -93,8 +101,9 @@
             android:layout_height="wrap_content"
             android:minWidth="50dp"
             android:minHeight="28dp"
-            android:text="G"
+            android:text="@string/G"
             app:layout_constraintStart_toEndOf="@+id/buttonF"
+            style="@style/AppTheme"
              />
 
 
@@ -114,7 +123,8 @@
         android:layout_height="wrap_content"
         android:minWidth="50dp"
         android:minHeight="28dp"
-        android:text="H"
+        android:text="@string/H"
+        style="@style/AppTheme"
         />
         <Button
             android:id="@+id/buttonI"
@@ -122,8 +132,9 @@
             android:layout_height="wrap_content"
             android:minWidth="50dp"
             android:minHeight="28dp"
-            android:text="I"
+            android:text="@string/I"
             app:layout_constraintStart_toEndOf="@+id/buttonH"
+            style="@style/AppTheme"
             />
         <Button
             android:id="@+id/buttonJ"
@@ -131,8 +142,9 @@
             android:layout_height="wrap_content"
             android:minWidth="50dp"
             android:minHeight="28dp"
-            android:text="J"
+            android:text="@string/J"
             app:layout_constraintStart_toEndOf="@+id/buttonI"
+            style="@style/AppTheme"
             />
         <Button
             android:id="@+id/buttonK"
@@ -140,8 +152,9 @@
             android:layout_height="wrap_content"
             android:minWidth="50dp"
             android:minHeight="28dp"
-            android:text="K"
+            android:text="@string/K"
             app:layout_constraintStart_toEndOf="@+id/buttonK"
+            style="@style/AppTheme"
             />
         <Button
             android:id="@+id/buttonL"
@@ -149,8 +162,9 @@
             android:layout_height="wrap_content"
             android:minWidth="50dp"
             android:minHeight="28dp"
-            android:text="L"
+            android:text="@string/L"
             app:layout_constraintStart_toEndOf="@+id/buttonK"
+            style="@style/AppTheme"
             />
         <Button
             android:id="@+id/buttonM"
@@ -158,8 +172,9 @@
             android:layout_height="wrap_content"
             android:minWidth="50dp"
             android:minHeight="28dp"
-            android:text="M"
+            android:text="@string/M"
             app:layout_constraintStart_toEndOf="@+id/buttonL"
+            style="@style/AppTheme"
             />
         <Button
             android:id="@+id/buttonN"
@@ -167,8 +182,9 @@
             android:layout_height="wrap_content"
             android:minWidth="50dp"
             android:minHeight="28dp"
-            android:text="N"
+            android:text="@string/N"
             app:layout_constraintStart_toEndOf="@+id/buttonM"
+            style="@style/AppTheme"
             />
     </LinearLayout>
 
@@ -187,7 +203,8 @@
             android:layout_height="wrap_content"
             android:minWidth="50dp"
             android:minHeight="28dp"
-            android:text="O"
+            android:text="@string/O"
+            style="@style/AppTheme"
             />
         <Button
             android:id="@+id/buttonP"
@@ -195,8 +212,9 @@
             android:layout_height="wrap_content"
             android:minWidth="50dp"
             android:minHeight="28dp"
-            android:text="P"
+            android:text="@string/P"
             app:layout_constraintStart_toEndOf="@+id/buttonO"
+            style="@style/AppTheme"
             />
         <Button
             android:id="@+id/buttonQ"
@@ -204,8 +222,9 @@
             android:layout_height="wrap_content"
             android:minWidth="50dp"
             android:minHeight="28dp"
-            android:text="Q"
+            android:text="@string/Q"
             app:layout_constraintStart_toEndOf="@+id/buttonP"
+            style="@style/AppTheme"
             />
         <Button
             android:id="@+id/buttonR"
@@ -213,8 +232,9 @@
             android:layout_height="wrap_content"
             android:minWidth="50dp"
             android:minHeight="28dp"
-            android:text="R"
+            android:text="@string/R"
             app:layout_constraintStart_toEndOf="@+id/buttonQ"
+            style="@style/AppTheme"
             />
         <Button
             android:id="@+id/buttonS"
@@ -222,8 +242,9 @@
             android:layout_height="wrap_content"
             android:minWidth="50dp"
             android:minHeight="28dp"
-            android:text="S"
+            android:text="@string/S"
             app:layout_constraintStart_toEndOf="@+id/buttonR"
+            style="@style/AppTheme"
             />
         <Button
             android:id="@+id/buttonT"
@@ -231,8 +252,9 @@
             android:layout_height="wrap_content"
             android:minWidth="50dp"
             android:minHeight="28dp"
-            android:text="T"
+            android:text="@string/T"
             app:layout_constraintStart_toEndOf="@+id/buttonS"
+            style="@style/AppTheme"
             />
         <Button
             android:id="@+id/buttonU"
@@ -240,8 +262,9 @@
             android:layout_height="wrap_content"
             android:minWidth="50dp"
             android:minHeight="28dp"
-            android:text="U"
+            android:text="@string/U"
             app:layout_constraintStart_toEndOf="@+id/buttonT"
+            style="@style/AppTheme"
             />
     </LinearLayout>
     <LinearLayout
@@ -259,7 +282,8 @@
             android:layout_height="wrap_content"
             android:minWidth="50dp"
             android:minHeight="28dp"
-            android:text="V"
+            android:text="@string/V"
+            style="@style/AppTheme"
             />
         <Button
             android:id="@+id/buttonW"
@@ -267,8 +291,9 @@
             android:layout_height="wrap_content"
             android:minWidth="50dp"
             android:minHeight="28dp"
-            android:text="W"
+            android:text="@string/W"
             app:layout_constraintStart_toEndOf="@+id/buttonV"
+            style="@style/AppTheme"
             />
         <Button
             android:id="@+id/buttonX"
@@ -276,8 +301,9 @@
             android:layout_height="wrap_content"
             android:minWidth="50dp"
             android:minHeight="28dp"
-            android:text="X"
+            android:text="@string/X"
             app:layout_constraintStart_toEndOf="@+id/buttonW"
+            style="@style/AppTheme"
             />
         <Button
             android:id="@+id/buttonY"
@@ -285,8 +311,9 @@
             android:layout_height="wrap_content"
             android:minWidth="50dp"
             android:minHeight="28dp"
-            android:text="Y"
+            android:text="@string/Y"
             app:layout_constraintStart_toEndOf="@+id/buttonX"
+            style="@style/AppTheme"
             />
         <Button
             android:id="@+id/buttonZ"
@@ -294,8 +321,9 @@
             android:layout_height="wrap_content"
             android:minWidth="50dp"
             android:minHeight="28dp"
-            android:text="Z"
+            android:text="@string/Z"
             app:layout_constraintStart_toEndOf="@+id/buttonY"
+            style="@style/AppTheme"
             />
 
     </LinearLayout>
@@ -304,7 +332,6 @@
         android:id="@+id/guessableWord"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="_ _ _c _ _ _ "
 
         android:textColor="@android:color/white"
         android:textSize="24sp"
