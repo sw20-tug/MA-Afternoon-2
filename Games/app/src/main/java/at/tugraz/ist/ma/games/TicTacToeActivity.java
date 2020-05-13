@@ -146,10 +146,10 @@ public class TicTacToeActivity extends AppCompatActivity implements View.OnClick
         boolean aiMove = setTile(row, col);
 
         if(aiMove && pve){
-            //TODO get move from AI
-            row = 1;
-            col = 1;
-
+            ai.setTilePlayer(row, col);
+            int aiIndex = ai.doAIMove();
+            row = ai.getRow(aiIndex);
+            col = ai.getCol(aiIndex);
             setTile(row, col);
         }
     }
@@ -176,7 +176,6 @@ public class TicTacToeActivity extends AppCompatActivity implements View.OnClick
 
     private boolean setTile(int row, int col){
         boolean isSetTile = ticTacToe.setTileActivePlayer(row, col);
-        ai.setTile(row, col, ticTacToe.getActivePlayer());
 
 
         if(isSetTile){
