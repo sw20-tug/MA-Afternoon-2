@@ -50,17 +50,19 @@ public class WhiteTileUnitTest {
         WhiteTiles whiteTiles = new WhiteTiles();
         Button btn = new Button(null);
         whiteTiles.addBtnToList(btn);
-        whiteTiles.restartGame();
+        whiteTiles.setPlayerPointsToZero();
         assertEquals(0,whiteTiles.getPlayer_points());
     }
     @Test
     public void checkIfAtLeastOneColorEach()
     {
         WhiteTiles whiteTiles = new WhiteTiles(true);
-        Button btn = new Button(null);
-        Button btn1 = new Button(null);
-        whiteTiles.addBtnToList(btn);
-        whiteTiles.addBtnToList(btn1);
+
+        for (int i = 0; i < 16; i++)
+        {
+            whiteTiles.addBtnToList(new Button(null));
+        }
+
         whiteTiles.changeField();
 
         boolean white_tiles = false;

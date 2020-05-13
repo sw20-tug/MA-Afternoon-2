@@ -19,6 +19,7 @@ public class WhiteTiles
     }
     ArrayList<Button> buttons = new ArrayList<Button>();
     ArrayList<TileColor> button_state = new ArrayList<TileColor>();
+    private int number_of_black_tiles = 4;
     private int player_points = 0;
     private boolean debug_mode = false;
     private boolean is_running = true;
@@ -35,25 +36,46 @@ public class WhiteTiles
 
     public void changeField()
     {
-        Random random = new Random();
-        int rnd = random.nextInt(buttons.size());
-        if(!debug_mode)
+        ArrayList<Integer> button_list = new ArrayList<Integer>();
+        int counter = 0;
+
+        // Fill an array with "number_of_black_tiles" different integers
+        while (counter < number_of_black_tiles)
         {
-            buttons.get(rnd).setBackgroundColor(Color.WHITE);
-        }
-        button_state.set(rnd,TileColor.WHITE);
-        for(int i = 0; i < buttons.size(); i++)
-        {
-            if(i != rnd)
+            Random random = new Random();
+            int rnd = random.nextInt(buttons.size());
+            if (!button_list.contains(rnd))
             {
+                button_list.add(rnd);
+                counter++;
+            }
+        }
+
+
+
+        for (int i = 0; i < buttons.size(); i++)
+        {
+            //If the button number is present in our randomly generated list, it becomes a black button
+            if (button_list.contains(i))
+            {
+                button_state.set(i, TileColor.BLACK);
                 if(!debug_mode)
                 {
                     buttons.get(i).setBackgroundColor(Color.BLACK);
                 }
-                button_state.set(i,TileColor.BLACK);
+            }
+
+            //else it becomes white
+            else {
+                button_state.set(i, TileColor.WHITE);
+                if(!debug_mode)
+                {
+                    buttons.get(i).setBackgroundColor(Color.WHITE);
+                }
             }
 
         }
+
     }
 
     public void addBtnToList(Button btn)
@@ -70,13 +92,11 @@ public class WhiteTiles
             return false;
         }
         player_points++;
-        changeField();
         return true;
     }
-    public void restartGame()
+    public void setPlayerPointsToZero()
     {
         player_points = 0;
-        changeField();
     }
 
     public int getPlayer_points()

@@ -109,6 +109,7 @@ public class WhiteTilesActivity extends AppCompatActivity {
         {
             Toast.makeText(this, "You lost", Toast.LENGTH_LONG).show();
         }
+        whiteTiles.changeField();
         TextView score = (TextView) findViewById(R.id.tvWhiteTilesYourPoints);
         String str = getString(R.string.WhiteTilesYourPoints)+ String.valueOf(whiteTiles.getPlayer_points());
         score.setText(str);
@@ -116,7 +117,8 @@ public class WhiteTilesActivity extends AppCompatActivity {
 
     private void restartGameButtonClick()
     {
-        whiteTiles.restartGame();
+        whiteTiles.setPlayerPointsToZero();
+        whiteTiles.changeField();
         whiteTiles.setIs_running(true);
         TextView score = (TextView) findViewById(R.id.tvWhiteTilesYourPoints);
         String str = getString(R.string.WhiteTilesYour0Points);
