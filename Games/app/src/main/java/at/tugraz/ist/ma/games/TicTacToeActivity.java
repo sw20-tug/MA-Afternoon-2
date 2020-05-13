@@ -8,23 +8,37 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
 
 public class TicTacToeActivity extends AppCompatActivity implements View.OnClickListener {
 
     private TicTacToe ticTacToe;
+    private TicTacToeSettings ticTacToeSettings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        readSettings();
         createGame();
+    }
+
+    public void readSettings()
+    {
+        String jsonString = getIntent().getStringExtra(getString(R.string.TTT_Transfer_Settings));
+        ticTacToeSettings = tttSettingsFromJsonString(jsonString);
     }
 
     public void createGame()
     {
         setContentView(R.layout.activity_tic_tac_toe);
         configBoardButtons();
-        ticTacToe = new TicTacToe();
+        if(ticTacToeSettings == null)
+            ticTacToeSettings = new TicTacToeSettings();
+        ticTacToe = new TicTacToe(ticTacToeSettings.getStartingPlayer());
         setPlayerText();
     }
 
@@ -183,5 +197,14 @@ public class TicTacToeActivity extends AppCompatActivity implements View.OnClick
         btn_2_1.setClickable(false);
         btn_2_2.setClickable(false);
 
+    }
+
+    public TicTacToeSettings tttSettingsFromJsonString(String jsonString)
+    {
+        Gson gson = new Gson();
+        Type ttt_settings = new TypeToken<TicTacToeSettings>() {
+        }.getType();
+
+        return gson.fromJson(jsonString, ttt_settings);
     }
 }
