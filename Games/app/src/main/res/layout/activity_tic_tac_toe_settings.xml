@@ -7,7 +7,7 @@
     tools:context=".TicTacToeSettingsActivity">
 
     <TextView
-        android:id="@+id/tvTicTacToe"
+        android:id="@+id/ttt_tv_TicTacToe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -30,7 +30,7 @@
         app:layout_constraintBottom_toTopOf="@+id/ttt_btn_play"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTicTacToe">
+        app:layout_constraintTop_toBottomOf="@+id/ttt_tv_TicTacToe">
 
         <TableRow
             android:layout_width="match_parent"
@@ -38,7 +38,7 @@
             android:layout_marginBottom="40dp">
 
             <TextView
-                android:id="@+id/tvGameMode"
+                android:id="@+id/ttt_tv_GameMode"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/GameMode"
@@ -61,7 +61,7 @@
             android:visibility="invisible">
 
             <TextView
-                android:id="@+id/tvAIDifficulty"
+                android:id="@+id/ttt_tv_AIDifficulty"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/AIDifficulty"
