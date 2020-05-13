@@ -36,7 +36,7 @@ public class WhiteTileUnitTest {
     @Test
     public void checkPlayerPointsCorrect()
     {
-        WhiteTiles whiteTiles = new WhiteTiles(true);
+        WhiteTiles whiteTiles = new WhiteTiles();
         Button btn = new Button(null);
         whiteTiles.addBtnToList(btn);
         whiteTiles.button_state.set(0, WhiteTiles.TileColor.BLACK);
@@ -56,7 +56,7 @@ public class WhiteTileUnitTest {
     @Test
     public void checkIfAtLeastOneColorEach()
     {
-        WhiteTiles whiteTiles = new WhiteTiles(true);
+        WhiteTiles whiteTiles = new WhiteTiles();
 
         for (int i = 0; i < 16; i++)
         {

@@ -21,14 +21,9 @@ public class WhiteTiles
     ArrayList<TileColor> button_state = new ArrayList<TileColor>();
     private int number_of_black_tiles = 4;
     private int player_points = 0;
-    private boolean debug_mode = false;
     private boolean is_running = true;
 
-    public WhiteTiles(boolean debug_mode)
-    {
-        this.debug_mode = debug_mode;
 
-    }
     public WhiteTiles()
     {
 
@@ -51,31 +46,18 @@ public class WhiteTiles
             }
         }
 
-
-
         for (int i = 0; i < buttons.size(); i++)
         {
-            //If the button number is present in our randomly generated list, it becomes a black button
             if (button_list.contains(i))
             {
                 button_state.set(i, TileColor.BLACK);
-                if(!debug_mode)
-                {
-                    buttons.get(i).setBackgroundColor(Color.BLACK);
-                }
             }
-
-            //else it becomes white
-            else {
+            else
+            {
                 button_state.set(i, TileColor.WHITE);
-                if(!debug_mode)
-                {
-                    buttons.get(i).setBackgroundColor(Color.WHITE);
-                }
             }
 
         }
-
     }
 
     public void addBtnToList(Button btn)
@@ -110,6 +92,14 @@ public class WhiteTiles
     public boolean getIs_running()
     {
         return is_running;
+    }
+    public ArrayList<TileColor> getButton_state()
+    {
+        return button_state;
+    }
+    public ArrayList<Button> getButtons()
+    {
+        return buttons;
     }
 
 }
