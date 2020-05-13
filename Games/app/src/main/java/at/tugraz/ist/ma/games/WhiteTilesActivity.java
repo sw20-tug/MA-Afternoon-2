@@ -91,12 +91,20 @@ public class WhiteTilesActivity extends AppCompatActivity {
         btn_4_4.setOnClickListener(v -> btnWhiteTileClick(btn_4_4));
 
 
+        Button restart_btn = (Button) findViewById(R.id.btnWhiteTilesRestart);
+        restart_btn.setOnClickListener(v -> restartGameButtonClick());
+
+
         whiteTiles.changeField();
     }
 
 
     private void btnWhiteTileClick(Button btn)
     {
+        if(!whiteTiles.getIs_running())
+        {
+            return;
+        }
         if(!whiteTiles.checkCorrectTileAndCount(btn))
         {
             Toast.makeText(this, "You lost", Toast.LENGTH_LONG).show();
@@ -106,4 +114,12 @@ public class WhiteTilesActivity extends AppCompatActivity {
         score.setText(str);
     }
 
+    private void restartGameButtonClick()
+    {
+        whiteTiles.restartGame();
+        whiteTiles.setIs_running(true);
+        TextView score = (TextView) findViewById(R.id.tvWhiteTilesYourPoints);
+        String str = getString(R.string.WhiteTilesYour0Points);
+        score.setText(str);
+    }
 }

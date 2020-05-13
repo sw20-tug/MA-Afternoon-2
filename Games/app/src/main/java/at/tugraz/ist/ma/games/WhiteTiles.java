@@ -21,10 +21,12 @@ public class WhiteTiles
     ArrayList<TileColor> button_state = new ArrayList<TileColor>();
     private int player_points = 0;
     private boolean debug_mode = false;
+    private boolean is_running = true;
 
     public WhiteTiles(boolean debug_mode)
     {
         this.debug_mode = debug_mode;
+
     }
     public WhiteTiles()
     {
@@ -62,11 +64,9 @@ public class WhiteTiles
 
     public boolean checkCorrectTileAndCount(Button btn)
     {
-
-        TileColor a = button_state.get(buttons.indexOf(btn));
-
         if(button_state.get(buttons.indexOf(btn)).equals(TileColor.WHITE))
         {
+            setIs_running(false);
             return false;
         }
         player_points++;
@@ -76,11 +76,20 @@ public class WhiteTiles
     public void restartGame()
     {
         player_points = 0;
+        changeField();
     }
 
     public int getPlayer_points()
     {
         return player_points;
+    }
+    public void setIs_running(boolean running)
+    {
+        is_running = running;
+    }
+    public boolean getIs_running()
+    {
+        return is_running;
     }
 
 }
