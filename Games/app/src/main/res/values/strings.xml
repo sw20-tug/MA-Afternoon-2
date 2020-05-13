@@ -64,6 +64,7 @@
 
     <!-- WhiteTiles Strings -->
     <string name="WhiteTilesRestartButton">Restart</string>
-    <string name="WhiteTilesYourPoints">Your Points: 0</string>
+    <string name="WhiteTilesYour0Points">Your Points: 0</string>
+    <string name="WhiteTilesYourPoints">Your Points:\u0020</string>
 
 </resources>

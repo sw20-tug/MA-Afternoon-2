@@ -95,18 +95,15 @@ public class WhiteTilesActivity extends AppCompatActivity {
     }
 
 
-
     private void btnWhiteTileClick(Button btn)
     {
         if(!whiteTiles.checkCorrectTileAndCount(btn))
         {
             Toast.makeText(this, "You lost", Toast.LENGTH_LONG).show();
-            //set points to zero
         }
         TextView score = (TextView) findViewById(R.id.tvWhiteTilesYourPoints);
-        //use resource File
-        score.setText("Your Points: " + whiteTiles.getPlayer_points());
-        
+        String str = getString(R.string.WhiteTilesYourPoints)+ String.valueOf(whiteTiles.getPlayer_points());
+        score.setText(str);
     }
 
 }
