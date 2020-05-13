@@ -35,13 +35,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void btnMainSettings_Click() {
-        //Intent intentWT = new Intent(getApplicationContext(), WhiteTilesSettingsActivity.class);
+        //Intent intentWT = new Intent(getApplicationContext(), SettingsActivity.class);
         //startActivity(intentWT);
     }
 
     private void btnMainDontTouch_Click() {
-        //Intent intentSET = new Intent(getApplicationContext(), SettingsActivity.class);
-        //startActivity(intentSET);
+        Intent intentSET = new Intent(getApplicationContext(), WhiteTilesActivity.class);
+        startActivity(intentSET);
     }
 
 }

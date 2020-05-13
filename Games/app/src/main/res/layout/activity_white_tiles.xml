@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".WhiteTilesActivity">
+
+
+    <TableLayout
+        android:id="@+id/tlWhiteTilesGameField"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/tvWhiteTilesYourPoints"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:stretchColumns="*">
+
+            <Button
+                android:id="@+id/btnWhiteTilesGameButton1-1"
+                style="@style/styleWhiteTilesButton" />
+
+            <Button
+                android:id="@+id/btnWhiteTilesGameButton1-2"
+                style="@style/styleWhiteTilesButton" />
+
+            <Button
+                android:id="@+id/btnWhiteTilesGameButton1-3"
+                style="@style/styleWhiteTilesButton" />
+
+            <Button
+                android:id="@+id/btnWhiteTilesGameButton1-4"
+                style="@style/styleWhiteTilesButton" />
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <Button
+                android:id="@+id/btnWhiteTilesGameButton2-1"
+                style="@style/styleWhiteTilesButton" />
+
+            <Button
+                android:id="@+id/btnWhiteTilesGameButton2-2"
+                style="@style/styleWhiteTilesButton" />
+
+            <Button
+                android:id="@+id/btnWhiteTilesGameButton2-3"
+                style="@style/styleWhiteTilesButton" />
+
+            <Button
+                android:id="@+id/btnWhiteTilesGameButton2-4"
+                style="@style/styleWhiteTilesButton" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <Button
+                android:id="@+id/btnWhiteTilesGameButton3-1"
+                style="@style/styleWhiteTilesButton" />
+
+            <Button
+                android:id="@+id/btnWhiteTilesGameButton3-2"
+                style="@style/styleWhiteTilesButton" />
+
+            <Button
+                android:id="@+id/btnWhiteTilesGameButton3-3"
+                style="@style/styleWhiteTilesButton" />
+
+            <Button
+                android:id="@+id/btnWhiteTilesGameButton3-4"
+                style="@style/styleWhiteTilesButton" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <Button
+                android:id="@+id/btnWhiteTilesGameButton4-1"
+                style="@style/styleWhiteTilesButton" />
+
+            <Button
+                android:id="@+id/btnWhiteTilesGameButton4-2"
+                style="@style/styleWhiteTilesButton" />
+
+            <Button
+                android:id="@+id/btnWhiteTilesGameButton4-3"
+                style="@style/styleWhiteTilesButton" />
+
+            <Button
+                android:id="@+id/btnWhiteTilesGameButton4-4"
+                style="@style/styleWhiteTilesButton" />
+        </TableRow>
+
+    </TableLayout>
+
+    <TextView
+        android:id="@+id/tvWhiteTilesYourPoints"
+        style="@style/styleWhiteTilesPointsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="@string/WhiteTilesYourPoints"
+        app:layout_constraintBottom_toTopOf="@+id/btnWhiteTilesRestart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+
+    <Button
+        android:id="@+id/btnWhiteTilesRestart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="@string/WhiteTilesRestartButton"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
