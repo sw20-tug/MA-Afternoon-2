@@ -22,9 +22,7 @@ import static androidx.test.espresso.matcher.ViewMatchers.isClickable;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.isNotChecked;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
-import static androidx.test.espresso.matcher.ViewMatchers.withTagValue;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
-import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
 import static org.junit.Assert.assertEquals;
 
@@ -35,10 +33,8 @@ public class TicTacToeSettingsUITest {
     @Rule
     public IntentsTestRule<TicTacToeSettingsActivity> activityRule = new IntentsTestRule<>(TicTacToeSettingsActivity.class);
 
-
     @Test
     public void useAppContext() {
-        // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
         assertEquals("at.tugraz.ist.ma.games", appContext.getPackageName());
@@ -150,7 +146,7 @@ public class TicTacToeSettingsUITest {
     }
 
     @Test
-    public void changePlayerPVPMutipleTimes() {
+    public void changePlayerPVPMultipleTimes() {
         onView(withId(R.id.ttt_tb_PlayerOneSymbol)).perform(click());
 
         onView(withId(R.id.ttt_tb_PlayerOneSymbol)).check(matches(isClickable()));
