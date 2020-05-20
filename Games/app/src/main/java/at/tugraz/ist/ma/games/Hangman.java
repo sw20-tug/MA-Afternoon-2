@@ -1,31 +1,23 @@
 package at.tugraz.ist.ma.games;
 
 
-import android.content.Context;
-import android.util.Log;
-import android.webkit.ConsoleMessage;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
-
 import java.util.Random;
 
-public class Hangman
+class Hangman
 {
 
-    private String word_                 = "";
+    private String word_;
     private String guessed_word_         = "";
     private String display_word_         = "";
-    private Character unknown_character  = '_';
-    private Context context_;
-    private int number_of_wrong_guesses_ = 0;
-    String[] word_list = new String[]{ "hangmantest", "applejuice", "kitchen","viewer", "kidney" };
+
+    private int number_of_wrong_guesses_;
+    private final String[] word_list = new String[]{ "hangmantest", "applejuice", "kitchen","viewer", "kidney" };
 
 
     //----------------------------------------------------------------------------------------------
-    public Hangman(String word, Context context)
+    public Hangman(String word)
     {
-        context_ = context;
+
 
         if(word != null)
         {
@@ -42,17 +34,30 @@ public class Hangman
         buildFieldWithSpace();
     }
 
+    void reset()
+    {
+        Random random = new Random();
+        int rnd = random.nextInt(word_list.length);
+        word_ = word_list[rnd].toLowerCase();
+        guessed_word_ = "";
+        display_word_ = "";
+
+        number_of_wrong_guesses_ = 0;
+        initiliazeGuessedWord();
+        buildFieldWithSpace();
+    }
     //----------------------------------------------------------------------------------------------
     private void initiliazeGuessedWord()
     {
         for (int i = 0; i < word_.length(); i++) {
+            Character unknown_character = '_';
             guessed_word_ += unknown_character;
         }
     }
 
 
     //----------------------------------------------------------------------------------------------
-    public void buildFieldWithSpace()
+    private void buildFieldWithSpace()
     {
         display_word_ = "";
         for (int i = 0; i < word_.length(); i++) {
@@ -61,25 +66,12 @@ public class Hangman
             }
             display_word_ += guessed_word_.charAt(i);
         }
-        compareGuessedWithWord();
     }
 
     //----------------------------------------------------------------------------------------------
-    public boolean compareGuessedWithWord()
+    public boolean isWordCorrect()
     {
-        if (word_.equals(guessed_word_))
-        {
-            if(context_ != null) {
-
-                Toast.makeText(context_, "You win!",
-                        Toast.LENGTH_SHORT).show();
-            }
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return word_.equals(guessed_word_);
     }
 
     //----------------------------------------------------------------------------------------------
@@ -100,12 +92,6 @@ public class Hangman
             increaseNumberOfWrongGuesses();
         }
 
-        if(number_of_wrong_guesses_ == 4 && context_ != null)
-        {
-            Toast.makeText(context_,"Number of guesses exceeded",
-                    Toast.LENGTH_SHORT).show();
-        }
-
         guessed_word_ = String.valueOf(guessedLetter);
         buildFieldWithSpace();
 
@@ -116,16 +102,14 @@ public class Hangman
     //----------------------------------------------------------------------------------------------
     public boolean guessWord(String word)
     {
-        if(word != null && word_.equals(word.toLowerCase()))
-        {
-            return true;
-        }
+        return word != null && word_.equals(word.toLowerCase());
         //increaseNumberOfWrongGuesses();
-        return false;
     }
 
     //----------------------------------------------------------------------------------------------
-    private void increaseNumberOfWrongGuesses() { number_of_wrong_guesses_++; }
+    private void increaseNumberOfWrongGuesses() {
+        number_of_wrong_guesses_++;
+    }
 
     //----------------------------------------------------------------------------------------------
     public int getNumberOfWrongGuesses()        { return number_of_wrong_guesses_ ; }

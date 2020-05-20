@@ -32,6 +32,10 @@
     <string name="title">Corona Games</string>
     <string name="yourpoints">Your Points: 0</string>
 
+    <string name="hangman_play_again">Play Again</string>
+    <string name="hangman_win">You Win</string>
+    <string name="hangman_lost">You Lost</string>
+
     <string name="A">A</string>
     <string name="B">B</string>
     <string name="C">C</string>
