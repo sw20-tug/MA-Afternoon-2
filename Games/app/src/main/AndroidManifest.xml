@@ -3,13 +3,14 @@
     package="at.tugraz.ist.ma.games">
 
     <application
-        android:allowBackup="true"
+        android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".HangmanActivity"></activity>
+        <activity android:name=".WhiteTilesActivity"/>
+        <activity android:name=".HangmanActivity" />
         <activity android:name=".TicTacToeSettingsActivity" />
         <activity android:name=".TicTacToeActivity" />
         <activity android:name=".MainActivity">

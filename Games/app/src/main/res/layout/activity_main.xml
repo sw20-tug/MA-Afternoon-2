@@ -72,9 +72,9 @@
 
             <ImageButton
                 android:id="@+id/btnMainWhiteTiles"
-                style="@style/styleWelcomeScreenButtonsComingSoon"
+                style="@style/styleWelcomeScreenButtons"
                 android:contentDescription="@string/main_donttouch"
-                android:src="@drawable/icon_dont_touch_comingsoon" />
+                android:src="@drawable/icon_dont_touch" />
 
             <ImageButton
                 android:id="@+id/btnMainSettings"

@@ -1,7 +1,5 @@
 package at.tugraz.ist.ma.games;
 
-import java.util.ArrayList;
-
 public class TicTacToe {
     public enum Tile {
         NONE,
@@ -13,7 +11,7 @@ public class TicTacToe {
     private Tile active_player;
     private int game_move_count;
 
-    public TicTacToe(){
+    public TicTacToe(Tile player){
         board_ = new Tile[3][3];
         for(int row = 0; row < 3; row++){
             for(int col = 0; col < 3; col++){
@@ -21,10 +19,10 @@ public class TicTacToe {
             }
         }
         game_move_count = 0;
-        active_player = Tile.CROSS;
+        active_player = player;
     }
-
-    boolean setTileActivePlayer(Integer row, Integer col) throws IndexOutOfBoundsException{
+  
+    public boolean setTileActivePlayer(Integer row, Integer col) throws IndexOutOfBoundsException{
         return setTile(row, col, active_player);
     }
 
