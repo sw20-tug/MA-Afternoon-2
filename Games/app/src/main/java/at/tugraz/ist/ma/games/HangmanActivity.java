@@ -2,25 +2,18 @@ package at.tugraz.ist.ma.games;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import org.w3c.dom.Text;
 
 
 public class HangmanActivity extends AppCompatActivity {
-    // DEFINES
-    public final int MAX_GUESSES = 8;
     // --
 
-    final Hangman hangman = new Hangman(null);
+    private final Hangman hangman = new Hangman(null);
 
 
     @Override
@@ -29,41 +22,41 @@ public class HangmanActivity extends AppCompatActivity {
         //Context ctx = getApplication().getBaseContext();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hangman);
-        final TextView text = (TextView) findViewById(R.id.guessableWord);
+        final TextView text = findViewById(R.id.guessableWord);
         text.setText(hangman.getCurrentGuess());
 
-        final Button buttonHangmanPlayAgain = (Button) findViewById(R.id.buttonHangmanPlayAgain);
-        final TextView hangmanWinLoose = (TextView) findViewById(R.id.hangmanWinLoose);
+        final Button buttonHangmanPlayAgain = findViewById(R.id.buttonHangmanPlayAgain);
+        final TextView hangmanWinLoose = findViewById(R.id.hangmanWinLoose);
         buttonHangmanPlayAgain.setOnClickListener(v -> Replay(text,buttonHangmanPlayAgain,hangmanWinLoose));
 
 
 
-        final Button buttonA = (Button) findViewById(R.id.buttonA);
-        final Button buttonB = (Button) findViewById(R.id.buttonB);
-        final Button buttonC = (Button) findViewById(R.id.buttonC);
-        final Button buttonD = (Button) findViewById(R.id.buttonD);
-        final Button buttonE = (Button) findViewById(R.id.buttonE);
-        final Button buttonF = (Button) findViewById(R.id.buttonF);
-        final Button buttonG = (Button) findViewById(R.id.buttonG);
-        final Button buttonH = (Button) findViewById(R.id.buttonH);
-        final Button buttonI = (Button) findViewById(R.id.buttonI);
-        final Button buttonJ = (Button) findViewById(R.id.buttonJ);
-        final Button buttonK = (Button) findViewById(R.id.buttonK);
-        final Button buttonL = (Button) findViewById(R.id.buttonL);
-        final Button buttonM = (Button) findViewById(R.id.buttonM);
-        final Button buttonN = (Button) findViewById(R.id.buttonN);
-        final Button buttonO = (Button) findViewById(R.id.buttonO);
-        final Button buttonP = (Button) findViewById(R.id.buttonP);
-        final Button buttonQ = (Button) findViewById(R.id.buttonQ);
-        final Button buttonR = (Button) findViewById(R.id.buttonR);
-        final Button buttonS = (Button) findViewById(R.id.buttonS);
-        final Button buttonT = (Button) findViewById(R.id.buttonT);
-        final Button buttonU = (Button) findViewById(R.id.buttonU);
-        final Button buttonV = (Button) findViewById(R.id.buttonV);
-        final Button buttonW = (Button) findViewById(R.id.buttonW);
-        final Button buttonX = (Button) findViewById(R.id.buttonX);
-        final Button buttonY = (Button) findViewById(R.id.buttonY);
-        final Button buttonZ = (Button) findViewById(R.id.buttonZ);
+        final Button buttonA = findViewById(R.id.buttonA);
+        final Button buttonB = findViewById(R.id.buttonB);
+        final Button buttonC = findViewById(R.id.buttonC);
+        final Button buttonD = findViewById(R.id.buttonD);
+        final Button buttonE = findViewById(R.id.buttonE);
+        final Button buttonF = findViewById(R.id.buttonF);
+        final Button buttonG = findViewById(R.id.buttonG);
+        final Button buttonH = findViewById(R.id.buttonH);
+        final Button buttonI = findViewById(R.id.buttonI);
+        final Button buttonJ = findViewById(R.id.buttonJ);
+        final Button buttonK = findViewById(R.id.buttonK);
+        final Button buttonL = findViewById(R.id.buttonL);
+        final Button buttonM = findViewById(R.id.buttonM);
+        final Button buttonN = findViewById(R.id.buttonN);
+        final Button buttonO = findViewById(R.id.buttonO);
+        final Button buttonP = findViewById(R.id.buttonP);
+        final Button buttonQ = findViewById(R.id.buttonQ);
+        final Button buttonR = findViewById(R.id.buttonR);
+        final Button buttonS = findViewById(R.id.buttonS);
+        final Button buttonT = findViewById(R.id.buttonT);
+        final Button buttonU = findViewById(R.id.buttonU);
+        final Button buttonV = findViewById(R.id.buttonV);
+        final Button buttonW = findViewById(R.id.buttonW);
+        final Button buttonX = findViewById(R.id.buttonX);
+        final Button buttonY = findViewById(R.id.buttonY);
+        final Button buttonZ = findViewById(R.id.buttonZ);
 
         buttonA.setOnClickListener(v -> clickCharacter('a', buttonA, text));
         buttonB.setOnClickListener(v -> clickCharacter('b', buttonB, text));
@@ -107,6 +100,8 @@ public class HangmanActivity extends AppCompatActivity {
         }
         else {
             int wrong_guesses = hangman.getNumberOfWrongGuesses();
+            // DEFINES
+            int MAX_GUESSES = 8;
             if(wrong_guesses >= MAX_GUESSES) {
                 setField(false);
                 showFail();
@@ -152,46 +147,46 @@ public class HangmanActivity extends AppCompatActivity {
 
     private void setField(boolean b)
     {
-        ((Button) findViewById(R.id.buttonA)).setEnabled(b);
-        ((Button) findViewById(R.id.buttonB)).setEnabled(b);
-        ((Button) findViewById(R.id.buttonC)).setEnabled(b);
-        ((Button) findViewById(R.id.buttonD)).setEnabled(b);
-        ((Button) findViewById(R.id.buttonE)).setEnabled(b);
-        ((Button) findViewById(R.id.buttonF)).setEnabled(b);
-        ((Button) findViewById(R.id.buttonG)).setEnabled(b);
-        ((Button) findViewById(R.id.buttonH)).setEnabled(b);
-        ((Button) findViewById(R.id.buttonI)).setEnabled(b);
-        ((Button) findViewById(R.id.buttonJ)).setEnabled(b);
-        ((Button) findViewById(R.id.buttonK)).setEnabled(b);
-        ((Button) findViewById(R.id.buttonL)).setEnabled(b);
-        ((Button) findViewById(R.id.buttonM)).setEnabled(b);
-        ((Button) findViewById(R.id.buttonN)).setEnabled(b);
-        ((Button) findViewById(R.id.buttonO)).setEnabled(b);
-        ((Button) findViewById(R.id.buttonP)).setEnabled(b);
-        ((Button) findViewById(R.id.buttonQ)).setEnabled(b);
-        ((Button) findViewById(R.id.buttonR)).setEnabled(b);
-        ((Button) findViewById(R.id.buttonS)).setEnabled(b);
-        ((Button) findViewById(R.id.buttonT)).setEnabled(b);
-        ((Button) findViewById(R.id.buttonU)).setEnabled(b);
-        ((Button) findViewById(R.id.buttonV)).setEnabled(b);
-        ((Button) findViewById(R.id.buttonW)).setEnabled(b);
-        ((Button) findViewById(R.id.buttonX)).setEnabled(b);
-        ((Button) findViewById(R.id.buttonY)).setEnabled(b);
-        ((Button) findViewById(R.id.buttonZ)).setEnabled(b);
+        findViewById(R.id.buttonA).setEnabled(b);
+        findViewById(R.id.buttonB).setEnabled(b);
+        findViewById(R.id.buttonC).setEnabled(b);
+        findViewById(R.id.buttonD).setEnabled(b);
+        findViewById(R.id.buttonE).setEnabled(b);
+        findViewById(R.id.buttonF).setEnabled(b);
+        findViewById(R.id.buttonG).setEnabled(b);
+        findViewById(R.id.buttonH).setEnabled(b);
+        findViewById(R.id.buttonI).setEnabled(b);
+        findViewById(R.id.buttonJ).setEnabled(b);
+        findViewById(R.id.buttonK).setEnabled(b);
+        findViewById(R.id.buttonL).setEnabled(b);
+        findViewById(R.id.buttonM).setEnabled(b);
+        findViewById(R.id.buttonN).setEnabled(b);
+        findViewById(R.id.buttonO).setEnabled(b);
+        findViewById(R.id.buttonP).setEnabled(b);
+        findViewById(R.id.buttonQ).setEnabled(b);
+        findViewById(R.id.buttonR).setEnabled(b);
+        findViewById(R.id.buttonS).setEnabled(b);
+        findViewById(R.id.buttonT).setEnabled(b);
+        findViewById(R.id.buttonU).setEnabled(b);
+        findViewById(R.id.buttonV).setEnabled(b);
+        findViewById(R.id.buttonW).setEnabled(b);
+        findViewById(R.id.buttonX).setEnabled(b);
+        findViewById(R.id.buttonY).setEnabled(b);
+        findViewById(R.id.buttonZ).setEnabled(b);
     }
 
     private void showFail() {
-        final Button buttonHangmanPlayAgain = (Button) findViewById(R.id.buttonHangmanPlayAgain);
+        final Button buttonHangmanPlayAgain = findViewById(R.id.buttonHangmanPlayAgain);
         buttonHangmanPlayAgain.setVisibility(View.VISIBLE);
-        final TextView hangmanWinLoose = (TextView) findViewById(R.id.hangmanWinLoose);
+        final TextView hangmanWinLoose = findViewById(R.id.hangmanWinLoose);
         hangmanWinLoose.setText(R.string.hangman_lost);
         hangmanWinLoose.setVisibility(View.VISIBLE);
     }
 
     private void showWin() {
-        final Button buttonHangmanPlayAgain = (Button) findViewById(R.id.buttonHangmanPlayAgain);
+        final Button buttonHangmanPlayAgain = findViewById(R.id.buttonHangmanPlayAgain);
         buttonHangmanPlayAgain.setVisibility(View.VISIBLE);
-        final TextView hangmanWinLoose = (TextView) findViewById(R.id.hangmanWinLoose);
+        final TextView hangmanWinLoose = findViewById(R.id.hangmanWinLoose);
         hangmanWinLoose.setText(R.string.hangman_win);
         hangmanWinLoose.setVisibility(View.VISIBLE);
     }

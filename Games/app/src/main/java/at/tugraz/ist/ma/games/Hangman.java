@@ -1,25 +1,17 @@
 package at.tugraz.ist.ma.games;
 
 
-import android.content.Context;
-import android.util.Log;
-import android.webkit.ConsoleMessage;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
-
 import java.util.Random;
 
-public class Hangman
+class Hangman
 {
 
-    private String word_                 = "";
+    private String word_;
     private String guessed_word_         = "";
     private String display_word_         = "";
-    private Character unknown_character  = '_';
 
-    private int number_of_wrong_guesses_ = 0;
-    String[] word_list = new String[]{ "hangmantest", "applejuice", "kitchen","viewer", "kidney" };
+    private int number_of_wrong_guesses_;
+    private final String[] word_list = new String[]{ "hangmantest", "applejuice", "kitchen","viewer", "kidney" };
 
 
     //----------------------------------------------------------------------------------------------
@@ -58,13 +50,14 @@ public class Hangman
     private void initiliazeGuessedWord()
     {
         for (int i = 0; i < word_.length(); i++) {
+            Character unknown_character = '_';
             guessed_word_ += unknown_character;
         }
     }
 
 
     //----------------------------------------------------------------------------------------------
-    public void buildFieldWithSpace()
+    private void buildFieldWithSpace()
     {
         display_word_ = "";
         for (int i = 0; i < word_.length(); i++) {
@@ -109,12 +102,8 @@ public class Hangman
     //----------------------------------------------------------------------------------------------
     public boolean guessWord(String word)
     {
-        if(word != null && word_.equals(word.toLowerCase()))
-        {
-            return true;
-        }
+        return word != null && word_.equals(word.toLowerCase());
         //increaseNumberOfWrongGuesses();
-        return false;
     }
 
     //----------------------------------------------------------------------------------------------
