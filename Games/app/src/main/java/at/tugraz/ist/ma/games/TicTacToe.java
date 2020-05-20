@@ -24,11 +24,11 @@ public class TicTacToe {
         active_player = Tile.CROSS;
     }
 
-    public boolean setTileActivePlayer(Integer row, Integer col) throws IndexOutOfBoundsException{
+    boolean setTileActivePlayer(Integer row, Integer col) throws IndexOutOfBoundsException{
         return setTile(row, col, active_player);
     }
 
-    public boolean setTile(Integer row, Integer col, Tile tile) throws IndexOutOfBoundsException {
+    boolean setTile(Integer row, Integer col, Tile tile) throws IndexOutOfBoundsException {
         if(board_[row][col] != Tile.NONE){
             System.out.println("Field " + row + ", " + col + " is occupied");
             return false;
@@ -38,23 +38,23 @@ public class TicTacToe {
         return true;
     }
 
-    public Tile[][] getBoard(){
+    Tile[][] getBoard(){
         return board_;
     }
 
-    public Tile getActivePlayer() {
+    Tile getActivePlayer() {
         return active_player;
     }
 
-    public boolean checkTie(){
+    boolean checkTie(){
         return game_move_count >= 9;
     }
 
-    public boolean checkWinActivePlayer(){
+    boolean checkWinActivePlayer(){
         return checkWin(active_player);
     }
 
-    public boolean checkWin(Tile last_tile){
+    boolean checkWin(Tile last_tile){
 
         //column check
 

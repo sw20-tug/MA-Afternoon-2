@@ -44,6 +44,12 @@ class TicTacToeAI {
         Objects.requireNonNull(winStrategies.get(playerTile_))[7] =  new TicTacToeWinStrategy(2,4,6);
     }
 
+    void setTileAiForTest(int row, int col){
+        board_[boardIndexFromRowCol(row, col)] = aiTile_;
+        deleteWinStrategies(boardIndexFromRowCol(row, col), playerTile_);
+    }
+
+
     void setTilePlayer(int row, int col)
     {
         board_[boardIndexFromRowCol(row, col)] = playerTile_;
@@ -125,7 +131,7 @@ class TicTacToeAI {
         return -1;
     }
 
-    void deleteWinStrategies(int index, TicTacToe.Tile playerTile){
+    private void deleteWinStrategies(int index, TicTacToe.Tile playerTile){
         for (TicTacToeWinStrategy ws : Objects.requireNonNull(winStrategies.get(playerTile))){
             for (int i : ws.getFields()){
                 if (i == index)
@@ -137,7 +143,7 @@ class TicTacToeAI {
         }
     }
 
-    int getNumberOfSetFields (TicTacToeWinStrategy ws, TicTacToe.Tile tile)
+    private int getNumberOfSetFields (TicTacToeWinStrategy ws, TicTacToe.Tile tile)
     {
         int result = 0;
         for(int index : ws.getFields()){
@@ -149,7 +155,7 @@ class TicTacToeAI {
         return result;
     }
 
-    int getIndexRandFreeField (TicTacToeWinStrategy ws){
+    private int getIndexRandFreeField (TicTacToeWinStrategy ws){
         List<Integer> freeFields = new ArrayList<>();
 
         for(int i : ws.getFields()){
@@ -164,8 +170,6 @@ class TicTacToeAI {
     }
 
 
-
-
     TicTacToe.Tile getOpositeTile(TicTacToe.Tile tile){
         if(tile == TicTacToe.Tile.CROSS){
             return TicTacToe.Tile.CIRCLE;
@@ -174,15 +178,15 @@ class TicTacToeAI {
         }
     }
 
-    public int getRow(int index){
+    int getRow(int index){
         return index / 3;
     }
 
-    public int getCol(int index){
+    int getCol(int index){
         return index % 3;
     }
 
-    private int boardIndexFromRowCol(int row, int col){
+    int boardIndexFromRowCol(int row, int col){
         return 3*row+col;
     }
 }

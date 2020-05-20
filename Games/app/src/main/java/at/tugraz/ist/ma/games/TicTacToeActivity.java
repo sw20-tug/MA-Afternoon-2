@@ -143,9 +143,9 @@ public class TicTacToeActivity extends AppCompatActivity implements View.OnClick
                 break;
         }
 
-        boolean aiMove = setTile(row, col);
+        boolean validMove = setTile(row, col);
 
-        if(aiMove && pve){
+        if(validMove && pve){
             ai.setTilePlayer(row, col);
             int aiIndex = ai.doAIMove();
             row = ai.getRow(aiIndex);
