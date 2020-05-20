@@ -43,9 +43,12 @@ public class TicTacToeActivity extends AppCompatActivity implements View.OnClick
             ticTacToeSettings = new TicTacToeSettings();
         ticTacToe = new TicTacToe(ticTacToeSettings.getStartingPlayer());
         player_symbol = ticTacToeSettings.getStartingPlayer();
-        setPlayerText(); 
-      
+        setPlayerText();
+        TextView gameModeTv = findViewById(R.id.ttt_tv_game_mode);
+        gameModeTv.setText(getString(R.string.GameModePvP));
+
         if(ticTacToeSettings.getGameMode() == TicTacToeSettings.GAME_MODE.PVE){
+            gameModeTv.setText(getString(R.string.GameModePvAI));
             if(player_symbol == TicTacToe.Tile.CROSS){
                 ai = new TicTacToeAI(TicTacToe.Tile.CIRCLE);
             } else {

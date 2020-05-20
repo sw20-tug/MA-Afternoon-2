@@ -11,6 +11,17 @@ public class TicTacToe {
     private Tile active_player;
     private int game_move_count;
 
+    public TicTacToe(){
+        board_ = new Tile[3][3];
+        for(int row = 0; row < 3; row++){
+            for(int col = 0; col < 3; col++){
+                board_[row][col] = Tile.NONE;
+            }
+        }
+        game_move_count = 0;
+        active_player = Tile.CROSS;
+    }
+
     public TicTacToe(Tile player){
         board_ = new Tile[3][3];
         for(int row = 0; row < 3; row++){
