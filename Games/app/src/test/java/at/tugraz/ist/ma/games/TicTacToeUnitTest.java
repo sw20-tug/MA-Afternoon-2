@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -80,6 +81,40 @@ public class TicTacToeUnitTest {
         assertFalse(ticTacToe.checkWinActivePlayer());
         ticTacToe.setTileActivePlayer(2, 1);
         assertTrue(ticTacToe.checkWinActivePlayer());
+    }
+
+    @Test
+    public void checkOccupied()
+    {
+        ticTacToe.setTileActivePlayer(1,1);
+        assertFalse(ticTacToe.setTileActivePlayer(1,1));
+    }
+
+    @Test
+    public void activePlayerTest()
+    {
+        TicTacToe.Tile tile = ticTacToe.getActivePlayer();
+        ticTacToe.setTileActivePlayer(1, 1);
+        ticTacToe.changePlayer();
+        assertNotEquals(TicTacToe.Tile.NONE, tile);
+        TicTacToe.Tile tile2 = ticTacToe.getActivePlayer();
+
+        assertNotEquals(tile, tile2);
+    }
+
+    @Test
+    public void checkTieTest(){
+        ticTacToe.setTile(0,0, TicTacToe.Tile.CROSS);
+        ticTacToe.setTile(0, 1, TicTacToe.Tile.CIRCLE);
+        ticTacToe.setTile(0,2, TicTacToe.Tile.CIRCLE);
+        ticTacToe.setTile(1, 0, TicTacToe.Tile.CIRCLE);
+        ticTacToe.setTile(1,1, TicTacToe.Tile.CROSS);
+        ticTacToe.setTile(1, 2, TicTacToe.Tile.CROSS);
+        ticTacToe.setTile(2,0, TicTacToe.Tile.CROSS);
+        ticTacToe.setTile(2, 1, TicTacToe.Tile.CROSS);
+        ticTacToe.setTile(2, 2, TicTacToe.Tile.CIRCLE);
+
+        assertTrue(ticTacToe.checkTie());
     }
 }
 
