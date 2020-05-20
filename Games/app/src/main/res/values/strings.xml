@@ -3,6 +3,11 @@
 
     <string name="play_again">Play Again</string>
 
+    <string name="TTT_Transfer_Settings">ttt_settings_transfer</string>
+
+    <string name="player_one">Player 1</string>
+    <string name="player_two">Player 2</string>
+
     <string name="player_cross">Player Cross</string>
     <string name="player_circle">Player Circle</string>
     <string name="player_none">Player None</string>
@@ -26,6 +31,10 @@
     <string name="changelanguage">Language</string>
     <string name="title">Corona Games</string>
     <string name="yourpoints">Your Points: 0</string>
+
+    <string name="hangman_play_again">Play Again</string>
+    <string name="hangman_win">You Win</string>
+    <string name="hangman_lost">You Lost</string>
 
     <string name="A">A</string>
     <string name="B">B</string>

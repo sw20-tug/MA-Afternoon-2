@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void btnMainTicTacToe_Click() {
-        Intent intentTTT = new Intent(getApplicationContext(), TicTacToeActivity.class);
+        Intent intentTTT = new Intent(getApplicationContext(), TicTacToeSettingsActivity.class);
         startActivity(intentTTT);
     }
 
