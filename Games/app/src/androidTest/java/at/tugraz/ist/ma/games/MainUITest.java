@@ -67,9 +67,9 @@ public class MainUITest {
 
     // Test, if the correct activities are opened when pressing buttons
     @Test
-    public void checkMainToTicTacToeActivitySwitch() {
+    public void checkMainToTicTacToeSettingActivitySwitch() {
         onView(withId(R.id.btnMainTicTacToe)).perform(click());
-        intended(hasComponent(TicTacToeActivity.class.getName()));
+        intended(hasComponent(TicTacToeSettingsActivity.class.getName()));
     }
 
     // Test, if the correct activities are opened when pressing buttons
@@ -83,7 +83,7 @@ public class MainUITest {
     @Test
     public void checkMainToWhiteTilesActivitySwitch() {
         onView(withId(R.id.btnMainWhiteTiles)).perform(click());
-        //intended(hasComponent(WhiteTilesSettingsActivity.class.getName()));
+        intended(hasComponent(WhiteTilesActivity.class.getName()));
     }
 
     // Test, if the correct activities are opened when pressing buttons

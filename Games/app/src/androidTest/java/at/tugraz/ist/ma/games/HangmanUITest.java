@@ -1,8 +1,5 @@
 package at.tugraz.ist.ma.games;
 
-import android.content.res.Resources;
-import android.util.Log;
-
 import androidx.test.espresso.intent.rule.IntentsTestRule;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 
@@ -15,7 +12,7 @@ import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.isClickable;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
-
+import static org.hamcrest.core.IsNot.not;
 
 
 @RunWith(AndroidJUnit4.class)
@@ -109,6 +106,11 @@ public class HangmanUITest {
 
         onView(withId(R.id.buttonZ)).check(matches(isDisplayed()));
         onView(withId(R.id.buttonZ)).check(matches(isClickable()));
+
+        onView(withId(R.id.buttonHangmanPlayAgain)).check(matches(not(isDisplayed())));
+        onView(withId(R.id.buttonHangmanPlayAgain)).check(matches(isClickable()));
+
+        onView(withId(R.id.hangmanWinLoose)).check(matches(not(isDisplayed())));
     }
 
 

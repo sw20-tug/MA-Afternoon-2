@@ -16,6 +16,10 @@
     <color name="colorTTTGridBG">@color/colorPrimaryDark</color>
     <color name="colorTTTGridFieldBG">@color/colorPrimaryLight</color>
 
+
+    <color name="color_wt_white">@android:color/white</color>
+    <color name="color_wt_black">@android:color/black</color>
+
     <!--Welcome Screen -->
     <color name="colorWelcomeScreenBackground">#708690</color>
     <color name="colorWelcomeScreenPrimaryColor">#445963</color>

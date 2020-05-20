@@ -33,6 +33,23 @@
         <item name="android:textSize">20sp</item>
       </style>
 
+    <style name="styleWhiteTilesButton">
+        <item name="android:scaleType">fitCenter</item>
+        <item name="android:adjustViewBounds">true</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@color/color_wt_white</item>
+        <item name="android:layout_margin">1dp</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:layout_width">fill_parent</item>
+    </style>
 
+    <style name="styleWhiteTilesPointsText">
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">40sp</item>
+    </style>
 
 </resources>
