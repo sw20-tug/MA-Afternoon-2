@@ -82,8 +82,5 @@ public class WhiteTileUnitTest {
         assertTrue(white_tiles);
         assertTrue(black_tiles);
     }
-
-
-
 }
 

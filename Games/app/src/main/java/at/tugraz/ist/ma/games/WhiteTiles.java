@@ -102,4 +102,8 @@ public class WhiteTiles
         return buttons;
     }
 
+    public int getNumberOfBlackTiles()
+    {
+        return number_of_black_tiles;
+    }
 }

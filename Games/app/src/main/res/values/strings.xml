@@ -3,7 +3,6 @@
 
     <string name="play_again">Play Again</string>
 
-    <string name="TTT_placeholder_mode">PvP</string>
     <string name="player_cross">Player Cross</string>
     <string name="player_circle">Player Circle</string>
     <string name="player_none">Player None</string>
@@ -12,6 +11,7 @@
     <string name="GameMode">Game Mode</string>
     <string name="GameModePvP">PvP</string>
     <string name="GameModePvAI">PvAI</string>
+
     <string name="AIDifficulty">AI Difficulty</string>
     <string name="TTTStartingSymbol">Starting Symbol</string>
     <string name="TTT_X">X</string>
@@ -63,7 +63,6 @@
 
 
     <!-- WhiteTiles Strings -->
-    <string name="WhiteTilesRestartButton">Restart</string>
     <string name="WhiteTilesYour0Points">Your Points: 0</string>
     <string name="WhiteTilesYourPoints">Your Points:\u0020</string>
 
