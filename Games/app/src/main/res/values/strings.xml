@@ -40,6 +40,8 @@
     <string name="sett_add">+</string>
     <string name="sett_save">Save</string>
     <string name="sett_delete">Delete</string>
+    <string name="sett_wordalready">Word is already added</string>
+    <string name="sett_wordempty">No word provided</string>
 
     <string name="A">A</string>
     <string name="B">B</string>

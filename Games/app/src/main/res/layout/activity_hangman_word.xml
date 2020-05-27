@@ -18,7 +18,7 @@
         app:layout_constraintVertical_weight="1">
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/sett_hangmanWord"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -38,7 +38,7 @@
             android:text="@string/sett_add"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/editText"
+            app:layout_constraintStart_toEndOf="@+id/sett_hangmanWord"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -58,6 +58,7 @@
             android:layout_height="0dp"
             android:layout_marginStart="1dp"
             android:layout_marginTop="1dp"
+            android:choiceMode="singleChoice"
             android:listSelector="@android:color/holo_green_dark"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
