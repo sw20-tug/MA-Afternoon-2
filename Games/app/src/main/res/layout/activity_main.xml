@@ -79,7 +79,7 @@
             <ImageButton
                 android:id="@+id/btnMainSettings"
                 style="@style/styleWelcomeScreenButtonsComingSoon"
-                android:contentDescription="@string/main_settings"
+                android:contentDescription="@string/main_othergames"
                 android:src="@drawable/icon_settings_comingsoon" />
 
         </TableRow>
@@ -94,14 +94,12 @@
             <TextView
                 android:id="@+id/tvMainSettings"
                 style="@style/styleWelcomeScreenText"
-                android:text="@string/main_settings" />
+                android:text="@string/main_othergames" />
         </TableRow>
 
     </TableLayout>
 
     <TextView
-        android:visibility="invisible"
-
         android:id="@+id/tvMainPoints"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

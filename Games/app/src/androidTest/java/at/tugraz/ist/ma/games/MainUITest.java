@@ -34,7 +34,7 @@ public class MainUITest {
         onView(withId(R.id.tvMainTicTacToe)).check(matches(withText(R.string.main_tictactoe)));
         onView(withId(R.id.tvMainHangman)).check(matches(withText(R.string.main_hangman)));
         onView(withId(R.id.tvMainWhiteTiles)).check(matches(withText(R.string.main_donttouch)));
-        onView(withId(R.id.tvMainSettings)).check(matches(withText(R.string.main_settings)));
+        onView(withId(R.id.tvMainSettings)).check(matches(withText(R.string.main_othergames)));
     }
 
     //Test if the Buttons and Text fields are visible
@@ -51,8 +51,7 @@ public class MainUITest {
         onView(withId(R.id.tvMainWhiteTiles)).check(matches(isDisplayed()));
         onView(withId(R.id.tvMainSettings)).check(matches(isDisplayed()));
 
-        onView(withId(R.id.tvMainPoints)).check(matches(not(isDisplayed())));
-        //onView(withId(R.id.tvMainPoints)).check(matches(isDisplayed()));
+        onView(withId(R.id.tvMainPoints)).check(matches(isDisplayed()));
     }
 
     //Test if the Buttons are clickable
