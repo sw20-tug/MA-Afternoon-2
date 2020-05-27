@@ -26,4 +26,6 @@ class ScoreHandler
     public int getScore() {
         return score;
     }
+
+    void resetScoreToZero() { this.score = 0;}
 }
