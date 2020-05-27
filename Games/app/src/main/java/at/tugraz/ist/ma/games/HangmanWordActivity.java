@@ -2,11 +2,7 @@ package at.tugraz.ist.ma.games;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
-import android.inputmethodservice.Keyboard;
 import android.os.Bundle;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.Adapter;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -109,7 +105,7 @@ public class HangmanWordActivity extends AppCompatActivity {
                 "Word 17"
         };
 
-        return new ArrayList<String>(Arrays.asList(list));
+        return new ArrayList<>(Arrays.asList(list));
     }
 
     private void saveWords(ArrayList<String> words) {
