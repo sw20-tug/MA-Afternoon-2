@@ -7,8 +7,9 @@ import android.widget.Button;
 
 public class WhiteTiles
 {
-    final static int WHITE_TILES_SCORE_INCREASE_CORRECT_TILE  =  1;
-    final static int WHITE_TILES_SCORE_DEDUCTION_PER_LOSS     = -2;
+    final static int WHITE_TILES_SCORE_FACTOR               =  5;
+    final static int WHITE_TILES_SCORE_INCREASE_PER_FACTOR  =  1;
+    final static int WHITE_TILES_SCORE_DEDUCTION_PER_LOSS   = -2;
 
     public enum TileColor {
         BLACK,
