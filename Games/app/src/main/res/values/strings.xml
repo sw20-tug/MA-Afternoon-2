@@ -35,6 +35,8 @@
     <string name="hangman_play_again">Play Again</string>
     <string name="hangman_win">You Win</string>
     <string name="hangman_lost">You Lost</string>
+    <string name="sett_hangmanwords">Edit Words</string>
+    <string name="sett_about">About</string>
 
     <string name="A">A</string>
     <string name="B">B</string>

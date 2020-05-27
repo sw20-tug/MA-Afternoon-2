@@ -78,9 +78,9 @@
 
             <ImageButton
                 android:id="@+id/btnMainSettings"
-                style="@style/styleWelcomeScreenButtonsComingSoon"
+                style="@style/styleWelcomeScreenButtons"
                 android:contentDescription="@string/main_settings"
-                android:src="@drawable/icon_settings_comingsoon" />
+                android:src="@drawable/icon_settings" />
 
         </TableRow>
 

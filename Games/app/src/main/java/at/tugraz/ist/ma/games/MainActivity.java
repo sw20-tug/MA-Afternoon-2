@@ -35,8 +35,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void btnMainSettings_Click() {
-        //Intent intentWT = new Intent(getApplicationContext(), SettingsActivity.class);
-        //startActivity(intentWT);
+        Intent intentWT = new Intent(getApplicationContext(), SettingsActivity.class);
+        startActivity(intentWT);
     }
 
     private void btnMainDontTouch_Click() {
