@@ -5,6 +5,9 @@ import java.util.Random;
 
 class Hangman
 {
+    final static int HANGMAN_SCORE_INCREASE_PER_WIN  =  1;
+    final static int HANGMAN_SCORE_DECREASE_PER_HINT = -3;
+    final static int HANGMAN_SCORE_DECREASE_PER_LOSS = -2;
 
     private String word_;
     private String guessed_word_         = "";

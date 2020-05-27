@@ -3,20 +3,18 @@ package at.tugraz.ist.ma.games;
 import java.util.ArrayList;
 import java.util.Random;
 
-import android.graphics.Color;
-import android.util.Log;
-import android.view.View;
 import android.widget.Button;
-
-
-
 
 public class WhiteTiles
 {
+    final static int WHITE_TILES_SCORE_INCREASE_CORRECT_TILE  =  1;
+    final static int WHITE_TILES_SCORE_DEDUCTION_PER_LOSS     = -2;
+
     public enum TileColor {
         BLACK,
         WHITE
     }
+
     ArrayList<Button> buttons = new ArrayList<Button>();
     ArrayList<TileColor> button_state = new ArrayList<TileColor>();
     private int number_of_black_tiles = 4;

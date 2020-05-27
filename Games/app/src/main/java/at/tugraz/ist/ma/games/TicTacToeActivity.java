@@ -12,13 +12,12 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 
 
-public class TicTacToeActivity extends AppCompatActivity implements View.OnClickListener {
-
+public class TicTacToeActivity extends AppCompatActivity implements View.OnClickListener
+{
     private TicTacToe ticTacToe;
     private TicTacToeSettings ticTacToeSettings;
     private TicTacToeAI ai;
     private Button[][] buttonBoard;
-
     private TicTacToe.Tile player_symbol;
 
     @Override
@@ -196,10 +195,20 @@ public class TicTacToeActivity extends AppCompatActivity implements View.OnClick
 
         if(isSetTile){
             setTileInView(row, col);
-            if(ticTacToe.checkWinActivePlayer()){
+            if(ticTacToe.checkWinActivePlayer())
+            {
                 disableField();
+                if(ticTacToeSettings.getStartingPlayer() == ticTacToe.getActivePlayer())
+                {
+                    ScoreHandler.getInstance().addPointsToScore(TicTacToe.TTT_SCORE_INCREASE_PER_WIN);
+                } else
+                {
+                    ScoreHandler.getInstance().addPointsToScore(TicTacToe.TTT_SCORE_DEDUCTION_PER_LOSS);
+                }
+
                 Toast toast=Toast.makeText(getApplicationContext(),"Won Game " + ticTacToe.getPlayerName(),Toast.LENGTH_SHORT);
                 toast.show();
+
                 return false;
             }
             if(ticTacToe.checkTie())
