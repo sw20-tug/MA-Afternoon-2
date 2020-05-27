@@ -37,6 +37,9 @@
     <string name="hangman_lost">You Lost</string>
     <string name="sett_hangmanwords">Edit Words</string>
     <string name="sett_about">About</string>
+    <string name="sett_add">+</string>
+    <string name="sett_save">Save</string>
+    <string name="sett_delete">Delete</string>
 
     <string name="A">A</string>
     <string name="B">B</string>
