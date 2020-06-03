@@ -62,7 +62,7 @@ public class HangmanWordActivity extends AppCompatActivity {
                 }
                 else {
                     if(!hmw.doesWordExist(word)) {
-                        hmw.addWord(word);
+                        hmw.addWord(word.toLowerCase());
                         sett_hangmanWord.setText("");
                         hmw.saveWords(getApplicationContext());
                     }

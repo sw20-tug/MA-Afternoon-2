@@ -12,10 +12,8 @@ import android.widget.TextView;
 import org.json.JSONArray;
 import org.json.JSONException;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Locale;
 
 
 public class HangmanActivity extends AppCompatActivity {
@@ -68,20 +66,6 @@ public class HangmanActivity extends AppCompatActivity {
         final Button buttonHangmanPlayAgain = findViewById(R.id.buttonHangmanPlayAgain);
         final TextView hangmanWinLoose = findViewById(R.id.hangmanWinLoose);
         buttonHangmanPlayAgain.setOnClickListener(v -> Replay(text,buttonHangmanPlayAgain,hangmanWinLoose));
-
-
-
-//        try {
-//            String lang = Locale.getDefault().getLanguage();
-//
-//            DataManager.storeWordList(new String[]{"Word", "MoreWords", "MostWords"}, Locale.getDefault().getLanguage() ,getApplicationContext());
-//        } catch (IOException e) {
-//            System.out.println("Cannot read words" + e.toString());
-//        }
-
-
-        //------
-
 
 
         final Button buttonA = findViewById(R.id.buttonA);
