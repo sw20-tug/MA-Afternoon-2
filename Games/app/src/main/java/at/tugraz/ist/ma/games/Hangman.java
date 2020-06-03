@@ -17,24 +17,18 @@ class Hangman
     private String guessed_word_         = "";
     private String display_word_         = "";
 
-    private int number_of_wrong_guesses_ =  0;
-    private int number_of_hints_         =  0;
-    private final String[] word_list = new String[]{ "hangmantest", "applejuice", "kitchen","viewer", "kidney" };
+    private int number_of_wrong_guesses_;
+    private int number_of_hints_;
+    
     private ArrayList<Character> possible_hints_ = new ArrayList<>();
+    private String[] word_list_;
 
-    //----------------------------------------------------------------------------------------------
-    public Hangman(String word)
-    {
-        if(word != null)
-        {
-            word_ = word.toLowerCase();
-        }
-        else
-        {
-            Random random = new Random();
-            int rnd = random.nextInt(word_list.length);
-            word_ = word_list[rnd].toLowerCase();
-        }
+    public Hangman(String[] word_list){
+        this.word_list_ = word_list;
+        Random random = new Random();
+        int rnd = random.nextInt(word_list.length);
+        this.word_ = word_list[rnd].toLowerCase();
+
         number_of_hints_         = 0;
         number_of_wrong_guesses_ = 0;
 
@@ -42,12 +36,13 @@ class Hangman
         buildFieldWithSpace();
         initializePossibleHintList();
     }
+    //---------------------------------------------------------------------------------------------
 
     void reset()
     {
         Random random = new Random();
-        int rnd = random.nextInt(word_list.length);
-        word_ = word_list[rnd].toLowerCase();
+        int rnd = random.nextInt(word_list_.length);
+        word_ = word_list_[rnd].toLowerCase();
         guessed_word_ = "";
         display_word_ = "";
 
@@ -170,6 +165,10 @@ class Hangman
     //----------------------------------------------------------------------------------------------
     public void setWord(String word){
         word_ = word;
+    }
+
+    public void setWordList(String[] word_list){
+        this.word_list_ = word_list;
     }
 
 }

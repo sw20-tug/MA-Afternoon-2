@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".WhiteTilesActivity"/>
+        <activity android:name=".HangmanWordActivity" />
+        <activity android:name=".SettingsActivity" />
+        <activity android:name=".WhiteTilesActivity" />
         <activity android:name=".HangmanActivity" />
         <activity android:name=".TicTacToeSettingsActivity" />
         <activity android:name=".TicTacToeActivity" />

@@ -17,7 +17,7 @@ public class HangmanUnitTest {
     @Test
     public void guessTest1_aba()
     {
-        Hangman hangman = new Hangman("aba");
+        Hangman hangman = new Hangman(new String[]{"aba"});
 
         hangman.guessCharacter('a');
         assertEquals("a_a", hangman.getCurrentGuessWithoutSpace());
@@ -28,7 +28,7 @@ public class HangmanUnitTest {
     @Test
     public void guessTest2_abcde()
     {
-        Hangman hangman = new Hangman("abcde");
+        Hangman hangman = new Hangman(new String[]{"abcde"});
 
         hangman.guessCharacter('z');
         assertEquals("_____", hangman.getCurrentGuessWithoutSpace());
@@ -46,14 +46,14 @@ public class HangmanUnitTest {
     @Test
     public void setNewRandomWordTest()
     {
-        Hangman hangman = new Hangman("word");
+        Hangman hangman = new Hangman(new String[]{"word"});
 
         assertNotNull(hangman.getWord());
     }
     @Test
     public void checkWordTrueTest()
     {
-        Hangman hangman = new Hangman("HIGH");
+        Hangman hangman = new Hangman(new String[]{"HIGH"});
 
         assertTrue(hangman.guessWord(hangman.getWord()));
         assertTrue(hangman.guessWord("high"));
@@ -62,7 +62,7 @@ public class HangmanUnitTest {
     @Test
     public void checkWordFalseTest()
     {
-        Hangman hangman = new Hangman("Number");
+        Hangman hangman = new Hangman(new String[]{"Number"});
 
         hangman.setWord("trueWord");
         assertFalse(hangman.guessWord("wrongWord"));
@@ -71,7 +71,7 @@ public class HangmanUnitTest {
     @Test
     public void guessCharacterTest()
     {
-        Hangman hangman = new Hangman("test");
+        Hangman hangman = new Hangman(new String[]{"test"});
 
         hangman.guessCharacter('t');
         hangman.guessCharacter('k');
@@ -82,7 +82,7 @@ public class HangmanUnitTest {
     @Test
     public void wrongGuessNumberTest()
     {
-        Hangman hangman = new Hangman("number");
+        Hangman hangman = new Hangman(new String[]{"number"});
 
         assertEquals(0, hangman.getNumberOfWrongGuesses());
         hangman.guessCharacter('n');

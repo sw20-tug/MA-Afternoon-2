@@ -20,4 +20,15 @@
     <string name="player_circle">Spieler O</string>
     <string name="hint">Tipp</string>
     <string name="main_othergames">Weitere Spiele</string>
+    <string name="sett_hangmanwords">Wörter bearbeiten</string>
+    <string name="sett_about">Über</string>
+    <string name="sett_save">Speichern</string>
+    <string name="sett_delete">Löschen</string>
+    <string name="sett_wordalready">Wort ist bereits definiert</string>
+    <string name="sett_wordempty">Kein Wort angegeben</string>
+    <string name="sett_hintnewword">Neues Wort</string>
+    <string name="wordfile">words_de.json</string>
+    <string name="hm_default_words">["hangman", "spiel", "anwendung", "handy", "laptop", "berg", "blume", "rucksack", "rennauto", "schifffahrt"]</string>
+    <string name="sett_wordlen">Wort darf maximal 11 Zeichen lang sein</string>
+    <string name="sett_wordinvalid">Wort darf nur ASCII Zeichen verwenden</string>
 </resources>

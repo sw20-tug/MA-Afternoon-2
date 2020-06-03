@@ -10,18 +10,59 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
 
 public class HangmanActivity extends AppCompatActivity {
 
-    private final Hangman hangman = new Hangman(null);
+    private Hangman hangman_;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
+
+        JSONArray jsonArray = null;
+        try {
+            jsonArray = new JSONArray(getString(R.string.hm_default_words));
+        } catch (JSONException e) {
+            System.out.println("Cannot read default word (Invalid json)" + e.toString());
+        }
+
+        String[] default_word_list;
+        if(jsonArray != null) {
+            default_word_list = new String[jsonArray.length()];
+        }
+        else {
+            default_word_list = new String[] {};
+        }
+
+        for(int i = 0; i < (jsonArray != null ? jsonArray.length() : 0); i++){
+            default_word_list[i] = jsonArray.optString(i);
+        }
+
         setContentView(R.layout.activity_hangman);
+        String[] word_list;
+        try {
+            word_list = DataManager.loadWordList(getApplicationContext());
+        } catch (Exception e) {
+            System.out.println("Using default words");
+            word_list = new String[]{};
+        }
+
+        ArrayList<String> wl_default = new ArrayList<>(Arrays.asList(default_word_list));
+        ArrayList<String> wl_custom = new ArrayList<>(Arrays.asList(word_list));
+        ArrayList<String> words = new ArrayList<>();
+        words.addAll(wl_default);
+        words.addAll(wl_custom);
+
+        hangman_ = new Hangman(words.toArray(new String[0]));
+
         final TextView text = findViewById(R.id.guessableWord);
-        text.setText(hangman.getCurrentGuess());
+        text.setText(hangman_.getCurrentGuess());
 
         final Button btnHintPlayAgain = findViewById(R.id.buttonHangmanHintPlayAgain);
         final TextView hangmanWinLoose = findViewById(R.id.hangmanWinLoose);
@@ -30,20 +71,19 @@ public class HangmanActivity extends AppCompatActivity {
             if (btnHintPlayAgain.getTag() == getString(R.string.play_again))
             {
                 Replay(text, hangmanWinLoose);
-
                 btnHintPlayAgain.setTag(getString(R.string.hint));
                 btnHintPlayAgain.setText(getString(R.string.hint));
 
             }
             else
             {
-                Toast toast=Toast.makeText(getApplicationContext(),"Possible Letter is \"" + hangman.getHint() + "\" - ("
-                        + (hangman.getNumberOfHints() + 1) + "/" + Hangman.HANGMAN_NR_OF_MAX_HINTS + ")",Toast.LENGTH_SHORT);
+                Toast toast=Toast.makeText(getApplicationContext(),"Possible Letter is \"" + hangman_.getHint() + "\" - ("
+                        + (hangman_.getNumberOfHints() + 1) + "/" + Hangman.HANGMAN_NR_OF_MAX_HINTS + ")",Toast.LENGTH_SHORT);
 
                 toast.show();
                 ScoreHandler.getInstance().addPointsToScore(Hangman.HANGMAN_SCORE_DECREASE_PER_HINT);
 
-                if(hangman.getNumberOfHints() >= Hangman.HANGMAN_NR_OF_MAX_HINTS)
+                if(hangman_.getNumberOfHints() >= Hangman.HANGMAN_NR_OF_MAX_HINTS)
                 {
                     btnHintPlayAgain.setClickable(false);
                     btnHintPlayAgain.setEnabled(false);
@@ -111,11 +151,11 @@ public class HangmanActivity extends AppCompatActivity {
 
     private void clickCharacter(char c, Button b, TextView t) {
         Log.d("HANGMAN-onClick", "button" + c);
-        hangman.guessCharacter(c);
-        t.setText(hangman.getCurrentGuess());
+        hangman_.guessCharacter(c);
+        t.setText(hangman_.getCurrentGuess());
         b.setEnabled(false);
-        final Button btnHintPlayAgain = findViewById(R.id.buttonHangmanHintPlayAgain);
-        if(hangman.isWordCorrect())
+        final Button btnHintPlayAgain = findViewById(R.id.buttonHangmanHintPlayAgain)
+        if(hangman_.isWordCorrect()) 
         {
             ScoreHandler.getInstance().addPointsToScore(Hangman.HANGMAN_SCORE_INCREASE_PER_WIN);
             btnHintPlayAgain.setText(getString(R.string.play_again));
@@ -126,7 +166,7 @@ public class HangmanActivity extends AppCompatActivity {
         }
         else
         {
-            int wrong_guesses = hangman.getNumberOfWrongGuesses();
+            int wrong_guesses = hangman_.getNumberOfWrongGuesses();
 
             if(wrong_guesses >= Hangman.HANGMAN_NR_OF_MAX_GUESSES)
             {
@@ -222,12 +262,11 @@ public class HangmanActivity extends AppCompatActivity {
 
     private void Replay(TextView t, TextView gameSummary)
     {
-        hangman.reset();
-        t.setText(hangman.getCurrentGuess());
-
+        hangman_.reset();
+        t.setText(hangman_.getCurrentGuess());
         gameSummary.setVisibility(View.INVISIBLE);
         setField(true);
-        setImage(hangman.getNumberOfWrongGuesses());
+        setImage(hangman_.getNumberOfWrongGuesses());
     }
 
 }
