@@ -89,5 +89,7 @@
     <string name="wordfile">words_en.json</string>
 
     <string name="hm_default_words">["hangman", "paper", "application", "mobile", "laptop", "mountain", "flower", "backpack", "racecar"]</string>
+    <string name="sett_wordlen">Word can have maximal 11 chars</string>
+    <string name="sett_wordinvalid">Word can only use ascii characters</string>
 
 </resources>

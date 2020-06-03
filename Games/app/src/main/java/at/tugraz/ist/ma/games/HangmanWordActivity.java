@@ -50,15 +50,27 @@ public class HangmanWordActivity extends AppCompatActivity {
 
     private void btnAddWord_Click() {
         String word = sett_hangmanWord.getText().toString();
-
         if(!word.isEmpty()) {
-            if(!hmw.doesWordExist(word)) {
-                hmw.addWord(word);
-                sett_hangmanWord.setText("");
-                hmw.saveWords(getApplicationContext());           }
-            else {
-                Toast toast=Toast.makeText(getApplicationContext(),R.string.sett_wordalready,Toast.LENGTH_SHORT);
+            if(!word.matches("^([a-z]|[A-Z])*$")){
+                Toast toast=Toast.makeText(getApplicationContext(),R.string.sett_wordinvalid,Toast.LENGTH_SHORT);
                 toast.show();
+            }
+            else {
+                if(word.length() > 12) {
+                    Toast toast=Toast.makeText(getApplicationContext(),R.string.sett_wordlen,Toast.LENGTH_SHORT);
+                    toast.show();
+                }
+                else {
+                    if(!hmw.doesWordExist(word)) {
+                        hmw.addWord(word);
+                        sett_hangmanWord.setText("");
+                        hmw.saveWords(getApplicationContext());
+                    }
+                    else {
+                        Toast toast=Toast.makeText(getApplicationContext(),R.string.sett_wordalready,Toast.LENGTH_SHORT);
+                        toast.show();
+                    }
+                }
             }
         }
         else {

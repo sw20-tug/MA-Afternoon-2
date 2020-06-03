@@ -28,5 +28,7 @@
     <string name="sett_hintnewword">Neues Wort</string>
     <string name="wordfile">words_de.json</string>
     <string name="hm_default_words">["hangman", "spiel", "anwendung", "handy", "laptop", "berg", "blume", "rucksack", "rennauto", "schifffahrt"]</string>
+    <string name="sett_wordlen">Wort darf maximal 11 Zeichen lang sein</string>
+    <string name="sett_wordinvalid">Wort darf nur ASCII Zeichen verwenden</string>
 
 </resources>
