@@ -13,6 +13,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Locale;
 
 
@@ -31,9 +33,15 @@ public class HangmanActivity extends AppCompatActivity {
             System.out.println("Cannot read default word (Invalid json)" + e.toString());
         }
 
-        String[] default_word_list = new String[jsonArray.length()];
+        String[] default_word_list;
+        if(jsonArray != null) {
+            default_word_list = new String[jsonArray.length()];
+        }
+        else {
+            default_word_list = new String[] {};
+        }
 
-        for(int i = 0; i < jsonArray.length(); i++){
+        for(int i = 0; i < (jsonArray != null ? jsonArray.length() : 0); i++){
             default_word_list[i] = jsonArray.optString(i);
         }
 
@@ -43,9 +51,16 @@ public class HangmanActivity extends AppCompatActivity {
             word_list = DataManager.loadWordList(getApplicationContext());
         } catch (Exception e) {
             System.out.println("Using default words");
-            word_list = default_word_list;
+            word_list = new String[]{};
         }
-        hangman_ = new Hangman(word_list);
+
+        ArrayList<String> wl_default = new ArrayList<>(Arrays.asList(default_word_list));
+        ArrayList<String> wl_custom = new ArrayList<>(Arrays.asList(word_list));
+        ArrayList<String> words = new ArrayList<>();
+        words.addAll(wl_default);
+        words.addAll(wl_custom);
+
+        hangman_ = new Hangman(words.toArray(new String[0]));
 
         final TextView text = findViewById(R.id.guessableWord);
         text.setText(hangman_.getCurrentGuess());

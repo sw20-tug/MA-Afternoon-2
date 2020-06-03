@@ -1,5 +1,11 @@
 package at.tugraz.ist.ma.games;
 
+import android.content.Context;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -11,34 +17,26 @@ class HangmanWord {
         return values;
     }
 
-    void loadWords() {
-        String[] list = new String[] { // TODO: load words
-                "Word 1",
-                "Word 2",
-                "Word 3",
-                "Word 4",
-                "Word 5",
-                "Word 6",
-                "Word 7",
-                "Word 8",
-                "Word 9",
-                "Word 10",
-                "Word 11",
-                "Word 12",
-                "Word 13",
-                "Word 14",
-                "Word 15",
-                "Word 16",
-                "Word 17"
-        };
+    void loadWords(Context ctx) {
+        String[] word_list;
+        try {
+            word_list = DataManager.loadWordList(ctx);
+        } catch (Exception e) {
+            System.out.println("No custom word list");
+            word_list = new String[] {};
+        }
 
-        values = new ArrayList<>(Arrays.asList(list));
+        values = new ArrayList<>(Arrays.asList(word_list));
     }
 
-    void saveWords() {
+    void saveWords(Context ctx) {
         String[] word_list = values.toArray(new String[0]);
 
-        // TODO: save
+        try {
+            DataManager.storeWordList(word_list, ctx);
+        } catch (IOException e) {
+            System.out.println("Error can not write words file " + e.toString());
+        }
     }
 
     boolean doesWordExist(String word) {

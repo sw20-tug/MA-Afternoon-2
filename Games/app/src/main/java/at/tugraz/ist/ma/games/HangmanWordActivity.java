@@ -25,7 +25,7 @@ public class HangmanWordActivity extends AppCompatActivity {
 
         sett_list_words = findViewById(R.id.sett_list_words);
 
-        hmw.loadWords();
+        hmw.loadWords(getApplicationContext());
 
         adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_list_item_1, android.R.id.text1, hmw.getValues());
@@ -55,7 +55,7 @@ public class HangmanWordActivity extends AppCompatActivity {
             if(!hmw.doesWordExist(word)) {
                 hmw.addWord(word);
                 sett_hangmanWord.setText("");
-                hmw.saveWords();           }
+                hmw.saveWords(getApplicationContext());           }
             else {
                 Toast toast=Toast.makeText(getApplicationContext(),R.string.sett_wordalready,Toast.LENGTH_SHORT);
                 toast.show();
@@ -78,7 +78,7 @@ public class HangmanWordActivity extends AppCompatActivity {
             sett_list_words.invalidateViews();
             sett_list_words.getSelector().setAlpha(0);
 
-            hmw.saveWords();
+            hmw.saveWords(getApplicationContext());
         }
     }
 
