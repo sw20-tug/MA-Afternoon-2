@@ -20,8 +20,6 @@ class Hangman
     //----------------------------------------------------------------------------------------------
     public Hangman(String word)
     {
-
-
         if(word != null)
         {
             word_ = word.toLowerCase();
@@ -84,7 +82,7 @@ class Hangman
         boolean correct_guess = false;
         for (int i = 0; i < word_.length(); i++) {
 
-            if(word_.charAt(i) == letter)  //____ -> a__a
+            if(word_.charAt(i) == letter)
             {
                 correct_guess = true;
                 guessedLetter[i] = letter;
@@ -106,7 +104,6 @@ class Hangman
     public boolean guessWord(String word)
     {
         return word != null && word_.equals(word.toLowerCase());
-        //increaseNumberOfWrongGuesses();
     }
 
     //----------------------------------------------------------------------------------------------

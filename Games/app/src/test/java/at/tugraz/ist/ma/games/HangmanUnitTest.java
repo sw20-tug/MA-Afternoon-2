@@ -19,7 +19,6 @@ public class HangmanUnitTest {
     {
         Hangman hangman = new Hangman("aba");
 
-        //hangman.setWord("aba");
         hangman.guessCharacter('a');
         assertEquals("a_a", hangman.getCurrentGuessWithoutSpace());
         hangman.guessCharacter('b');
@@ -31,7 +30,6 @@ public class HangmanUnitTest {
     {
         Hangman hangman = new Hangman("abcde");
 
-        //hangman.setWord("abcde");
         hangman.guessCharacter('z');
         assertEquals("_____", hangman.getCurrentGuessWithoutSpace());
         hangman.guessCharacter('y');
@@ -50,7 +48,6 @@ public class HangmanUnitTest {
     {
         Hangman hangman = new Hangman("word");
 
-       // hangman.setWord("word");
         assertNotNull(hangman.getWord());
     }
     @Test
@@ -58,9 +55,7 @@ public class HangmanUnitTest {
     {
         Hangman hangman = new Hangman("HIGH");
 
-       // hangman.setWord("word");
         assertTrue(hangman.guessWord(hangman.getWord()));
-        //hangman.setWord("HIGH");
         assertTrue(hangman.guessWord("high"));
     }
 
@@ -78,8 +73,6 @@ public class HangmanUnitTest {
     {
         Hangman hangman = new Hangman("test");
 
-        //hangman.setWord("test");
-
         hangman.guessCharacter('t');
         hangman.guessCharacter('k');
         hangman.guessCharacter('z');
@@ -91,7 +84,6 @@ public class HangmanUnitTest {
     {
         Hangman hangman = new Hangman("number");
 
-        //hangman.setWord("Number");
         assertEquals(0, hangman.getNumberOfWrongGuesses());
         hangman.guessCharacter('n');
         hangman.guessCharacter('x');
