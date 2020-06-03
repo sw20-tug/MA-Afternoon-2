@@ -14,10 +14,11 @@ import java.util.Arrays;
 
 public class HangmanWordActivity extends AppCompatActivity {
 
+    private final HangmanWord hmw = new HangmanWord();
+
     ListView sett_list_words;
     int selectedIdx = -1;
     EditText sett_hangmanWord;
-    ArrayList<String> values;
     ArrayAdapter<String> adapter;
 
     @Override
@@ -27,10 +28,10 @@ public class HangmanWordActivity extends AppCompatActivity {
 
         sett_list_words = findViewById(R.id.sett_list_words);
 
-        values = loadWords();
+        hmw.loadWords();
 
         adapter = new ArrayAdapter<>(this,
-                android.R.layout.simple_list_item_1, android.R.id.text1, values);
+                android.R.layout.simple_list_item_1, android.R.id.text1, hmw.getValues());
 
         sett_list_words.setAdapter(adapter);
 
@@ -54,11 +55,10 @@ public class HangmanWordActivity extends AppCompatActivity {
         String word = sett_hangmanWord.getText().toString();
 
         if(!word.isEmpty()) {
-            if(!values.contains(word)) {
-                values.add(word);
+            if(!hmw.doesWordExist(word)) {
+                hmw.addWord(word);
                 sett_hangmanWord.setText("");
-                saveWords(values);
-            }
+                hmw.saveWords();           }
             else {
                 Toast toast=Toast.makeText(getApplicationContext(),R.string.sett_wordalready,Toast.LENGTH_SHORT);
                 toast.show();
@@ -72,7 +72,7 @@ public class HangmanWordActivity extends AppCompatActivity {
 
     private void btnDelWord_Click() {
         if(selectedIdx != -1) {
-            values.remove(selectedIdx);
+            hmw.removeWord(selectedIdx);
             selectedIdx = -1;
             sett_list_words.clearChoices();
             sett_list_words.clearFocus();
@@ -80,37 +80,9 @@ public class HangmanWordActivity extends AppCompatActivity {
             sett_list_words.invalidateViews();
             sett_list_words.getSelector().setAlpha(0);
 
-            saveWords(values);
+            hmw.saveWords();
         }
     }
 
-    private ArrayList<String> loadWords() {
-        String[] list = new String[] { // TODO: load words
-                "Word 1",
-                "Word 2",
-                "Word 3",
-                "Word 4",
-                "Word 5",
-                "Word 6",
-                "Word 7",
-                "Word 8",
-                "Word 9",
-                "Word 10",
-                "Word 11",
-                "Word 12",
-                "Word 13",
-                "Word 14",
-                "Word 15",
-                "Word 16",
-                "Word 17"
-        };
 
-        return new ArrayList<>(Arrays.asList(list));
-    }
-
-    private void saveWords(ArrayList<String> words) {
-        String[] word_list = words.toArray(new String[0]);
-
-        // TODO: save
-    }
 }
