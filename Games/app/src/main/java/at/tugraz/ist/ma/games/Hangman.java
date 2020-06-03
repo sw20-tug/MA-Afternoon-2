@@ -9,11 +9,15 @@ class Hangman
     final static int HANGMAN_SCORE_DECREASE_PER_HINT = -3;
     final static int HANGMAN_SCORE_DECREASE_PER_LOSS = -2;
 
+    final static int HANGMAN_NR_OF_MAX_HINTS         =  3;
+    final static int HANGMAN_NR_OF_MAX_GUESSES       =  8;
+
     private String word_;
     private String guessed_word_         = "";
     private String display_word_         = "";
 
-    private int number_of_wrong_guesses_;
+    private int number_of_wrong_guesses_ =  0;
+    private int number_of_hints_         =  0;
     private final String[] word_list = new String[]{ "hangmantest", "applejuice", "kitchen","viewer", "kidney" };
 
 
@@ -31,7 +35,7 @@ class Hangman
             word_ = word_list[rnd].toLowerCase();
         }
         number_of_wrong_guesses_ = 0;
-        initiliazeGuessedWord();
+        initializeGuessedWord();
         buildFieldWithSpace();
     }
 
@@ -44,11 +48,11 @@ class Hangman
         display_word_ = "";
 
         number_of_wrong_guesses_ = 0;
-        initiliazeGuessedWord();
+        initializeGuessedWord();
         buildFieldWithSpace();
     }
     //----------------------------------------------------------------------------------------------
-    private void initiliazeGuessedWord()
+    private void initializeGuessedWord()
     {
         for (int i = 0; i < word_.length(); i++) {
             Character unknown_character = '_';
@@ -113,6 +117,13 @@ class Hangman
 
     //----------------------------------------------------------------------------------------------
     public int getNumberOfWrongGuesses()        { return number_of_wrong_guesses_ ; }
+
+    //----------------------------------------------------------------------------------------------
+    public void increaseNumberOfHints() { number_of_hints_++; }
+
+    //----------------------------------------------------------------------------------------------
+    public int getNumberOfHints()   { return number_of_hints_ ; }
+
 
     //----------------------------------------------------------------------------------------------
     public String getCurrentGuess ()            { return display_word_; }
