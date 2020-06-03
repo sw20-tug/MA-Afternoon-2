@@ -28,8 +28,7 @@ public class DataManagerUnitTest
 
         String[] word_list = new String[]{ "test1", "test2", "test3"};
 
-        System.out.println(System.getProperty("user.dir") + filename);
-        File file = new File(Objects.requireNonNull(System.getProperty("user.dir"))  + "/" + filename);
+        File file = new File(Objects.requireNonNull(System.getProperty("java.io.tmpdir"))  + "/" + filename);
         FileOutputStream outstream = new FileOutputStream(file);
         Context context = mock(Context.class);
         when(context.openFileOutput(filename, Context.MODE_PRIVATE)).thenReturn(outstream);
@@ -41,7 +40,5 @@ public class DataManagerUnitTest
 
         String[] words = DataManager.loadWordList(context);
         assertArrayEquals(word_list,words);
-
-        assertTrue(file.delete());
     }
 }

@@ -31,7 +31,7 @@ public class MainUITest {
         onView(withId(R.id.tvMainTicTacToe)).check(matches(withText(R.string.main_tictactoe)));
         onView(withId(R.id.tvMainHangman)).check(matches(withText(R.string.main_hangman)));
         onView(withId(R.id.tvMainWhiteTiles)).check(matches(withText(R.string.main_donttouch)));
-        onView(withId(R.id.tvMainSettings)).check(matches(withText(R.string.main_othergames)));
+        onView(withId(R.id.tvMainSettings)).check(matches(withText(R.string.main_settings)));
     }
 
 
