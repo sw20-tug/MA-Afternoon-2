@@ -216,6 +216,16 @@ public class HangmanActivity extends AppCompatActivity {
         hangmanWinLoose.setVisibility(View.VISIBLE);
     }
 
+    private void Replay(TextView t, TextView gameSummary)
+    {
+        hangman.reset();
+        t.setText(hangman.getCurrentGuess());
+
+        gameSummary.setVisibility(View.INVISIBLE);
+        setField(true);
+        setImage(hangman.getNumberOfWrongGuesses());
+    }
+
 }
 
 
