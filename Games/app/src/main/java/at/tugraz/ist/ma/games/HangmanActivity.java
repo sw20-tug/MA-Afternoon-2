@@ -17,14 +17,11 @@ import java.util.Locale;
 
 
 public class HangmanActivity extends AppCompatActivity {
-    // --
 
     private Hangman hangman_;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //Context ctx = getApplication().getBaseContext();
         super.onCreate(savedInstanceState);
 
         JSONArray jsonArray = null;
@@ -130,20 +127,21 @@ public class HangmanActivity extends AppCompatActivity {
 
 
     private void clickCharacter(char c, Button b, TextView t) {
-        Log.e("HANGMAN-onClick", "button" + c);
-        hangman_.guessCharacter(c);
-        t.setText(hangman_.getCurrentGuess());
+        Log.d("HANGMAN-onClick", "button" + c);
+        hangman.guessCharacter(c);
+        t.setText(hangman.getCurrentGuess());
         b.setEnabled(false);
 
-        if(hangman_.isWordCorrect()) {
+        if(hangman.isWordCorrect()) {
+            ScoreHandler.getInstance().addPointsToScore(Hangman.HANGMAN_SCORE_INCREASE_PER_WIN);
             setField(false);
             showWin();
         }
         else {
-            int wrong_guesses = hangman_.getNumberOfWrongGuesses();
-            // DEFINES
+            int wrong_guesses = hangman.getNumberOfWrongGuesses();
             int MAX_GUESSES = 8;
             if(wrong_guesses >= MAX_GUESSES) {
+                ScoreHandler.getInstance().addPointsToScore(Hangman.HANGMAN_SCORE_DECREASE_PER_LOSS);
                 setField(false);
                 showFail();
             }

@@ -2,13 +2,14 @@ package at.tugraz.ist.ma.games;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+
+import static java.lang.Math.floorDiv;
 
 public class WhiteTilesActivity extends AppCompatActivity {
 
@@ -103,6 +104,13 @@ public class WhiteTilesActivity extends AppCompatActivity {
         changeUIButtonColor();
     }
 
+    @Override
+    protected void onPause()
+    {
+        super.onPause();
+        int score = floorDiv(whiteTiles.getPlayer_points(), WhiteTiles.WHITE_TILES_SCORE_FACTOR);
+        ScoreHandler.getInstance().addPointsToScore(score * WhiteTiles.WHITE_TILES_SCORE_INCREASE_PER_FACTOR);
+    }
 
     private void btnWhiteTileClick(Button btn)
     {
@@ -118,11 +126,10 @@ public class WhiteTilesActivity extends AppCompatActivity {
         {
             whiteTiles.changeField();
             changeUIButtonColor();
-            TextView score = (TextView) findViewById(R.id.wt_tv_WhiteTilesYourPoints);
-            String str = getString(R.string.WhiteTilesYourPoints)+ String.valueOf(whiteTiles.getPlayer_points());
-            score.setText(str);
+            TextView tvScore = findViewById(R.id.wt_tv_WhiteTilesYourPoints);
+            String str = getString(R.string.WhiteTilesYourPoints) + whiteTiles.getPlayer_points();
+            tvScore.setText(str);
         }
-
     }
 
     private void restartGameButtonClick()
@@ -131,7 +138,7 @@ public class WhiteTilesActivity extends AppCompatActivity {
         whiteTiles.changeField();
         changeUIButtonColor();
         whiteTiles.setIs_running(true);
-        TextView score = (TextView) findViewById(R.id.wt_tv_WhiteTilesYourPoints);
+        TextView score = findViewById(R.id.wt_tv_WhiteTilesYourPoints);
         String str = getString(R.string.WhiteTilesYour0Points);
         score.setText(str);
     }

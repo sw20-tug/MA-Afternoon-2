@@ -3,72 +3,76 @@
 
     <string name="play_again">Play Again</string>
 
-    <string name="TTT_Transfer_Settings">ttt_settings_transfer</string>
+    <string name="TTT_Transfer_Settings" translatable="false">ttt_settings_transfer</string>
 
     <string name="player_one">Player 1</string>
     <string name="player_two">Player 2</string>
 
     <string name="player_cross">Player Cross</string>
     <string name="player_circle">Player Circle</string>
-    <string name="player_none">Player None</string>
+    <string name="player_none" translatable="false">Player None</string>
 
-    <string name="GameMode_TicTacToe">Tic Tac Toe</string>
+    <string name="GameMode_TicTacToe" translatable="false">Tic Tac Toe</string>
     <string name="GameMode">Game Mode</string>
-    <string name="GameModePvP">PvP</string>
-    <string name="GameModePvAI">PvAI</string>
+    <string name="GameModePvP" translatable="false">PvP</string>
+    <string name="GameModePvAI" translatable="false">PvAI</string>
 
     <string name="AIDifficulty">AI Difficulty</string>
     <string name="TTTStartingSymbol">Starting Symbol</string>
-    <string name="TTT_X">X</string>
-    <string name="TTT_O">O</string>
+    <string name="TTT_X" translatable="false">X</string>
+    <string name="TTT_O" translatable="false">O</string>
     <string name="play">Play</string>
 
     <!-- Welcome Screen Strings -->
-    <string name="grid_layout">GRID LAYOUT</string>
-    <string name="tictactoe">Tic Tac Toe</string>
-    <string name="hangman">Hangman</string>
-    <string name="donttouch">Don\'t Touch</string>
+    <string name="grid_layout" translatable="false">GRID LAYOUT</string>
+    <string name="tictactoe" translatable="false">Tic Tac Toe</string>
+    <string name="hangman" translatable="false">Hangman</string>
+    <string name="donttouch" translatable="false">Don\'t Touch</string>
     <string name="changelanguage">Language</string>
-    <string name="title">Corona Games</string>
+    <string name="title" translatable="false">Corona Games</string>
     <string name="yourpoints">Your Points: 0</string>
 
     <string name="hangman_play_again">Play Again</string>
     <string name="hangman_win">You Win</string>
     <string name="hangman_lost">You Lost</string>
 
-    <string name="A">A</string>
-    <string name="B">B</string>
-    <string name="C">C</string>
-    <string name="D">D</string>
-    <string name="E">E</string>
-    <string name="F">F</string>
-    <string name="G">G</string>
-    <string name="H">H</string>
-    <string name="I">I</string>
-    <string name="J">J</string>
-    <string name="K">K</string>
-    <string name="L">L</string>
-    <string name="M">M</string>
-    <string name="N">N</string>
-    <string name="O">O</string>
-    <string name="P">P</string>
-    <string name="Q">Q</string>
-    <string name="R">R</string>
-    <string name="S">S</string>
-    <string name="T">T</string>
-    <string name="U">U</string>
-    <string name="V">V</string>
-    <string name="W">W</string>
-    <string name="X">X</string>
-    <string name="Y">Y</string>
-    <string name="Z">Z</string>
+    <string name="A" translatable="false">A</string>
+    <string name="B" translatable="false">B</string>
+    <string name="C" translatable="false">C</string>
+    <string name="D" translatable="false">D</string>
+    <string name="E" translatable="false">E</string>
+    <string name="F" translatable="false">F</string>
+    <string name="G" translatable="false">G</string>
+    <string name="H" translatable="false">H</string>
+    <string name="I" translatable="false">I</string>
+    <string name="J" translatable="false">J</string>
+    <string name="K" translatable="false">K</string>
+    <string name="L" translatable="false">L</string>
+    <string name="M" translatable="false">M</string>
+    <string name="N" translatable="false">N</string>
+    <string name="O" translatable="false">O</string>
+    <string name="P" translatable="false">P</string>
+    <string name="Q" translatable="false">Q</string>
+    <string name="R" translatable="false">R</string>
+    <string name="S" translatable="false">S</string>
+    <string name="T" translatable="false">T</string>
+    <string name="U" translatable="false">U</string>
+    <string name="V" translatable="false">V</string>
+    <string name="W" translatable="false">W</string>
+    <string name="X" translatable="false">X</string>
+    <string name="Y" translatable="false">Y</string>
+    <string name="Z" translatable="false">Z</string>
 
-    <string name="imageFailure">hangman Failure</string>
-    <string name="main_tictactoe">Tic Tac Toe</string>
-    <string name="main_hangman">Hangman</string>
-    <string name="main_donttouch">Don\'t Touch</string>
+
+
+
+    <string name="imageFailure" translatable="false">hangman Failure</string>
+    <string name="main_tictactoe" translatable="false">Tic Tac Toe</string>
+    <string name="main_hangman" translatable="false">Hangman</string>
+    <string name="main_donttouch" translatable="false">Don\'t Touch</string>
     <string name="main_settings">Settings</string>
-    <string name="main_yourpoints">Your Points: 0</string>
+    <string name="main_othergames">Other Games</string>
+    <string name="main_yourpoints">Your Points: %d</string>
 
 
     <!-- WhiteTiles Strings -->

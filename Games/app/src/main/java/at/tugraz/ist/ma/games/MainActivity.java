@@ -2,9 +2,11 @@ package at.tugraz.ist.ma.games;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,6 +25,16 @@ public class MainActivity extends AppCompatActivity {
         btnMainSettings.setOnClickListener(v -> btnMainSettings_Click());
         btnMainWhiteTiles.setOnClickListener(v -> btnMainDontTouch_Click());
     }
+
+    @SuppressLint("StringFormatInvalid")
+    @Override
+    public void onResume()
+    {
+        super.onResume();
+        TextView tvMainPoints = findViewById(R.id.tvMainPoints);
+        tvMainPoints.setText(getString(R.string.main_yourpoints, ScoreHandler.getInstance().getScore()));
+    }
+
 
     private void btnMainTicTacToe_Click() {
         Intent intentTTT = new Intent(getApplicationContext(), TicTacToeSettingsActivity.class);

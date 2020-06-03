@@ -73,7 +73,6 @@ public class HangmanUnitTest {
     {
         Hangman hangman = new Hangman(new String[]{"test"});
 
-
         hangman.guessCharacter('t');
         hangman.guessCharacter('k');
         hangman.guessCharacter('z');

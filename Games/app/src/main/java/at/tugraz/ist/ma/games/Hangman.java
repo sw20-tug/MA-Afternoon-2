@@ -5,6 +5,9 @@ import java.util.Random;
 
 class Hangman
 {
+    final static int HANGMAN_SCORE_INCREASE_PER_WIN  =  1;
+    final static int HANGMAN_SCORE_DECREASE_PER_HINT = -3;
+    final static int HANGMAN_SCORE_DECREASE_PER_LOSS = -2;
 
     private String word_;
     private String guessed_word_         = "";
@@ -72,7 +75,7 @@ class Hangman
         boolean correct_guess = false;
         for (int i = 0; i < word_.length(); i++) {
 
-            if(word_.charAt(i) == letter)  //____ -> a__a
+            if(word_.charAt(i) == letter)
             {
                 correct_guess = true;
                 guessedLetter[i] = letter;
@@ -94,7 +97,6 @@ class Hangman
     public boolean guessWord(String word)
     {
         return word != null && word_.equals(word.toLowerCase());
-        //increaseNumberOfWrongGuesses();
     }
 
     //----------------------------------------------------------------------------------------------
