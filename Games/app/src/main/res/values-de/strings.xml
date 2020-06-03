@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Corona Games</string>
+    <string name="play_again">Erneut spielen</string>
+    <string name="player_one">Spieler 1</string>
+    <string name="player_two">Spieler 2</string>
+    <string name="GameMode">Spielmodus</string>
+    <string name="AIDifficulty">AI Schwierigkeit</string>
+    <string name="TTTStartingSymbol">Start Symbol</string>
+    <string name="play">Spielen</string>
+    <string name="changelanguage">Sprache</string>
+    <string name="yourpoints">Deine Punkte: 0</string>
+    <string name="hangman_play_again">Erneut spielen</string>
+    <string name="hangman_win">Gewonnen</string>
+    <string name="hangman_lost">Verloren</string>
+    <string name="main_settings">Einstellungen</string>
+    <string name="main_yourpoints">Deine Punkte: 0</string>
+    <string name="WhiteTilesYour0Points">Deine Punkte: 0</string>
+    <string name="WhiteTilesYourPoints">"Deine Punkte: "</string>
+    <string name="player_cross">Spieler X</string>
+    <string name="player_circle">Spieler O</string>
+</resources>

@@ -39,11 +39,11 @@ public class WhiteTilesUITest {
 
     @Test
     public void useAppContext() {
-        // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
         assertEquals("at.tugraz.ist.ma.games", appContext.getPackageName());
     }
+
 
     @Test
     public void InterfaceUITest()
@@ -58,7 +58,6 @@ public class WhiteTilesUITest {
     @Test
     public void clickReload()
     {
-        WhiteTiles whiteTiles = activityRule.getActivity().getWhiteTiles();
         int black_btn_id = getOneColoredButtonID(WhiteTiles.TileColor.BLACK);
 
         onView(withId(black_btn_id)).perform(click());
@@ -68,16 +67,15 @@ public class WhiteTilesUITest {
         onView(withId(black_btn_id)).perform(click());
         black_btn_id = getOneColoredButtonID(WhiteTiles.TileColor.BLACK);
         onView(withId(black_btn_id)).perform(click());
-        String expected_points_string = activityRule.getActivity().getString(R.string.WhiteTilesYourPoints)
-                + String.valueOf(4);
+        String expected_points_string = activityRule.getActivity().getString(R.string.WhiteTilesYourPoints) + 4;
         onView(withId(R.id.wt_tv_WhiteTilesYourPoints)).check(matches(withText(expected_points_string)));
-        // play again
         onView(withId(R.id.wt_btn_WhiteTilesRestart)).perform(click());
         onView(withId(R.id.wt_tv_WhiteTilesYourPoints))
                 .check(matches(withText(activityRule.getActivity().getString(R.string.WhiteTilesYour0Points))));
 
         testBoardButtonColors();
     }
+
 
     @Test
     public void clickBlackFieldTest()
@@ -86,8 +84,7 @@ public class WhiteTilesUITest {
         onView(withId(black_btn_id)).check(matches(matchesBackgroundColor(R.color.color_wt_black)));
         onView(withId(black_btn_id)).perform(click());
 
-        String expected_points_string = activityRule.getActivity().getString(R.string.WhiteTilesYourPoints)
-                + String.valueOf(1);
+        String expected_points_string = activityRule.getActivity().getString(R.string.WhiteTilesYourPoints) + 1;
 
         onView(withId(R.id.wt_tv_WhiteTilesYourPoints)).check(matches(withText(expected_points_string)));
         testBoardButtonColors();
@@ -97,8 +94,6 @@ public class WhiteTilesUITest {
     @Test
     public void clickBlackFieldMultipleTest()
     {
-        WhiteTiles whiteTiles = activityRule.getActivity().getWhiteTiles();
-
         int black_btn_id = getOneColoredButtonID(WhiteTiles.TileColor.BLACK);
 
         onView(withId(black_btn_id)).check(matches(matchesBackgroundColor(R.color.color_wt_black)));
@@ -110,8 +105,7 @@ public class WhiteTilesUITest {
         onView(withId(black_btn_id)).check(matches(matchesBackgroundColor(R.color.color_wt_black)));
         onView(withId(black_btn_id)).perform(click());
 
-        String expected_points_string = activityRule.getActivity().getString(R.string.WhiteTilesYourPoints)
-                + String.valueOf(3);
+        String expected_points_string = activityRule.getActivity().getString(R.string.WhiteTilesYourPoints) + 3;
         onView(withId(R.id.wt_tv_WhiteTilesYourPoints)).check(matches(withText(expected_points_string)));
     }
 
@@ -139,8 +133,6 @@ public class WhiteTilesUITest {
     @Test
     public void fullGameTest()
     {
-        WhiteTiles whiteTiles = activityRule.getActivity().getWhiteTiles();
-
         int black_btn_id = getOneColoredButtonID(WhiteTiles.TileColor.BLACK);
 
         onView(withId(black_btn_id)).check(matches(matchesBackgroundColor(R.color.color_wt_black)));
@@ -158,8 +150,7 @@ public class WhiteTilesUITest {
         onView(withId(black_btn_id)).check(matches(matchesBackgroundColor(R.color.color_wt_black)));
         onView(withId(black_btn_id)).perform(click());
 
-        String expected_points_string = activityRule.getActivity().getString(R.string.WhiteTilesYourPoints)
-                + String.valueOf(5);
+        String expected_points_string = activityRule.getActivity().getString(R.string.WhiteTilesYourPoints) + 5;
 
         int white_id = getOneColoredButtonID(WhiteTiles.TileColor.WHITE);
         onView(withId(white_id)).check(matches(matchesBackgroundColor(R.color.color_wt_white)));
@@ -277,6 +268,7 @@ public class WhiteTilesUITest {
         }
         assertEquals(whiteTiles.getNumberOfBlackTiles(), black_count);
     }
+
 
     // --------------------------------------------------------------------------------------------
     // source:https://stackoverflow.com/questions/28742495/testing-background-color-espresso-android

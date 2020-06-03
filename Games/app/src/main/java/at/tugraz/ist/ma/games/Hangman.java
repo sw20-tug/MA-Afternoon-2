@@ -5,40 +5,34 @@ import java.util.Random;
 
 class Hangman
 {
+    final static int HANGMAN_SCORE_INCREASE_PER_WIN  =  1;
+    final static int HANGMAN_SCORE_DECREASE_PER_HINT = -3;
+    final static int HANGMAN_SCORE_DECREASE_PER_LOSS = -2;
 
     private String word_;
     private String guessed_word_         = "";
     private String display_word_         = "";
 
     private int number_of_wrong_guesses_;
-    private final String[] word_list = new String[]{ "hangmantest", "applejuice", "kitchen","viewer", "kidney" };
+    private String[] word_list_;
 
+    public Hangman(String[] word_list){
+        this.word_list_ = word_list;
+        Random random = new Random();
+        int rnd = random.nextInt(word_list.length);
+        this.word_ = word_list[rnd].toLowerCase();
 
-    //----------------------------------------------------------------------------------------------
-    public Hangman(String word)
-    {
-
-
-        if(word != null)
-        {
-            word_ = word.toLowerCase();
-        }
-        else
-        {
-            Random random = new Random();
-            int rnd = random.nextInt(word_list.length);
-            word_ = word_list[rnd].toLowerCase();
-        }
         number_of_wrong_guesses_ = 0;
         initiliazeGuessedWord();
         buildFieldWithSpace();
     }
+    //---------------------------------------------------------------------------------------------
 
     void reset()
     {
         Random random = new Random();
-        int rnd = random.nextInt(word_list.length);
-        word_ = word_list[rnd].toLowerCase();
+        int rnd = random.nextInt(word_list_.length);
+        word_ = word_list_[rnd].toLowerCase();
         guessed_word_ = "";
         display_word_ = "";
 
@@ -81,7 +75,7 @@ class Hangman
         boolean correct_guess = false;
         for (int i = 0; i < word_.length(); i++) {
 
-            if(word_.charAt(i) == letter)  //____ -> a__a
+            if(word_.charAt(i) == letter)
             {
                 correct_guess = true;
                 guessedLetter[i] = letter;
@@ -103,7 +97,6 @@ class Hangman
     public boolean guessWord(String word)
     {
         return word != null && word_.equals(word.toLowerCase());
-        //increaseNumberOfWrongGuesses();
     }
 
     //----------------------------------------------------------------------------------------------
@@ -128,6 +121,10 @@ class Hangman
     //----------------------------------------------------------------------------------------------
     public void setWord(String word){
         word_ = word;
+    }
+
+    public void setWordList(String[] word_list){
+        this.word_list_ = word_list;
     }
 
 }
