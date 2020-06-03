@@ -10,14 +10,10 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    @SuppressLint("StringFormatMatches")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        //TextView tvMainPoints = findViewById(R.id.tvMainPoints);
-        //tvMainPoints.setText(getString(R.string.main_yourpoints, ScoreHandler.getInstance().getScore()));
 
         ImageButton btnMainTicTacToe = findViewById(R.id.btnMainTicTacToe);
         ImageButton btnMainWhiteTiles = findViewById(R.id.btnMainWhiteTiles);
@@ -30,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         btnMainWhiteTiles.setOnClickListener(v -> btnMainDontTouch_Click());
     }
 
+    @SuppressLint("StringFormatInvalid")
     @Override
     public void onResume()
     {

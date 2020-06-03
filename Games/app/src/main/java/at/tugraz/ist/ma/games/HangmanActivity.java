@@ -11,15 +11,12 @@ import android.widget.TextView;
 
 
 public class HangmanActivity extends AppCompatActivity {
-    // --
 
     private final Hangman hangman = new Hangman(null);
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        //Context ctx = getApplication().getBaseContext();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hangman);
         final TextView text = findViewById(R.id.guessableWord);
@@ -89,20 +86,21 @@ public class HangmanActivity extends AppCompatActivity {
 
 
     private void clickCharacter(char c, Button b, TextView t) {
-        Log.e("HANGMAN-onClick", "button" + c);
+        Log.d("HANGMAN-onClick", "button" + c);
         hangman.guessCharacter(c);
         t.setText(hangman.getCurrentGuess());
         b.setEnabled(false);
 
         if(hangman.isWordCorrect()) {
+            ScoreHandler.getInstance().addPointsToScore(Hangman.HANGMAN_SCORE_INCREASE_PER_WIN);
             setField(false);
             showWin();
         }
         else {
             int wrong_guesses = hangman.getNumberOfWrongGuesses();
-            // DEFINES
             int MAX_GUESSES = 8;
             if(wrong_guesses >= MAX_GUESSES) {
+                ScoreHandler.getInstance().addPointsToScore(Hangman.HANGMAN_SCORE_DECREASE_PER_LOSS);
                 setField(false);
                 showFail();
             }
