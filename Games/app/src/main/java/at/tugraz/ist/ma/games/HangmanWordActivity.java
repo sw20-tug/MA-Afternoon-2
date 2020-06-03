@@ -9,17 +9,14 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 public class HangmanWordActivity extends AppCompatActivity {
 
     private final HangmanWord hmw = new HangmanWord();
 
-    ListView sett_list_words;
-    int selectedIdx = -1;
-    EditText sett_hangmanWord;
-    ArrayAdapter<String> adapter;
+    private ListView sett_list_words;
+    private int selectedIdx = -1;
+    private EditText sett_hangmanWord;
+    private ArrayAdapter<String> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

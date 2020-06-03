@@ -2,6 +2,8 @@ package at.tugraz.ist.ma.games;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
@@ -26,7 +28,23 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     private void btnAbout_Click() {
-        //Intent intentTTT = new Intent(getApplicationContext(), TicTacToeSettingsActivity.class);
-        //startActivity(intentTTT);
+        AlertDialog.Builder dlgAlert  = new AlertDialog.Builder(this);
+        dlgAlert.setMessage("di Vora Stefan\n" +
+                "Herzl Marco\n" +
+                "Kargl Matthias\n" +
+                "Pollhammer Daniel\n" +
+                "Reiterer Alexander\n" +
+                "Suntinger-Schrampf Jürgen");
+        dlgAlert.setTitle(R.string.title);
+        dlgAlert.setPositiveButton("OK", null);
+        dlgAlert.setCancelable(true);
+
+        dlgAlert.setPositiveButton("Ok",
+                (dialog, which) -> {
+                    //dismiss
+                });
+
+        dlgAlert.create().show();
+
     }
 }
