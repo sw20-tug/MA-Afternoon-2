@@ -13,10 +13,11 @@
     <string name="hangman_play_again">Erneut spielen</string>
     <string name="hangman_win">Gewonnen</string>
     <string name="hangman_lost">Verloren</string>
-    <string name="main_settings">Einstellungen</string>
     <string name="main_yourpoints">Deine Punkte: 0</string>
     <string name="WhiteTilesYour0Points">Deine Punkte: 0</string>
     <string name="WhiteTilesYourPoints">"Deine Punkte: "</string>
     <string name="player_cross">Spieler X</string>
     <string name="player_circle">Spieler O</string>
+    <string name="hint">Tipp</string>
+    <string name="main_othergames">Weitere Spiele</string>
 </resources>

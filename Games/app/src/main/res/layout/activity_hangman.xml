@@ -352,6 +352,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/row4" />
 
+    <Button
+        android:id="@+id/buttonHangmanHint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/hint"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonHangmanPlayAgain"
+        app:layout_constraintTop_toBottomOf="@+id/row4" />
+
     <TextView
         android:id="@+id/hangmanWinLoose"
         android:layout_width="wrap_content"
