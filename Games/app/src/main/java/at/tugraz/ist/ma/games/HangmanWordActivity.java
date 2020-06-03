@@ -68,6 +68,7 @@ public class HangmanWordActivity extends AppCompatActivity {
             Toast toast=Toast.makeText(getApplicationContext(),R.string.sett_wordempty,Toast.LENGTH_SHORT);
             toast.show();
         }
+        adapter.notifyDataSetChanged();
     }
 
     private void btnDelWord_Click() {

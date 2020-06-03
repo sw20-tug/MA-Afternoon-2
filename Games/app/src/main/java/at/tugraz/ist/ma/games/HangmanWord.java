@@ -4,12 +4,12 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 class HangmanWord {
 
-    private ArrayList<String> values;
+    private ArrayList<String> values = new ArrayList<>();
 
-    // TODO: Deep Copy List!!!
     ArrayList<String> getValues() {
         return values;
     }
