@@ -2,9 +2,11 @@ package at.tugraz.ist.ma.games;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,8 +26,18 @@ public class MainActivity extends AppCompatActivity {
         btnMainWhiteTiles.setOnClickListener(v -> btnMainDontTouch_Click());
     }
 
+    @SuppressLint("StringFormatInvalid")
+    @Override
+    public void onResume()
+    {
+        super.onResume();
+        TextView tvMainPoints = findViewById(R.id.tvMainPoints);
+        tvMainPoints.setText(getString(R.string.main_yourpoints, ScoreHandler.getInstance().getScore()));
+    }
+
+
     private void btnMainTicTacToe_Click() {
-        Intent intentTTT = new Intent(getApplicationContext(), TicTacToeActivity.class);
+        Intent intentTTT = new Intent(getApplicationContext(), TicTacToeSettingsActivity.class);
         startActivity(intentTTT);
     }
 
@@ -35,13 +47,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void btnMainSettings_Click() {
-        //Intent intentWT = new Intent(getApplicationContext(), WhiteTilesSettingsActivity.class);
-        //startActivity(intentWT);
+        Intent intentWT = new Intent(getApplicationContext(), SettingsActivity.class);
+        startActivity(intentWT);
     }
 
     private void btnMainDontTouch_Click() {
-        //Intent intentSET = new Intent(getApplicationContext(), SettingsActivity.class);
-        //startActivity(intentSET);
+        Intent intentSET = new Intent(getApplicationContext(), WhiteTilesActivity.class);
+        startActivity(intentSET);
     }
 
 }

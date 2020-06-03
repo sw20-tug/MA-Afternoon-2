@@ -1,8 +1,10 @@
 package at.tugraz.ist.ma.games;
 
-import java.util.ArrayList;
+class TicTacToe
+{
+    final static int TTT_SCORE_INCREASE_PER_WIN   =  1;
+    final static int TTT_SCORE_DEDUCTION_PER_LOSS = -2;
 
-public class TicTacToe {
     public enum Tile {
         NONE,
         CROSS,
@@ -13,7 +15,7 @@ public class TicTacToe {
     private Tile active_player;
     private int game_move_count;
 
-    public TicTacToe(){
+    TicTacToe(){
         board_ = new Tile[3][3];
         for(int row = 0; row < 3; row++){
             for(int col = 0; col < 3; col++){
@@ -24,11 +26,22 @@ public class TicTacToe {
         active_player = Tile.CROSS;
     }
 
-    public boolean setTileActivePlayer(Integer row, Integer col) throws IndexOutOfBoundsException{
+    TicTacToe(Tile player){
+        board_ = new Tile[3][3];
+        for(int row = 0; row < 3; row++){
+            for(int col = 0; col < 3; col++){
+                board_[row][col] = Tile.NONE;
+            }
+        }
+        game_move_count = 0;
+        active_player = player;
+    }
+  
+    boolean setTileActivePlayer(Integer row, Integer col) throws IndexOutOfBoundsException{
         return setTile(row, col, active_player);
     }
 
-    public boolean setTile(Integer row, Integer col, Tile tile) throws IndexOutOfBoundsException {
+    boolean setTile(Integer row, Integer col, Tile tile) throws IndexOutOfBoundsException {
         if(board_[row][col] != Tile.NONE){
             System.out.println("Field " + row + ", " + col + " is occupied");
             return false;
@@ -38,26 +51,24 @@ public class TicTacToe {
         return true;
     }
 
-    public Tile[][] getBoard(){
+    Tile[][] getBoard(){
         return board_;
     }
 
-    public Tile getActivePlayer() {
+    Tile getActivePlayer() {
         return active_player;
     }
 
-    public boolean checkTie(){
+    boolean checkTie(){
         return game_move_count >= 9;
     }
 
-    public boolean checkWinActivePlayer(){
+    boolean checkWinActivePlayer(){
         return checkWin(active_player);
     }
 
-    public boolean checkWin(Tile last_tile){
-
-        //column check
-
+    boolean checkWin(Tile last_tile)
+    {
         for(int row = 0; row < 3; row++){
             int col = 0;
             while (board_[row][col] == last_tile) {
@@ -69,7 +80,6 @@ public class TicTacToe {
             }
         }
 
-        //row check
         for(int col = 0; col < 3; col++){
             int row = 0;
             while (board_[row][col] == last_tile) {
@@ -80,7 +90,7 @@ public class TicTacToe {
                 row++;
             }
         }
-        // diagonal check
+
         boolean result = board_[0][0] == last_tile && board_[1][1] == last_tile && board_[2][2] == last_tile ||
                 board_[2][0] == last_tile && board_[1][1] == last_tile && board_[0][2] == last_tile;
 
@@ -91,12 +101,12 @@ public class TicTacToe {
         return result;
     }
 
-    public void changePlayer(){
+    void changePlayer(){
         active_player = active_player == Tile.CROSS ? Tile.CIRCLE : Tile.CROSS;
         System.out.println(" Player changed to " + getPlayerName());
     }
 
-    public String getPlayerName() {
+    String getPlayerName() {
         switch (active_player) {
             case CROSS:
                 return "Cross";

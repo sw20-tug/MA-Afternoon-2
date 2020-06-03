@@ -31,7 +31,6 @@ public class TicTacToeUITest {
 
     @Test
     public void useAppContext() {
-        // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
         assertEquals("at.tugraz.ist.ma.games", appContext.getPackageName());
@@ -58,15 +57,15 @@ public class TicTacToeUITest {
         onView(withId(R.id.btn_field_2_2)).check(matches(isDisplayed()));
         onView(withId(R.id.btn_field_2_2)).check(matches(isClickable()));
 
-        onView(withId(R.id.btn_field_0_0)).check(matches(withTagValue(is((Object) activityRule.getActivity().getString(R.string.player_none)))));
-        onView(withId(R.id.btn_field_0_1)).check(matches(withTagValue(is((Object) activityRule.getActivity().getString(R.string.player_none)))));
-        onView(withId(R.id.btn_field_0_2)).check(matches(withTagValue(is((Object) activityRule.getActivity().getString(R.string.player_none)))));
-        onView(withId(R.id.btn_field_1_0)).check(matches(withTagValue(is((Object) activityRule.getActivity().getString(R.string.player_none)))));
-        onView(withId(R.id.btn_field_1_1)).check(matches(withTagValue(is((Object) activityRule.getActivity().getString(R.string.player_none)))));
-        onView(withId(R.id.btn_field_1_2)).check(matches(withTagValue(is((Object) activityRule.getActivity().getString(R.string.player_none)))));
-        onView(withId(R.id.btn_field_2_0)).check(matches(withTagValue(is((Object) activityRule.getActivity().getString(R.string.player_none)))));
-        onView(withId(R.id.btn_field_2_1)).check(matches(withTagValue(is((Object) activityRule.getActivity().getString(R.string.player_none)))));
-        onView(withId(R.id.btn_field_2_2)).check(matches(withTagValue(is((Object) activityRule.getActivity().getString(R.string.player_none)))));
+        onView(withId(R.id.btn_field_0_0)).check(matches(withTagValue(is(activityRule.getActivity().getString(R.string.player_none)))));
+        onView(withId(R.id.btn_field_0_1)).check(matches(withTagValue(is(activityRule.getActivity().getString(R.string.player_none)))));
+        onView(withId(R.id.btn_field_0_2)).check(matches(withTagValue(is(activityRule.getActivity().getString(R.string.player_none)))));
+        onView(withId(R.id.btn_field_1_0)).check(matches(withTagValue(is(activityRule.getActivity().getString(R.string.player_none)))));
+        onView(withId(R.id.btn_field_1_1)).check(matches(withTagValue(is(activityRule.getActivity().getString(R.string.player_none)))));
+        onView(withId(R.id.btn_field_1_2)).check(matches(withTagValue(is(activityRule.getActivity().getString(R.string.player_none)))));
+        onView(withId(R.id.btn_field_2_0)).check(matches(withTagValue(is(activityRule.getActivity().getString(R.string.player_none)))));
+        onView(withId(R.id.btn_field_2_1)).check(matches(withTagValue(is(activityRule.getActivity().getString(R.string.player_none)))));
+        onView(withId(R.id.btn_field_2_2)).check(matches(withTagValue(is(activityRule.getActivity().getString(R.string.player_none)))));
     }
 
     @Test
@@ -85,37 +84,36 @@ public class TicTacToeUITest {
     @Test
     public void performMoveUITest()
     {
-        onView(withId(R.id.btn_field_0_0)).check(matches(withTagValue(is((Object) activityRule.getActivity().getString(R.string.player_none)))));
+        onView(withId(R.id.btn_field_0_0)).check(matches(withTagValue(is(activityRule.getActivity().getString(R.string.player_none)))));
         onView(withId(R.id.tvStatus)).check(matches(withText(R.string.player_cross)));
 
         onView(withId(R.id.btn_field_0_0)).perform(click());
-        onView(withId(R.id.btn_field_0_0)).check(matches(withTagValue(is((Object) activityRule.getActivity().getString(R.string.player_cross)))));
+        onView(withId(R.id.btn_field_0_0)).check(matches(withTagValue(is(activityRule.getActivity().getString(R.string.player_cross)))));
         onView(withId(R.id.tvStatus)).check(matches(withText(R.string.player_circle)));
     }
 
     @Test
     public void performWinUITest(){
-        onView(withId(R.id.btn_field_0_0)).check(matches(withTagValue(is((Object) activityRule.getActivity().getString(R.string.player_none)))));
+        onView(withId(R.id.btn_field_0_0)).check(matches(withTagValue(is(activityRule.getActivity().getString(R.string.player_none)))));
         onView(withId(R.id.tvStatus)).check(matches(withText(R.string.player_cross)));
 
         onView(withId(R.id.btn_field_0_0)).perform(click());
-        onView(withId(R.id.btn_field_0_0)).check(matches(withTagValue(is((Object) activityRule.getActivity().getString(R.string.player_cross)))));
+        onView(withId(R.id.btn_field_0_0)).check(matches(withTagValue(is(activityRule.getActivity().getString(R.string.player_cross)))));
 
         onView(withId(R.id.btn_field_0_1)).perform(click());
-        onView(withId(R.id.btn_field_0_1)).check(matches(withTagValue(is((Object) activityRule.getActivity().getString(R.string.player_circle)))));
+        onView(withId(R.id.btn_field_0_1)).check(matches(withTagValue(is(activityRule.getActivity().getString(R.string.player_circle)))));
 
         onView(withId(R.id.btn_field_1_0)).perform(click());
-        onView(withId(R.id.btn_field_1_0)).check(matches(withTagValue(is((Object) activityRule.getActivity().getString(R.string.player_cross)))));
+        onView(withId(R.id.btn_field_1_0)).check(matches(withTagValue(is(activityRule.getActivity().getString(R.string.player_cross)))));
 
         onView(withId(R.id.btn_field_0_2)).perform(click());
-        onView(withId(R.id.btn_field_0_2)).check(matches(withTagValue(is((Object) activityRule.getActivity().getString(R.string.player_circle)))));
+        onView(withId(R.id.btn_field_0_2)).check(matches(withTagValue(is(activityRule.getActivity().getString(R.string.player_circle)))));
 
         onView(withId(R.id.tvStatus)).check(matches(withText(R.string.player_cross)));
         onView(withId(R.id.btn_field_2_0)).perform(click());
-        onView(withId(R.id.btn_field_2_0)).check(matches(withTagValue(is((Object) activityRule.getActivity().getString(R.string.player_cross)))));
+        onView(withId(R.id.btn_field_2_0)).check(matches(withTagValue(is(activityRule.getActivity().getString(R.string.player_cross)))));
         onView(withId(R.id.tvStatus)).check(matches(withText(R.string.player_cross)));
 
-        // win
         onView(withId(R.id.btn_field_0_0)).check(matches(not(isClickable())));
         onView(withId(R.id.btn_field_0_1)).check(matches(not(isClickable())));
         onView(withId(R.id.btn_field_0_2)).check(matches(not(isClickable())));
@@ -130,24 +128,22 @@ public class TicTacToeUITest {
     @Test
     public void performPlayAgain()
     {
-        // perform some clicks
         onView(withId(R.id.tvStatus)).check(matches(withText(R.string.player_cross)));
         onView(withId(R.id.btn_field_0_0)).perform(click());
-        onView(withId(R.id.btn_field_0_0)).check(matches(withTagValue(is((Object) activityRule.getActivity().getString(R.string.player_cross)))));
+        onView(withId(R.id.btn_field_0_0)).check(matches(withTagValue(is(activityRule.getActivity().getString(R.string.player_cross)))));
 
         onView(withId(R.id.btn_field_0_1)).perform(click());
-        onView(withId(R.id.btn_field_0_1)).check(matches(withTagValue(is((Object) activityRule.getActivity().getString(R.string.player_circle)))));
+        onView(withId(R.id.btn_field_0_1)).check(matches(withTagValue(is(activityRule.getActivity().getString(R.string.player_circle)))));
 
         onView(withId(R.id.btn_field_1_0)).perform(click());
-        onView(withId(R.id.btn_field_1_0)).check(matches(withTagValue(is((Object) activityRule.getActivity().getString(R.string.player_cross)))));
+        onView(withId(R.id.btn_field_1_0)).check(matches(withTagValue(is(activityRule.getActivity().getString(R.string.player_cross)))));
 
         onView(withId(R.id.btn_field_0_2)).perform(click());
-        onView(withId(R.id.btn_field_0_2)).check(matches(withTagValue(is((Object) activityRule.getActivity().getString(R.string.player_circle)))));
+        onView(withId(R.id.btn_field_0_2)).check(matches(withTagValue(is(activityRule.getActivity().getString(R.string.player_circle)))));
 
         onView(withId(R.id.btn_field_2_0)).perform(click());
-        onView(withId(R.id.btn_field_2_0)).check(matches(withTagValue(is((Object) activityRule.getActivity().getString(R.string.player_cross)))));
+        onView(withId(R.id.btn_field_2_0)).check(matches(withTagValue(is(activityRule.getActivity().getString(R.string.player_cross)))));
 
-        // play again
         onView(withId(R.id.btn_play_again)).perform(click());
 
         checkStartField();
@@ -159,11 +155,11 @@ public class TicTacToeUITest {
         onView(withId(R.id.tvStatus)).check(matches(withText(R.string.player_cross)));
 
         onView(withId(R.id.btn_field_0_0)).perform(click());
-        onView(withId(R.id.btn_field_0_0)).check(matches(withTagValue(is((Object) activityRule.getActivity().getString(R.string.player_cross)))));
+        onView(withId(R.id.btn_field_0_0)).check(matches(withTagValue(is(activityRule.getActivity().getString(R.string.player_cross)))));
 
         onView(withId(R.id.tvStatus)).check(matches(withText(R.string.player_circle)));
         onView(withId(R.id.btn_field_0_0)).perform(click());
-        onView(withId(R.id.btn_field_0_0)).check(matches(withTagValue(is((Object) activityRule.getActivity().getString(R.string.player_cross)))));
+        onView(withId(R.id.btn_field_0_0)).check(matches(withTagValue(is(activityRule.getActivity().getString(R.string.player_cross)))));
         onView(withId(R.id.tvStatus)).check(matches(withText(R.string.player_circle)));
 
     }

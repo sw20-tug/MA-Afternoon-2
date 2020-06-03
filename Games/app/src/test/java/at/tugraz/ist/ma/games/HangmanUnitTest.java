@@ -1,6 +1,5 @@
 package at.tugraz.ist.ma.games;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -13,21 +12,13 @@ import static org.junit.Assert.*;
 
 public class HangmanUnitTest {
 
-    /*private Hangman hangman;
 
-    @Before
-    public void initTest()
-    {
-        hangman = new Hangman("");
-    }
-    */
 
     @Test
     public void guessTest1_aba()
     {
-        Hangman hangman = new Hangman("aba",null);
+        Hangman hangman = new Hangman(new String[]{"aba"});
 
-        //hangman.setWord("aba");
         hangman.guessCharacter('a');
         assertEquals("a_a", hangman.getCurrentGuessWithoutSpace());
         hangman.guessCharacter('b');
@@ -37,9 +28,8 @@ public class HangmanUnitTest {
     @Test
     public void guessTest2_abcde()
     {
-        Hangman hangman = new Hangman("abcde",null);
+        Hangman hangman = new Hangman(new String[]{"abcde"});
 
-        //hangman.setWord("abcde");
         hangman.guessCharacter('z');
         assertEquals("_____", hangman.getCurrentGuessWithoutSpace());
         hangman.guessCharacter('y');
@@ -56,26 +46,23 @@ public class HangmanUnitTest {
     @Test
     public void setNewRandomWordTest()
     {
-        Hangman hangman = new Hangman("word",null);
+        Hangman hangman = new Hangman(new String[]{"word"});
 
-       // hangman.setWord("word");
         assertNotNull(hangman.getWord());
     }
     @Test
     public void checkWordTrueTest()
     {
-        Hangman hangman = new Hangman("HIGH",null);
+        Hangman hangman = new Hangman(new String[]{"HIGH"});
 
-       // hangman.setWord("word");
         assertTrue(hangman.guessWord(hangman.getWord()));
-        //hangman.setWord("HIGH");
         assertTrue(hangman.guessWord("high"));
     }
 
     @Test
     public void checkWordFalseTest()
     {
-        Hangman hangman = new Hangman("Number",null);
+        Hangman hangman = new Hangman(new String[]{"Number"});
 
         hangman.setWord("trueWord");
         assertFalse(hangman.guessWord("wrongWord"));
@@ -84,9 +71,7 @@ public class HangmanUnitTest {
     @Test
     public void guessCharacterTest()
     {
-        Hangman hangman = new Hangman("test",null);
-
-        //hangman.setWord("test");
+        Hangman hangman = new Hangman(new String[]{"test"});
 
         hangman.guessCharacter('t');
         hangman.guessCharacter('k');
@@ -97,9 +82,8 @@ public class HangmanUnitTest {
     @Test
     public void wrongGuessNumberTest()
     {
-        Hangman hangman = new Hangman("number",null);
+        Hangman hangman = new Hangman(new String[]{"number"});
 
-        //hangman.setWord("Number");
         assertEquals(0, hangman.getNumberOfWrongGuesses());
         hangman.guessCharacter('n');
         hangman.guessCharacter('x');
@@ -107,6 +91,15 @@ public class HangmanUnitTest {
         hangman.guessCharacter('z');
         hangman.guessCharacter('y');
         assertEquals(3, hangman.getNumberOfWrongGuesses());
+    }
+
+    @Test
+    public void getHintTest()
+    {
+        Hangman hangman = new Hangman(new String[]{"a"});
+        assertEquals("A",hangman.getHint().toString());
+        assertEquals(1,hangman.getNumberOfHints());
+
     }
 }
 

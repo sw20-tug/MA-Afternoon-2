@@ -3,16 +3,19 @@
     package="at.tugraz.ist.ma.games">
 
     <application
-        android:allowBackup="true"
+        android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".HangmanActivity"></activity>
-        <activity android:name=".TicTacToeSettingsActivity" />
-        <activity android:name=".TicTacToeActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".HangmanWordActivity" android:screenOrientation="portrait" />
+        <activity android:name=".SettingsActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".WhiteTilesActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".HangmanActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".TicTacToeSettingsActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".TicTacToeActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".MainActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

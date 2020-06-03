@@ -72,15 +72,16 @@
 
             <ImageButton
                 android:id="@+id/btnMainWhiteTiles"
-                style="@style/styleWelcomeScreenButtonsComingSoon"
+                style="@style/styleWelcomeScreenButtons"
                 android:contentDescription="@string/main_donttouch"
-                android:src="@drawable/icon_dont_touch_comingsoon" />
+                android:src="@drawable/icon_dont_touch" />
 
             <ImageButton
                 android:id="@+id/btnMainSettings"
-                style="@style/styleWelcomeScreenButtonsComingSoon"
+                style="@style/styleWelcomeScreenButtons"
                 android:contentDescription="@string/main_settings"
-                android:src="@drawable/icon_settings_comingsoon" />
+                android:src="@drawable/icon_settings" />
+
 
         </TableRow>
 
@@ -100,8 +101,6 @@
     </TableLayout>
 
     <TextView
-        android:visibility="invisible"
-
         android:id="@+id/tvMainPoints"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

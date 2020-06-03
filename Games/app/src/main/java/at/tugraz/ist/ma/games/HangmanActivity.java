@@ -2,363 +2,274 @@ package at.tugraz.ist.ma.games;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
 
 public class HangmanActivity extends AppCompatActivity {
 
-    final Hangman hangman = new Hangman(null, this);
-
+    private Hangman hangman_;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-        //Context ctx = getApplication().getBaseContext();
         super.onCreate(savedInstanceState);
+
+        JSONArray jsonArray = null;
+        try {
+            jsonArray = new JSONArray(getString(R.string.hm_default_words));
+        } catch (JSONException e) {
+            System.out.println("Cannot read default word (Invalid json)" + e.toString());
+        }
+
+        String[] default_word_list;
+        if(jsonArray != null) {
+            default_word_list = new String[jsonArray.length()];
+        }
+        else {
+            default_word_list = new String[] {};
+        }
+
+        for(int i = 0; i < (jsonArray != null ? jsonArray.length() : 0); i++){
+            default_word_list[i] = jsonArray.optString(i);
+        }
+
         setContentView(R.layout.activity_hangman);
-        final TextView text = (TextView) findViewById(R.id.guessableWord);
-        text.setText(hangman.getCurrentGuess());
+        String[] word_list;
+        try {
+            word_list = DataManager.loadWordList(getApplicationContext());
+        } catch (Exception e) {
+            System.out.println("Using default words");
+            word_list = new String[]{};
+        }
 
+        ArrayList<String> wl_default = new ArrayList<>(Arrays.asList(default_word_list));
+        ArrayList<String> wl_custom = new ArrayList<>(Arrays.asList(word_list));
+        ArrayList<String> words = new ArrayList<>();
+        words.addAll(wl_default);
+        words.addAll(wl_custom);
 
+        hangman_ = new Hangman(words.toArray(new String[0]));
 
+        final TextView text = findViewById(R.id.guessableWord);
+        text.setText(hangman_.getCurrentGuess());
 
-        //1
-        final Button buttonA = (Button) findViewById(R.id.buttonA);
-        buttonA.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                // your handler code here
-                Log.e("HANGMAN-onClick", "buttonA");
-                hangman.guessCharacter('a');
-                text.setText(hangman.getCurrentGuess());
-                buttonA.setEnabled(false);
+        final Button btnHintPlayAgain = findViewById(R.id.buttonHangmanHintPlayAgain);
+        final TextView hangmanWinLoose = findViewById(R.id.hangmanWinLoose);
+
+        btnHintPlayAgain.setOnClickListener(v -> {
+            if (btnHintPlayAgain.getTag() == getString(R.string.play_again))
+            {
+                Replay(text, hangmanWinLoose);
+                btnHintPlayAgain.setTag(getString(R.string.hint));
+                btnHintPlayAgain.setText(getString(R.string.hint));
+
+            }
+            else
+            {
+                Toast toast=Toast.makeText(getApplicationContext(),getString(R.string.hint) + ":" + hangman_.getHint() + "\" - ("
+                        + (hangman_.getNumberOfHints()) + "/" + Hangman.HANGMAN_NR_OF_MAX_HINTS + ")",Toast.LENGTH_SHORT);
+
+                toast.show();
+                ScoreHandler.getInstance().addPointsToScore(Hangman.HANGMAN_SCORE_DECREASE_PER_HINT);
+
+                if(hangman_.getNumberOfHints() >= Hangman.HANGMAN_NR_OF_MAX_HINTS)
+                {
+                    btnHintPlayAgain.setClickable(false);
+                    btnHintPlayAgain.setEnabled(false);
+                    btnHintPlayAgain.setTag(getString(R.string.play_again));
+                }
             }
         });
 
-        //2
-        final Button buttonB = (Button) findViewById(R.id.buttonB);
-        buttonB.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                // your handler code here
-                Log.e("HANGMAN-onClick", "buttonB");
-                hangman.guessCharacter('b');
-                text.setText(hangman.getCurrentGuess());
-                buttonB.setEnabled(false);
-            }
-        });
+        final Button buttonA = findViewById(R.id.buttonA);
+        final Button buttonB = findViewById(R.id.buttonB);
+        final Button buttonC = findViewById(R.id.buttonC);
+        final Button buttonD = findViewById(R.id.buttonD);
+        final Button buttonE = findViewById(R.id.buttonE);
+        final Button buttonF = findViewById(R.id.buttonF);
+        final Button buttonG = findViewById(R.id.buttonG);
+        final Button buttonH = findViewById(R.id.buttonH);
+        final Button buttonI = findViewById(R.id.buttonI);
+        final Button buttonJ = findViewById(R.id.buttonJ);
+        final Button buttonK = findViewById(R.id.buttonK);
+        final Button buttonL = findViewById(R.id.buttonL);
+        final Button buttonM = findViewById(R.id.buttonM);
+        final Button buttonN = findViewById(R.id.buttonN);
+        final Button buttonO = findViewById(R.id.buttonO);
+        final Button buttonP = findViewById(R.id.buttonP);
+        final Button buttonQ = findViewById(R.id.buttonQ);
+        final Button buttonR = findViewById(R.id.buttonR);
+        final Button buttonS = findViewById(R.id.buttonS);
+        final Button buttonT = findViewById(R.id.buttonT);
+        final Button buttonU = findViewById(R.id.buttonU);
+        final Button buttonV = findViewById(R.id.buttonV);
+        final Button buttonW = findViewById(R.id.buttonW);
+        final Button buttonX = findViewById(R.id.buttonX);
+        final Button buttonY = findViewById(R.id.buttonY);
+        final Button buttonZ = findViewById(R.id.buttonZ);
 
-        //3
-        final Button buttonC = (Button) findViewById(R.id.buttonC);
-        buttonC.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                // your handler code here
-                Log.e("HANGMAN-onClick", "buttonC");
-                hangman.guessCharacter('c');
-                text.setText(hangman.getCurrentGuess());
-                buttonC.setEnabled(false);
-            }
-        });
-
-        //4
-        final Button buttonD = (Button) findViewById(R.id.buttonD);
-        buttonD.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                // your handler code here
-                Log.e("HANGMAN-onClick", "buttonD");
-                hangman.guessCharacter('d');
-                text.setText(hangman.getCurrentGuess());
-                buttonD.setEnabled(false);
-            }
-        });
-
-
-        //5
-        final Button buttonE = (Button) findViewById(R.id.buttonE);
-        buttonE.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                // your handler code here
-                Log.e("HANGMAN-onClick", "buttonE");
-                hangman.guessCharacter('e');
-                text.setText(hangman.getCurrentGuess());
-                buttonE.setEnabled(false);
-            }
-        });
-
-        //6
-        final Button buttonF = (Button) findViewById(R.id.buttonF);
-        buttonF.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                // your handler code here
-                Log.e("HANGMAN-onClick", "buttonF");
-                hangman.guessCharacter('f');
-                text.setText(hangman.getCurrentGuess());
-                buttonF.setEnabled(false);
-            }
-        });
-
-
-        //7
-        final Button buttonG = (Button) findViewById(R.id.buttonG);
-        buttonG.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                // your handler code here
-                Log.e("HANGMAN-onClick", "buttonG");
-                hangman.guessCharacter('g');
-                text.setText(hangman.getCurrentGuess());
-                buttonG.setEnabled(false);
-            }
-        });
-
-        //8
-        final Button buttonH = (Button) findViewById(R.id.buttonH);
-        buttonH.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                // your handler code here
-                Log.e("HANGMAN-onClick", "buttonH");
-                hangman.guessCharacter('h');
-                text.setText(hangman.getCurrentGuess());
-                buttonH.setEnabled(false);
-            }
-        });
-
-        //9
-        final Button buttonI = (Button) findViewById(R.id.buttonI);
-        buttonI.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                // your handler code here
-                Log.e("HANGMAN-onClick", "buttonI");
-                hangman.guessCharacter('i');
-                text.setText(hangman.getCurrentGuess());
-                buttonI.setEnabled(false);
-            }
-        });
-
-        //10
-        final Button buttonJ = (Button) findViewById(R.id.buttonJ);
-        buttonJ.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                // your handler code here
-                Log.e("HANGMAN-onClick", "buttonJ");
-                hangman.guessCharacter('j');
-                text.setText(hangman.getCurrentGuess());
-                buttonJ.setEnabled(false);
-            }
-        });
-
-
-        //11
-        final Button buttonK = (Button) findViewById(R.id.buttonK);
-        buttonK.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                // your handler code here
-                Log.e("HANGMAN-onClick", "buttonK");
-                hangman.guessCharacter('k');
-                text.setText(hangman.getCurrentGuess());
-                buttonK.setEnabled(false);
-            }
-        });
-
-        //12
-        final Button buttonL = (Button) findViewById(R.id.buttonL);
-        buttonL.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                // your handler code here
-                Log.e("HANGMAN-onClick", "buttonL");
-                hangman.guessCharacter('l');
-                text.setText(hangman.getCurrentGuess());
-                buttonL.setEnabled(false);
-            }
-        });
-
-        //13
-        final Button buttonM = (Button) findViewById(R.id.buttonM);
-        buttonM.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                // your handler code here
-                Log.e("HANGMAN-onClick", "buttonM");
-                hangman.guessCharacter('m');
-                text.setText(hangman.getCurrentGuess());
-                buttonM.setEnabled(false);
-            }
-        });
-
-        //14
-        final Button buttonN = (Button) findViewById(R.id.buttonN);
-        buttonN.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                // your handler code here
-                Log.e("HANGMAN-onClick", "buttonN");
-                hangman.guessCharacter('n');
-                text.setText(hangman.getCurrentGuess());
-                buttonN.setEnabled(false);
-            }
-        });
-
-        //15
-        final Button buttonO = (Button) findViewById(R.id.buttonO);
-        buttonO.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                // your handler code here
-                Log.e("HANGMAN-onClick", "buttonO");
-                hangman.guessCharacter('o');
-                text.setText(hangman.getCurrentGuess());
-                buttonO.setEnabled(false);
-            }
-        });
-
-        //16
-        final Button buttonP = (Button) findViewById(R.id.buttonP);
-        buttonP.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                // your handler code here
-                Log.e("HANGMAN-onClick", "buttonP");
-                hangman.guessCharacter('p');
-                text.setText(hangman.getCurrentGuess());
-                buttonP.setEnabled(false);
-            }
-        });
-
-
-        //17
-        final Button buttonQ = (Button) findViewById(R.id.buttonQ);
-        buttonQ.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                // your handler code here
-                Log.e("HANGMAN-onClick", "buttonQ");
-                hangman.guessCharacter('q');
-                text.setText(hangman.getCurrentGuess());
-                buttonQ.setEnabled(false);
-            }
-        });
-
-        //18
-        final Button buttonR = (Button) findViewById(R.id.buttonR);
-        buttonR.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                // your handler code here
-                Log.e("HANGMAN-onClick", "buttonR");
-                hangman.guessCharacter('r');
-                text.setText(hangman.getCurrentGuess());
-                buttonR.setEnabled(false);
-            }
-        });
-
-
-        //19
-        final Button buttonS = (Button) findViewById(R.id.buttonS);
-        buttonS.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                // your handler code here
-                Log.e("HANGMAN-onClick", "buttonS");
-                hangman.guessCharacter('s');
-                text.setText(hangman.getCurrentGuess());
-                buttonS.setEnabled(false);
-            }
-        });
-
-        //20
-        final Button buttonT = (Button) findViewById(R.id.buttonT);
-        buttonT.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                // your handler code here
-                Log.e("HANGMAN-onClick", "buttonT");
-                hangman.guessCharacter('t');
-                text.setText(hangman.getCurrentGuess());
-                buttonT.setEnabled(false);
-            }
-        });
-
-        //21
-        final Button buttonU = (Button) findViewById(R.id.buttonU);
-        buttonU.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                // your handler code here
-                Log.e("HANGMAN-onClick", "buttonU");
-                hangman.guessCharacter('u');
-                text.setText(hangman.getCurrentGuess());
-                buttonU.setEnabled(false);
-            }
-        });
-
-        //22
-        final Button buttonV = (Button) findViewById(R.id.buttonV);
-        buttonV.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                // your handler code here
-                Log.e("HANGMAN-onClick", "buttonV");
-                hangman.guessCharacter('v');
-                text.setText(hangman.getCurrentGuess());
-                buttonV.setEnabled(false);
-            }
-        });
-
-
-        //23
-        final Button buttonW = (Button) findViewById(R.id.buttonW);
-        buttonW.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                // your handler code here
-                Log.e("HANGMAN-onClick", "buttonW");
-                hangman.guessCharacter('w');
-                text.setText(hangman.getCurrentGuess());
-                buttonW.setEnabled(false);
-            }
-        });
-
-        //24
-        final Button buttonX = (Button) findViewById(R.id.buttonX);
-        buttonX.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                // your handler code here
-                Log.e("HANGMAN-onClick", "buttonX");
-                hangman.guessCharacter('x');
-                text.setText(hangman.getCurrentGuess());
-                buttonX.setEnabled(false);
-            }
-        });
-
-        //25
-        final Button buttonY = (Button) findViewById(R.id.buttonY);
-        buttonY.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                // your handler code here
-                Log.e("HANGMAN-onClick", "buttonY");
-                hangman.guessCharacter('y');
-                text.setText(hangman.getCurrentGuess());
-                buttonY.setEnabled(false);
-            }
-        });
-
-        //26
-        final Button buttonZ = (Button) findViewById(R.id.buttonZ);
-        buttonZ.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                // your handler code here
-                Log.e("HANGMAN-onClick", "buttonZ");
-                hangman.guessCharacter('z');
-                text.setText(hangman.getCurrentGuess());
-                buttonZ.setEnabled(false);
-            }
-        });
-
-
-
-
-
-
+        buttonA.setOnClickListener(v -> clickCharacter('a', buttonA, text));
+        buttonB.setOnClickListener(v -> clickCharacter('b', buttonB, text));
+        buttonC.setOnClickListener(v -> clickCharacter('c', buttonC, text));
+        buttonD.setOnClickListener(v -> clickCharacter('d', buttonD, text));
+        buttonE.setOnClickListener(v -> clickCharacter('e', buttonE, text));
+        buttonF.setOnClickListener(v -> clickCharacter('f', buttonF, text));
+        buttonG.setOnClickListener(v -> clickCharacter('g', buttonG, text));
+        buttonH.setOnClickListener(v -> clickCharacter('h', buttonH, text));
+        buttonI.setOnClickListener(v -> clickCharacter('i', buttonI, text));
+        buttonJ.setOnClickListener(v -> clickCharacter('j', buttonJ, text));
+        buttonK.setOnClickListener(v -> clickCharacter('k', buttonK, text));
+        buttonL.setOnClickListener(v -> clickCharacter('l', buttonL, text));
+        buttonM.setOnClickListener(v -> clickCharacter('m', buttonM, text));
+        buttonN.setOnClickListener(v -> clickCharacter('n', buttonN, text));
+        buttonO.setOnClickListener(v -> clickCharacter('o', buttonO, text));
+        buttonP.setOnClickListener(v -> clickCharacter('p', buttonP, text));
+        buttonQ.setOnClickListener(v -> clickCharacter('q', buttonQ, text));
+        buttonR.setOnClickListener(v -> clickCharacter('r', buttonR, text));
+        buttonS.setOnClickListener(v -> clickCharacter('s', buttonS, text));
+        buttonT.setOnClickListener(v -> clickCharacter('t', buttonT, text));
+        buttonU.setOnClickListener(v -> clickCharacter('u', buttonU, text));
+        buttonV.setOnClickListener(v -> clickCharacter('v', buttonV, text));
+        buttonW.setOnClickListener(v -> clickCharacter('w', buttonW, text));
+        buttonX.setOnClickListener(v -> clickCharacter('x', buttonX, text));
+        buttonY.setOnClickListener(v -> clickCharacter('y', buttonY, text));
+        buttonZ.setOnClickListener(v -> clickCharacter('z', buttonZ, text));
 
     }
 
 
+    private void clickCharacter(char c, Button b, TextView t) {
+        Log.d("HANGMAN-onClick", "button" + c);
+        hangman_.guessCharacter(c);
+        t.setText(hangman_.getCurrentGuess());
+        b.setEnabled(false);
+        final Button btnHintPlayAgain = findViewById(R.id.buttonHangmanHintPlayAgain);
+        if(hangman_.isWordCorrect()) 
+        {
+            ScoreHandler.getInstance().addPointsToScore(Hangman.HANGMAN_SCORE_INCREASE_PER_WIN);
+            btnHintPlayAgain.setText(getString(R.string.play_again));
+            btnHintPlayAgain.setTag(getString(R.string.play_again));
+            btnHintPlayAgain.setClickable(true);
+            btnHintPlayAgain.setEnabled(true);
+            setField(false);
+            showWin();
+        }
+        else
+        {
+            int wrong_guesses = hangman_.getNumberOfWrongGuesses();
+
+            if(wrong_guesses >= Hangman.HANGMAN_NR_OF_MAX_GUESSES)
+            {
+                ScoreHandler.getInstance().addPointsToScore(Hangman.HANGMAN_SCORE_DECREASE_PER_LOSS);
+
+                btnHintPlayAgain.setText(getString(R.string.play_again));
+                btnHintPlayAgain.setTag(getString(R.string.play_again));
+                btnHintPlayAgain.setClickable(true);
+                btnHintPlayAgain.setEnabled(true);
+
+                setField(false);
+                showFail();
+            }
+            setImage(wrong_guesses);
+        }
+    }
+
+    private void setImage(int wrong_guesses) {
+        ImageView image_view = findViewById(R.id.imageView);
 
 
+        switch (wrong_guesses) {
+            case 1:
+                image_view.setImageResource(R.drawable.hangman_01);
+                break;
+            case 2:
+                image_view.setImageResource(R.drawable.hangman_02);
+                break;
+            case 3:
+                image_view.setImageResource(R.drawable.hangman_03);
+                break;
+            case 4:
+                image_view.setImageResource(R.drawable.hangman_04);
+                break;
+            case 5:
+                image_view.setImageResource(R.drawable.hangman_05);
+                break;
+            case 6:
+                image_view.setImageResource(R.drawable.hangman_06);
+                break;
+            case 7:
+                image_view.setImageResource(R.drawable.hangman_07);
+                break;
+            case 8:
+                image_view.setImageResource(R.drawable.hangman_08);
+                break;
+            default:
+                image_view.setImageResource(R.drawable.hangman_00);
 
+        }
+    }
 
+    private void setField(boolean b)
+    {
+        findViewById(R.id.buttonA).setEnabled(b);
+        findViewById(R.id.buttonB).setEnabled(b);
+        findViewById(R.id.buttonC).setEnabled(b);
+        findViewById(R.id.buttonD).setEnabled(b);
+        findViewById(R.id.buttonE).setEnabled(b);
+        findViewById(R.id.buttonF).setEnabled(b);
+        findViewById(R.id.buttonG).setEnabled(b);
+        findViewById(R.id.buttonH).setEnabled(b);
+        findViewById(R.id.buttonI).setEnabled(b);
+        findViewById(R.id.buttonJ).setEnabled(b);
+        findViewById(R.id.buttonK).setEnabled(b);
+        findViewById(R.id.buttonL).setEnabled(b);
+        findViewById(R.id.buttonM).setEnabled(b);
+        findViewById(R.id.buttonN).setEnabled(b);
+        findViewById(R.id.buttonO).setEnabled(b);
+        findViewById(R.id.buttonP).setEnabled(b);
+        findViewById(R.id.buttonQ).setEnabled(b);
+        findViewById(R.id.buttonR).setEnabled(b);
+        findViewById(R.id.buttonS).setEnabled(b);
+        findViewById(R.id.buttonT).setEnabled(b);
+        findViewById(R.id.buttonU).setEnabled(b);
+        findViewById(R.id.buttonV).setEnabled(b);
+        findViewById(R.id.buttonW).setEnabled(b);
+        findViewById(R.id.buttonX).setEnabled(b);
+        findViewById(R.id.buttonY).setEnabled(b);
+        findViewById(R.id.buttonZ).setEnabled(b);
+    }
+
+    private void showFail() {
+        final TextView hangmanWinLoose = findViewById(R.id.hangmanWinLoose);
+        hangmanWinLoose.setText(R.string.lost);
+        hangmanWinLoose.setVisibility(View.VISIBLE);
+    }
+
+    private void showWin() {
+        final TextView hangmanWinLoose = findViewById(R.id.hangmanWinLoose);
+        hangmanWinLoose.setText(R.string.win);
+        hangmanWinLoose.setVisibility(View.VISIBLE);
+    }
+
+    private void Replay(TextView t, TextView gameSummary)
+    {
+        hangman_.reset();
+        t.setText(hangman_.getCurrentGuess());
+        gameSummary.setVisibility(View.INVISIBLE);
+        setField(true);
+        setImage(hangman_.getNumberOfWrongGuesses());
+    }
 
 }
 
