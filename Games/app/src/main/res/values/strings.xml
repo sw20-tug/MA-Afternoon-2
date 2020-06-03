@@ -32,9 +32,10 @@
     <string name="title" translatable="false">Corona Games</string>
     <string name="yourpoints">Your Points: 0</string>
 
+    <string name="hint">Hint</string>
     <string name="hangman_play_again">Play Again</string>
-    <string name="hangman_win">You Win</string>
-    <string name="hangman_lost">You Lost</string>
+    <string name="win">"You Won "</string>
+    <string name="lost">You Lost</string>
     <string name="sett_hangmanwords">Edit Words</string>
     <string name="sett_about">About</string>
     <string name="sett_add" translatable="false">+</string>
@@ -91,5 +92,7 @@
     <string name="hm_default_words">["hangman", "paper", "application", "mobile", "laptop", "mountain", "flower", "backpack", "racecar"]</string>
     <string name="sett_wordlen">Word can have maximal 11 chars</string>
     <string name="sett_wordinvalid">Word can only use ascii characters</string>
+    <string name="occupied">Field occupied</string>
+    <string name="tie">\"It\'s a tie!\"</string>
 
 </resources>

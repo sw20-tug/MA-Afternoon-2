@@ -120,7 +120,7 @@ public class WhiteTilesActivity extends AppCompatActivity {
         }
         if(!whiteTiles.checkCorrectTileAndCount(btn))
         {
-            Toast.makeText(this, "You lost", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, getString(R.string.lost), Toast.LENGTH_LONG).show();
         }
         else
         {

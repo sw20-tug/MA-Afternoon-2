@@ -342,22 +342,24 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <Button
-        android:id="@+id/buttonHangmanPlayAgain"
+        android:id="@+id/buttonHangmanHintPlayAgain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hangman_play_again"
-        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/row4" />
+        app:layout_constraintTop_toBottomOf="@+id/row4"
+        android:tag="@string/hint"
+        android:text="@string/hint" />
+
+
 
     <TextView
         android:id="@+id/hangmanWinLoose"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:text="@string/hangman_win"
+        android:text="@string/win"
         android:textSize="30sp"
         android:textStyle="bold"
         android:visibility="invisible"

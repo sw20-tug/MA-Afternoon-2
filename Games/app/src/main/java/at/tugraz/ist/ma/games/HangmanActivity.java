@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -63,10 +64,33 @@ public class HangmanActivity extends AppCompatActivity {
         final TextView text = findViewById(R.id.guessableWord);
         text.setText(hangman_.getCurrentGuess());
 
-        final Button buttonHangmanPlayAgain = findViewById(R.id.buttonHangmanPlayAgain);
+        final Button btnHintPlayAgain = findViewById(R.id.buttonHangmanHintPlayAgain);
         final TextView hangmanWinLoose = findViewById(R.id.hangmanWinLoose);
-        buttonHangmanPlayAgain.setOnClickListener(v -> Replay(text,buttonHangmanPlayAgain,hangmanWinLoose));
 
+        btnHintPlayAgain.setOnClickListener(v -> {
+            if (btnHintPlayAgain.getTag() == getString(R.string.play_again))
+            {
+                Replay(text, hangmanWinLoose);
+                btnHintPlayAgain.setTag(getString(R.string.hint));
+                btnHintPlayAgain.setText(getString(R.string.hint));
+
+            }
+            else
+            {
+                Toast toast=Toast.makeText(getApplicationContext(),getString(R.string.hint) + ":" + hangman_.getHint() + "\" - ("
+                        + (hangman_.getNumberOfHints()) + "/" + Hangman.HANGMAN_NR_OF_MAX_HINTS + ")",Toast.LENGTH_SHORT);
+
+                toast.show();
+                ScoreHandler.getInstance().addPointsToScore(Hangman.HANGMAN_SCORE_DECREASE_PER_HINT);
+
+                if(hangman_.getNumberOfHints() >= Hangman.HANGMAN_NR_OF_MAX_HINTS)
+                {
+                    btnHintPlayAgain.setClickable(false);
+                    btnHintPlayAgain.setEnabled(false);
+                    btnHintPlayAgain.setTag(getString(R.string.play_again));
+                }
+            }
+        });
 
         final Button buttonA = findViewById(R.id.buttonA);
         final Button buttonB = findViewById(R.id.buttonB);
@@ -130,17 +154,30 @@ public class HangmanActivity extends AppCompatActivity {
         hangman_.guessCharacter(c);
         t.setText(hangman_.getCurrentGuess());
         b.setEnabled(false);
-
-        if(hangman_.isWordCorrect()) {
+        final Button btnHintPlayAgain = findViewById(R.id.buttonHangmanHintPlayAgain);
+        if(hangman_.isWordCorrect()) 
+        {
             ScoreHandler.getInstance().addPointsToScore(Hangman.HANGMAN_SCORE_INCREASE_PER_WIN);
+            btnHintPlayAgain.setText(getString(R.string.play_again));
+            btnHintPlayAgain.setTag(getString(R.string.play_again));
+            btnHintPlayAgain.setClickable(true);
+            btnHintPlayAgain.setEnabled(true);
             setField(false);
             showWin();
         }
-        else {
+        else
+        {
             int wrong_guesses = hangman_.getNumberOfWrongGuesses();
-            int MAX_GUESSES = 8;
-            if(wrong_guesses >= MAX_GUESSES) {
+
+            if(wrong_guesses >= Hangman.HANGMAN_NR_OF_MAX_GUESSES)
+            {
                 ScoreHandler.getInstance().addPointsToScore(Hangman.HANGMAN_SCORE_DECREASE_PER_LOSS);
+
+                btnHintPlayAgain.setText(getString(R.string.play_again));
+                btnHintPlayAgain.setTag(getString(R.string.play_again));
+                btnHintPlayAgain.setClickable(true);
+                btnHintPlayAgain.setEnabled(true);
+
                 setField(false);
                 showFail();
             }
@@ -214,26 +251,21 @@ public class HangmanActivity extends AppCompatActivity {
     }
 
     private void showFail() {
-        final Button buttonHangmanPlayAgain = findViewById(R.id.buttonHangmanPlayAgain);
-        buttonHangmanPlayAgain.setVisibility(View.VISIBLE);
         final TextView hangmanWinLoose = findViewById(R.id.hangmanWinLoose);
-        hangmanWinLoose.setText(R.string.hangman_lost);
+        hangmanWinLoose.setText(R.string.lost);
         hangmanWinLoose.setVisibility(View.VISIBLE);
     }
 
     private void showWin() {
-        final Button buttonHangmanPlayAgain = findViewById(R.id.buttonHangmanPlayAgain);
-        buttonHangmanPlayAgain.setVisibility(View.VISIBLE);
         final TextView hangmanWinLoose = findViewById(R.id.hangmanWinLoose);
-        hangmanWinLoose.setText(R.string.hangman_win);
+        hangmanWinLoose.setText(R.string.win);
         hangmanWinLoose.setVisibility(View.VISIBLE);
     }
 
-    private void Replay(TextView t, Button replayBtn, TextView gameSummary)
+    private void Replay(TextView t, TextView gameSummary)
     {
         hangman_.reset();
         t.setText(hangman_.getCurrentGuess());
-        replayBtn.setVisibility(View.INVISIBLE);
         gameSummary.setVisibility(View.INVISIBLE);
         setField(true);
         setImage(hangman_.getNumberOfWrongGuesses());
