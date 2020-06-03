@@ -42,6 +42,6 @@ public class DataManagerUnitTest
         String[] words = DataManager.loadWordList(context);
         assertArrayEquals(word_list,words);
 
-
+        assertTrue(file.delete());
     }
 }

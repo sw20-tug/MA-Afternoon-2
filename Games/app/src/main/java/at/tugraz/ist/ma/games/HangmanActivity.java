@@ -9,6 +9,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+
 import java.io.IOException;
 import java.util.Locale;
 
@@ -23,13 +26,27 @@ public class HangmanActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         //Context ctx = getApplication().getBaseContext();
         super.onCreate(savedInstanceState);
+
+        JSONArray jsonArray = null;
+        try {
+            jsonArray = new JSONArray(getString(R.string.hm_default_words));
+        } catch (JSONException e) {
+            System.out.println("Cannot read default word (Invalid json)" + e.toString());
+        }
+
+        String[] default_word_list = new String[jsonArray.length()];
+
+        for(int i = 0; i < jsonArray.length(); i++){
+            default_word_list[i] = jsonArray.optString(i);
+        }
+
         setContentView(R.layout.activity_hangman);
         String[] word_list;
         try {
             word_list = DataManager.loadWordList(getApplicationContext());
         } catch (Exception e) {
-            System.out.println("Cannot read words (using default words)" + e.toString());
-            word_list = new String[]{ "hangmantest", "applejuice", "kitchen","viewer", "kidney" };
+            System.out.println("Using default words");
+            word_list = default_word_list;
         }
         hangman_ = new Hangman(word_list);
 
