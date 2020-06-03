@@ -92,5 +92,14 @@ public class HangmanUnitTest {
         hangman.guessCharacter('y');
         assertEquals(3, hangman.getNumberOfWrongGuesses());
     }
+
+    @Test
+    public void getHintTest()
+    {
+        Hangman hangman = new Hangman("a");
+        assertEquals("A",hangman.getHint().toString());
+        assertEquals(1,hangman.getNumberOfHints());
+
+    }
 }
 

@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class HangmanActivity extends AppCompatActivity {
@@ -22,7 +23,7 @@ public class HangmanActivity extends AppCompatActivity {
         final TextView text = findViewById(R.id.guessableWord);
         text.setText(hangman.getCurrentGuess());
 
-        final Button btnHintPlayAgain = findViewById(R.id.buttonHangmanPlayAgain);
+        final Button btnHintPlayAgain = findViewById(R.id.buttonHangmanHintPlayAgain);
         final TextView hangmanWinLoose = findViewById(R.id.hangmanWinLoose);
 
         btnHintPlayAgain.setOnClickListener(v -> {
@@ -36,7 +37,10 @@ public class HangmanActivity extends AppCompatActivity {
             }
             else
             {
-                hangman.increaseNumberOfHints();
+                Toast toast=Toast.makeText(getApplicationContext(),"Possible Letter is \"" + hangman.getHint() + "\" - ("
+                        + (hangman.getNumberOfHints() + 1) + "/" + Hangman.HANGMAN_NR_OF_MAX_HINTS + ")",Toast.LENGTH_SHORT);
+
+                toast.show();
                 ScoreHandler.getInstance().addPointsToScore(Hangman.HANGMAN_SCORE_DECREASE_PER_HINT);
 
                 if(hangman.getNumberOfHints() >= Hangman.HANGMAN_NR_OF_MAX_HINTS)
@@ -110,7 +114,7 @@ public class HangmanActivity extends AppCompatActivity {
         hangman.guessCharacter(c);
         t.setText(hangman.getCurrentGuess());
         b.setEnabled(false);
-        final Button btnHintPlayAgain = findViewById(R.id.buttonHangmanPlayAgain);
+        final Button btnHintPlayAgain = findViewById(R.id.buttonHangmanHintPlayAgain);
         if(hangman.isWordCorrect())
         {
             ScoreHandler.getInstance().addPointsToScore(Hangman.HANGMAN_SCORE_INCREASE_PER_WIN);

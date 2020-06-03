@@ -1,6 +1,7 @@
 package at.tugraz.ist.ma.games;
 
 
+import java.util.ArrayList;
 import java.util.Random;
 
 class Hangman
@@ -19,7 +20,7 @@ class Hangman
     private int number_of_wrong_guesses_ =  0;
     private int number_of_hints_         =  0;
     private final String[] word_list = new String[]{ "hangmantest", "applejuice", "kitchen","viewer", "kidney" };
-
+    private ArrayList<Character> possible_hints_ = new ArrayList<>();
 
     //----------------------------------------------------------------------------------------------
     public Hangman(String word)
@@ -34,9 +35,12 @@ class Hangman
             int rnd = random.nextInt(word_list.length);
             word_ = word_list[rnd].toLowerCase();
         }
+        number_of_hints_         = 0;
         number_of_wrong_guesses_ = 0;
+
         initializeGuessedWord();
         buildFieldWithSpace();
+        initializePossibleHintList();
     }
 
     void reset()
@@ -47,19 +51,33 @@ class Hangman
         guessed_word_ = "";
         display_word_ = "";
 
+        number_of_hints_         = 0;
         number_of_wrong_guesses_ = 0;
+
         initializeGuessedWord();
         buildFieldWithSpace();
+        initializePossibleHintList();
     }
     //----------------------------------------------------------------------------------------------
     private void initializeGuessedWord()
     {
         for (int i = 0; i < word_.length(); i++) {
-            Character unknown_character = '_';
+            char unknown_character = '_';
             guessed_word_ += unknown_character;
         }
     }
 
+    //----------------------------------------------------------------------------------------------
+    private void initializePossibleHintList()
+    {
+        possible_hints_.clear();
+        for (Character c : word_.toCharArray())
+        {
+            c = Character.toUpperCase(c);
+            if(!possible_hints_.contains(c))
+                possible_hints_.add(c);
+        }
+    }
 
     //----------------------------------------------------------------------------------------------
     private void buildFieldWithSpace()
@@ -90,6 +108,8 @@ class Hangman
             {
                 correct_guess = true;
                 guessedLetter[i] = letter;
+                if(possible_hints_.contains(letter))
+                    possible_hints_.remove(letter);
             }
         }
         if(!correct_guess)
@@ -102,6 +122,19 @@ class Hangman
 
     }
 
+    //----------------------------------------------------------------------------------------------
+    public Character getHint()
+    {
+        Random random = new Random();
+        int rnd = random.nextInt(possible_hints_.size());
+
+        if(rnd < 0)
+            assert false;
+
+        number_of_hints_++;
+
+        return possible_hints_.get(rnd);
+    }
 
 
     //----------------------------------------------------------------------------------------------
@@ -118,8 +151,6 @@ class Hangman
     //----------------------------------------------------------------------------------------------
     public int getNumberOfWrongGuesses()        { return number_of_wrong_guesses_ ; }
 
-    //----------------------------------------------------------------------------------------------
-    public void increaseNumberOfHints() { number_of_hints_++; }
 
     //----------------------------------------------------------------------------------------------
     public int getNumberOfHints()   { return number_of_hints_ ; }

@@ -107,8 +107,8 @@ public class HangmanUITest {
         onView(withId(R.id.buttonZ)).check(matches(isDisplayed()));
         onView(withId(R.id.buttonZ)).check(matches(isClickable()));
 
-        onView(withId(R.id.buttonHangmanPlayAgain)).check(matches(not(isDisplayed())));
-        onView(withId(R.id.buttonHangmanPlayAgain)).check(matches(isClickable()));
+        onView(withId(R.id.buttonHangmanHintPlayAgain)).check(matches(isDisplayed()));
+        onView(withId(R.id.buttonHangmanHintPlayAgain)).check(matches(isClickable()));
 
         onView(withId(R.id.hangmanWinLoose)).check(matches(not(isDisplayed())));
     }
