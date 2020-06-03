@@ -79,4 +79,8 @@
     <string name="WhiteTilesYour0Points">Your Points: 0</string>
     <string name="WhiteTilesYourPoints">Your Points:\u0020</string>
 
+    <string name="wordfile">words_en.json</string>
+
+    <string name="hm_default_words">["hangman", "paper", "application", "mobile", "laptop", "mountain", "flower", "backpack", "racecar"]</string>
+
 </resources>
