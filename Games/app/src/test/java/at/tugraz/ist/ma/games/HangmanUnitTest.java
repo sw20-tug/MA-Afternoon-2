@@ -96,7 +96,7 @@ public class HangmanUnitTest {
     @Test
     public void getHintTest()
     {
-        Hangman hangman = new Hangman("a");
+        Hangman hangman = new Hangman(new String[]{"a"});
         assertEquals("A",hangman.getHint().toString());
         assertEquals(1,hangman.getNumberOfHints());
 

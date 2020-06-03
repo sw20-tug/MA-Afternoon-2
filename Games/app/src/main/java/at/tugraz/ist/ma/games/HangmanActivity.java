@@ -77,8 +77,8 @@ public class HangmanActivity extends AppCompatActivity {
             }
             else
             {
-                Toast toast=Toast.makeText(getApplicationContext(),"Possible Letter is \"" + hangman_.getHint() + "\" - ("
-                        + (hangman_.getNumberOfHints() + 1) + "/" + Hangman.HANGMAN_NR_OF_MAX_HINTS + ")",Toast.LENGTH_SHORT);
+                Toast toast=Toast.makeText(getApplicationContext(),getString(R.string.hint) + ":" + hangman_.getHint() + "\" - ("
+                        + (hangman_.getNumberOfHints()) + "/" + Hangman.HANGMAN_NR_OF_MAX_HINTS + ")",Toast.LENGTH_SHORT);
 
                 toast.show();
                 ScoreHandler.getInstance().addPointsToScore(Hangman.HANGMAN_SCORE_DECREASE_PER_HINT);
@@ -154,11 +154,12 @@ public class HangmanActivity extends AppCompatActivity {
         hangman_.guessCharacter(c);
         t.setText(hangman_.getCurrentGuess());
         b.setEnabled(false);
-        final Button btnHintPlayAgain = findViewById(R.id.buttonHangmanHintPlayAgain)
+        final Button btnHintPlayAgain = findViewById(R.id.buttonHangmanHintPlayAgain);
         if(hangman_.isWordCorrect()) 
         {
             ScoreHandler.getInstance().addPointsToScore(Hangman.HANGMAN_SCORE_INCREASE_PER_WIN);
             btnHintPlayAgain.setText(getString(R.string.play_again));
+            btnHintPlayAgain.setTag(getString(R.string.play_again));
             btnHintPlayAgain.setClickable(true);
             btnHintPlayAgain.setEnabled(true);
             setField(false);
@@ -173,6 +174,7 @@ public class HangmanActivity extends AppCompatActivity {
                 ScoreHandler.getInstance().addPointsToScore(Hangman.HANGMAN_SCORE_DECREASE_PER_LOSS);
 
                 btnHintPlayAgain.setText(getString(R.string.play_again));
+                btnHintPlayAgain.setTag(getString(R.string.play_again));
                 btnHintPlayAgain.setClickable(true);
                 btnHintPlayAgain.setEnabled(true);
 
@@ -250,13 +252,13 @@ public class HangmanActivity extends AppCompatActivity {
 
     private void showFail() {
         final TextView hangmanWinLoose = findViewById(R.id.hangmanWinLoose);
-        hangmanWinLoose.setText(R.string.hangman_lost);
+        hangmanWinLoose.setText(R.string.lost);
         hangmanWinLoose.setVisibility(View.VISIBLE);
     }
 
     private void showWin() {
         final TextView hangmanWinLoose = findViewById(R.id.hangmanWinLoose);
-        hangmanWinLoose.setText(R.string.hangman_win);
+        hangmanWinLoose.setText(R.string.win);
         hangmanWinLoose.setVisibility(View.VISIBLE);
     }
 

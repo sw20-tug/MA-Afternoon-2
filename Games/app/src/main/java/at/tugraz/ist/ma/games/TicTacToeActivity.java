@@ -206,14 +206,14 @@ public class TicTacToeActivity extends AppCompatActivity implements View.OnClick
                     ScoreHandler.getInstance().addPointsToScore(TicTacToe.TTT_SCORE_DEDUCTION_PER_LOSS);
                 }
 
-                Toast toast=Toast.makeText(getApplicationContext(),"Won Game " + ticTacToe.getPlayerName(),Toast.LENGTH_SHORT);
+                Toast toast=Toast.makeText(getApplicationContext(),getString(R.string.win)+ ticTacToe.getPlayerName(),Toast.LENGTH_SHORT);
                 toast.show();
 
                 return false;
             }
             if(ticTacToe.checkTie())
             {
-                Toast toast=Toast.makeText(getApplicationContext(),"It's a tie!",Toast.LENGTH_SHORT);
+                Toast toast=Toast.makeText(getApplicationContext(),getString(R.string.tie),Toast.LENGTH_SHORT);
                 toast.show();
                 disableField();
                 return false;
@@ -223,7 +223,7 @@ public class TicTacToeActivity extends AppCompatActivity implements View.OnClick
             setPlayerText();
 
         } else {
-            Toast toast=Toast.makeText(getApplicationContext(),"Field occupied",Toast.LENGTH_SHORT);
+            Toast toast=Toast.makeText(getApplicationContext(),getString(R.string.occupied),Toast.LENGTH_SHORT);
             toast.show();
             return false;
         }
