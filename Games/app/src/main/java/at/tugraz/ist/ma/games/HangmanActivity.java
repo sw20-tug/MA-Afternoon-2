@@ -128,17 +128,17 @@ public class HangmanActivity extends AppCompatActivity {
 
     private void clickCharacter(char c, Button b, TextView t) {
         Log.d("HANGMAN-onClick", "button" + c);
-        hangman.guessCharacter(c);
-        t.setText(hangman.getCurrentGuess());
+        hangman_.guessCharacter(c);
+        t.setText(hangman_.getCurrentGuess());
         b.setEnabled(false);
 
-        if(hangman.isWordCorrect()) {
+        if(hangman_.isWordCorrect()) {
             ScoreHandler.getInstance().addPointsToScore(Hangman.HANGMAN_SCORE_INCREASE_PER_WIN);
             setField(false);
             showWin();
         }
         else {
-            int wrong_guesses = hangman.getNumberOfWrongGuesses();
+            int wrong_guesses = hangman_.getNumberOfWrongGuesses();
             int MAX_GUESSES = 8;
             if(wrong_guesses >= MAX_GUESSES) {
                 ScoreHandler.getInstance().addPointsToScore(Hangman.HANGMAN_SCORE_DECREASE_PER_LOSS);
