@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.ToggleButton;
 
 
 public class HangmanActivity extends AppCompatActivity {
@@ -37,8 +36,9 @@ public class HangmanActivity extends AppCompatActivity {
             }
             else
             {
-                // Todo hint
                 hangman.increaseNumberOfHints();
+                ScoreHandler.getInstance().addPointsToScore(Hangman.HANGMAN_SCORE_DECREASE_PER_HINT);
+
                 if(hangman.getNumberOfHints() >= Hangman.HANGMAN_NR_OF_MAX_HINTS)
                 {
                     btnHintPlayAgain.setClickable(false);
